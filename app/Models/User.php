@@ -44,5 +44,32 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    
+
+    //combination of all the user relationship
+    public function profile()
+    {
+      return $this->hasOne(UserProfile::class);
+    }
+
+    public function certificate()
+    {
+      return $this->hasOne(UserCertifications::class);
+    }
+
+    public function projects()
+    {
+      return $this->hasMany(UserProjects::class);
+    }
+
+    public function experiences()
+    {
+      return $this->hasMany(Experiences::class);
+    }
+
+    public function skills()
+    {
+      return $this->hasOne(UserSkills::class);
+    }
 
 }
