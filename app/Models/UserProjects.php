@@ -66,7 +66,7 @@ class UserProjects extends Model
     //eloquest relationship of projects
     public function user()
     {
-      return belongsTo(User::class);
+      return $this->belongsTo(User::class);
     }
 
 

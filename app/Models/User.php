@@ -44,15 +44,25 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    
+    //attribute handling the profile image
+    public function set_profile_image($profile_image)
+    {
+       $this->attributes['profile_image'] = $profile_image;
+    }
+    public function get_profile_image()
+    {
+      return $this->attributes['profile_image'];
+    }
+
+
 
     //combination of all the user relationship
     public function profile()
     {
-      return $this->hasOne(UserProfile::class);
+      return $this->hasOne(UserProfile::class, 'user_id');
     }
 
-    public function certificate()
+    public function certificates()
     {
       return $this->hasOne(UserCertifications::class);
     }

@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('user_skills', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained(); // Foreign key relationship with the users table
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users'); // Foreign key relationship with the users table
             $table->text('laravel_skills')->nullable();
             $table->text('other_skills')->nullable();
             $table->timestamps();

@@ -70,6 +70,6 @@ class Experiences extends Model
     //eloquest relationship with the user
     public function user()
     {
-      return belongsTo(User::class);
+      return $this->belongsTo(User::class);
     }
 }

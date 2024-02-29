@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('user_certifications', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained(); // Foreign key relationship with the users table
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users'); // Foreign key relationship with the users table
             $table->string('laravel_certifications')->nullable();
-            $table->string('other_certifications')->nullable();         
+            $table->string('other_certifications')->nullable();
             $table->timestamps();
         });
     }

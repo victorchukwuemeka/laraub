@@ -52,7 +52,7 @@ class UserCertifications extends Model
     //eloquest relationship of the certificates
     public function user()
     {
-      return belongsTo(User::class);
+      return $this->belongsTo(User::class);
     }
 
 }

@@ -95,7 +95,7 @@ class UserProfile extends Model
     //eloquest relationship of the userclass
     public function user()
     {
-      return belongsTo(User::class);
+      return $this->belongsTo(User::class);
     }
 
 

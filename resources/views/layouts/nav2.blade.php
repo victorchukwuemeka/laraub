@@ -19,6 +19,10 @@
                 <a href="{{ url('login') }}" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">Login</a>
                 <a href="{{ url('register') }}" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">Register</a>
             @else {{-- If the user is authenticated, display the logout link --}}
+                <a href="{{ url('profile', Auth::user()->id) }}" class="text-white hover:text-gray-300 font-medium">
+                
+                    {{ Auth::user()->name }}
+                </a>
                 <form action="{{ route('logout') }}" method="POST" class="inline">
                     @csrf
                     <button type="submit" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">Logout</button>

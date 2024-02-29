@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserProfileController;
 
 
 
@@ -34,3 +35,19 @@ Route::post('/logout', [LoginController::class, 'logout'])
 
 Route::get('register', [RegisterController::class, 'register']);
 Route::post('store', [RegisterController::class, 'store'])->name('store');
+
+
+
+//route for users profile
+Route::get('profile/{userId}', [UserProfileController::class, 'showProfile'])->name('user.show');
+
+Route::get('/users/{userId}/edit', [UserProfileController::class, 'editProfileForm'])->name('user.edit');
+
+
+
+// Update user profile
+Route::put('/users/{userId}/update', [UserProfileController::class, 'updateProfile'])->name('user.update');
+// Show user projects
+Route::get('/users/{userId}/projects', [UserProfileController::class, 'showProjects'])->name('user.projects');
+
+// Add routes for other UserController actions as needed...

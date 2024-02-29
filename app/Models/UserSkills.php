@@ -53,6 +53,6 @@ class UserSkills extends Model
     //eloquest relatiochips of the skill class
     public function user()
     {
-      return belongsTo(User::class);
+      return $this->belongsTo(User::class);
     }
 }

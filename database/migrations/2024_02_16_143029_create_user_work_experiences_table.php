@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('user_work_experiences', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained(); // Foreign key relationship with the users table
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('position');
             $table->string('company');
             $table->date('start_date');
