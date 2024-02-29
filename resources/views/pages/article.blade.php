@@ -6,8 +6,8 @@
         <p class="text-lg sm:text-xl mb-8">
             Stay updated with the latest tech news and trends on Laravel.
         </p>
-        <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 sm:py-3 sm:px-8 rounded-full text-lg sm:text-xl transition duration-300 ease-in-out inline-block">
-            Explore Now
+        <a href="{{ route("create.article")}}" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 sm:py-3 sm:px-8 rounded-full text-lg sm:text-xl transition duration-300 ease-in-out inline-block">
+           care to write
         </a>
     </div>
 </section>

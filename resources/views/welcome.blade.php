@@ -38,11 +38,11 @@
         <div class="prose mt-8 text-gray-700">
             <!-- Replace the content below with your actual blog article content -->
 
-
+      
             <p>{!! $viewData['body'] !!}</p>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto text-center">

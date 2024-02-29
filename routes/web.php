@@ -22,7 +22,7 @@ Route::get('/v', function(){
   return view('pages.temp');
 });
 
-Route::get('/', [PagesController::class, 'article']);
+Route::get('/', [PagesController::class, 'article'])->name("name");
 
 
 Route::get('login',[LoginController::class, 'login'])->name('login');
