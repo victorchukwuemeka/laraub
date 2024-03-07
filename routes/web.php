@@ -25,7 +25,7 @@ Route::get('/v', function(){
   return view('pages.temp');
 });
 
-Route::get('/', [PagesController::class, 'article'])->name("name");
+Route::get('/', [PagesController::class, 'article'])->name("home");
 
 
 Route::get('login',[LoginController::class, 'login'])->name('login');

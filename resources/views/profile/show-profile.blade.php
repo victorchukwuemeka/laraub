@@ -20,7 +20,7 @@
 
 
 @endif
-   @if($project->get_project_name())
+   @if($project && $project->get_project_name())
    <p> {{ $user->name }}: projects </p>
    {{ $project->get_project_name()}}
    {{ $project->get_description()}}
@@ -44,8 +44,10 @@
    </div>
 
     <div class="">
-      {{ $skills->get_laravel_skills()}}
+      @if($skills)
+      {{$skills->get_laravel_skills()}}
       {{ $skills->get_other_skills()}}
+      @endif
       <a href="{{ route('skills')}}">
        {{__("skills")}}
       </a>
