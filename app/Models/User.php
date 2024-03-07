@@ -72,11 +72,20 @@ class User extends Authenticatable
       return $this->hasMany(UserProjects::class);
     }
 
+    public function latestProject()
+    {
+        return $this->hasOne(UserProjects::class)->latest();
+    }
+
     public function experiences()
     {
       return $this->hasMany(Experiences::class);
     }
 
+    public function fool()
+    {
+      return $u = "fool";
+    }
     public function skills()
     {
       return $this->hasOne(UserSkills::class);

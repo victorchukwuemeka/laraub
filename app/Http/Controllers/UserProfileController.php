@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\UserProfile;
+use App\Models\UserProjects;
+use App\Models\Experiences;
+use App\Models\UserCertifications;
+
 
 class UserProfileController extends Controller
 {
@@ -12,8 +16,10 @@ class UserProfileController extends Controller
 
     public function editProfileForm($userId)
     {
-      $user = User::with('profile', 'certificates', 'projects','experiences')->find($userId);
-      //dd($user);
+      $user = User::with('profile')->find($userId);
+      //$yy = $user->profile->get_company_website()->latest()->first();
+
+
       if (!$user) {
         abort(404, 'User not found');
       }
@@ -31,14 +37,17 @@ class UserProfileController extends Controller
 
       //$$user->profile();
       $profile = User::find($user_id)->profile;
-      //$profile = UserProfile::all();
       //dd($profile);
       $profile = $user->profile;
+      //dd($user_id);
+      $profile = UserProfile::where("user_id",$user_id)->latest()->first();
+
       $certificates = $user->certificates;
-      $projects = $user->projects;
+      $project = $user->latestProject;
+      //dd($project->get_project_name());
       $workExperiences = $user->experiences;
       $skills = $user->skills;
-      return view('profile.show-profile', compact('user', 'profile', 'certificates', 'projects', 'workExperiences', 'skills'));
+      return view('profile.show-profile', compact('user', 'profile', 'certificates', 'project', 'workExperiences', 'skills'));
     }
 
     public function edit($id)
@@ -50,7 +59,6 @@ class UserProfileController extends Controller
 
     public function updateProfile(Request $request, $userId)
     {
-        // Validation logic for updating profile
 
         $user = User::find($userId);
         //dd($request->input('job_title'));
@@ -79,47 +87,71 @@ class UserProfileController extends Controller
         ]);
 
         // Update user profile details
+        if ($request->input("job_title")) {
 
-        $profile = new UserProfile();
-        $profile->set_user_id($user->id);
-        $profile->set_job_title($request->input('job_title'));
-        $profile->set_company($request->input('company'));
-        $profile->set_company_website($request->input('company_website'));
-        $profile->set_education($request->input('education'));
-        $profile->set_location($request->input('location'));
-        $profile->set_availability($request->input('availability'));
-        $profile->set_contact_preferences($request->input('contact_preferences'));
-        $profile->save();
+          $oog = $profile = new UserProfile();
+
+          $profile->set_user_id($user->id);
+          $profile->set_job_title($request->input('job_title'));
+          $profile->set_company($request->input('company'));
+          $profile->set_company_website($request->input('company_website'));
+          $profile->set_education($request->input('education'));
+          $profile->set_location($request->input('location'));
+          $profile->set_availability($request->input('availability'));
+          $profile->set_contact_preferences($request->input('contact_preferences'));
+          //dd($profile);
+          $profile->save();
+        };
+
 
         // Update user certificates
-        dd($request);
-        $user->certificates()->create();
-        $certificates->set_laravel_certifications($request->input('laravel_certifications'));
-        $certificates->set_other_certifications($request->input('other_certifications'));
-        $certificates->save();
+        //dd($request);
+        //$user->certificates()->create();
+        if ($request->input("laravel_certifications")) {
+          $certificates = new UserCertifications();
+          $certificates->set_laravel_certifications($request->input('laravel_certifications'));
+          $certificates->set_other_certifications($request->input('other_certifications'));
+          $certificates->save();
+        }
 
         // Update user projects,
-        $projects =  $user->projects;
-        $projects->set_project_name($request->input('project_name'));
-        $projects->set_description($request->input('description'));
-        $projects->set_link($request->input('link'));
-        $projects->set_technologies_used($request->input('technologies_used'));
-        $projects->save();
+        //dd($user->projects());
+        //$user_projects =  $user->projects();
 
+        if ($request->input("project_name")) {
+          $projects = new UserProjects();
+
+          $projects->set_user_id($user->id);
+          $projects->set_project_name($request->input('project_name'));
+          $projects->set_description($request->input('description'));
+          $projects->set_link($request->input('link'));
+          $projects->set_technologies_used($request->input('technologies_used'));
+          $projects->save();
+        }
+
+        //$projects->save();
+
+        if ($request->input("position")){
+          $experiences = new Experiences();
+          $experiences->set_position($request->input('position'));
+          $experiences->set_company($request->input('company'));
+          $experiences->set_start_date($request->input('start_date'));
+          $experiences->set_end_date($request->input('end_date'));
+          $experiences->save();
+        }
 
         //work experiences
-        $experiences =  $user->experiences;
-        $experiences->set_position($request->input('position'));
-        $experiences->set_company($request->input('company'));
-        $experiences->set_start_date($request->input('start_date'));
-        $experiences->set_end_date($request->input('end_date'));
-        $experiences->save();
+        //$experiences =  $user->experiences;
+
 
         //skills similarly...
-        $skills =  $user->skills;
-        $skills->set_laravel_skills($request->input('laravel_skills'));
-        $skills->set_other_skills($request->input('other_skills'));
-        $skills->save();
+        if ($request->input("laravel_skills")) {
+          $skills =  $user->skills;
+          $skills->set_laravel_skills($request->input('laravel_skills'));
+          $skills->set_other_skills($request->input('other_skills'));
+          $skills->save();
+        }
+
 
 
         return redirect()->route('user.show', ['userId' => $userId])->with('success', 'Profile updated successfully');

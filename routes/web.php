@@ -5,8 +5,10 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserProfileController;
-
-
+use App\Http\Controllers\UserProjectsController;
+use App\Http\Controllers\ExperiencesController;
+use App\Http\Controllers\UserSkillsController;
+use App\Http\Controllers\UserCertificationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,14 +42,37 @@ Route::post('store', [RegisterController::class, 'store'])->name('store');
 
 //route for users profile
 Route::get('profile/{userId}', [UserProfileController::class, 'showProfile'])->name('user.show');
-
 Route::get('/users/{userId}/edit', [UserProfileController::class, 'editProfileForm'])->name('user.edit');
 
 
 
 // Update user profile
-Route::put('/users/{userId}/update', [UserProfileController::class, 'updateProfile'])->name('user.update');
+Route::put('/users/{userId}/update', [UserProfileController::class, 'updateProfile'])
+->name('user.update');
+
 // Show user projects
-Route::get('/users/{userId}/projects', [UserProfileController::class, 'showProjects'])->name('user.projects');
+Route::get('/projects', [UserProjectsController::class, 'projectsform'])
+->name('projects');
+Route::post('/projects', [UserProjectsController::class, 'store'])
+->name('projects.store');
+
+//experiences
+Route::get('/experiences', [ExperiencesController::class, 'experiencesform'])
+->name('experiences');
+Route::post('/experiences', [ExperiencesController::class, 'store'])
+->name('work_experience.store');
+
+//skills
+Route::get('/skills', [UserSkillsController::class, 'skillsform'])
+->name('skills');
+Route::post('/skills', [UserSkillsController::class, 'store'])
+->name('skills.store');
+
+//certifications
+Route::get('/certificates', [UserCertificationsController::class, 'certificatesform'])
+->name('certificates');
+Route::post('/skills', [UserCertificationsController::class, 'store'])
+->name('certifications.store');
+
 
 // Add routes for other UserController actions as needed...

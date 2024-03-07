@@ -28,7 +28,7 @@
 
     <!-- Scripts -->
 
-    
+
 
 </head>
 <body class="font-sans bg-gray-100">
