@@ -3,7 +3,6 @@
     <div class="container mx-auto text-center">
         <p>&copy; 2023 laraub. All rights reserved.</p>
         <a href="https://chukwuemekavictor693@gmail.com">
-        <p>Contact: chukwuemekavictor693@gmail.com</p>
         </a>
 
         <!-- Social media icons can be added here -->

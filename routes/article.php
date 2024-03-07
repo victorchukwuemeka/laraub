@@ -9,22 +9,23 @@ Route::get('/home', [ArticleController::class, 'index']);
 //Route::get('/admin/article', [ArticleController::class, 'index'])
 //->name('admin.article');
 
-Route::get('/create/article', [ArticleController::class, 'create'])
-->name('create.article');
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/create/article', [ArticleController::class, 'create'])
+        ->name('create.article');
 
-Route::get('/article/{id}/edit', [ArticleController::class, 'edit'])
-->name('edit.article');
+    Route::get('/article/{id}/edit', [ArticleController::class, 'edit'])
+        ->name('edit.article');
 
+    Route::put('/article/{id}', [ArticleController::class, 'update'])
+        ->name('article.update');
 
-Route::put('/article/{id}', [ArticleController::class, 'update'])
- ->name('article.update');
+    Route::delete('/delete/article/{id}', [ArticleController::class, 'delete'])
+        ->name('article.destroy');
 
-Route::delete('/delete/article/{id}', [ArticleController::class, 'delete'])
-->name('article.destroy');
-
-Route::post('/post/article', [ArticleController::class, 'store'])
-->name('post.article');
+    Route::post('/post/article', [ArticleController::class, 'store'])
+        ->name('post.article');
+});
 
 
 
