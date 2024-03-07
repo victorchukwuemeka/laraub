@@ -31,7 +31,7 @@
             <!-- Company -->
             <div class="mb-4">
                 <label for="company" class="block text-sm font-semibold text-gray-600">Company</label>
-                <input type="text" name="company" id="company" value="{{ $user->profile->get_company() ?? '' }}" class="w-full border rounded px-3 py-2 mt-1">
+                <input type="text" name="company" id="company" value="{{ optional($user->profile)->get_company() ?? '' }}" class="w-full border rounded px-3 py-2 mt-1">
             </div>
 
             <!-- Company Website -->
@@ -40,14 +40,14 @@
                   Company Website
                 </label>
                 <input type="url" name="company_website" id="company_website"
-                value="{{ $user->profile->get_company_website() ?? '' }}"
+                value="{{ optional($user->profile)->get_company_website() ?? '' }}"
                 class="w-full border rounded px-3 py-2 mt-1">
             </div>
 
             <!-- Education -->
             <div class="mb-4">
                 <label for="education" class="block text-sm font-semibold text-gray-600">Education</label>
-                <input type="text" name="education" id="education" value="{{ $user->profile->get_education() ?? '' }}" class="w-full border rounded px-3 py-2 mt-1">
+                <input type="text" name="education" id="education" value="{{ optional($user->profile)->get_education() ?? '' }}" class="w-full border rounded px-3 py-2 mt-1">
             </div>
 
             <!-- Location -->
@@ -56,7 +56,7 @@
                   Location
                 </label>
                 <input type="text" name="location" id="location"
-                 value="{{ $user->profile->get_location() ?? '' }}" class="w-full border rounded px-3 py-2 mt-1">
+                 value="{{ optional($user->profile)->get_location() ?? '' }}" class="w-full border rounded px-3 py-2 mt-1">
 
             </div>
 
@@ -67,7 +67,7 @@
                 </label>
                 <textarea name="availability" id="availability"
                  class="w-full border rounded px-3 py-2 mt-1">
-                 {{ $user->profile->get_availability() ?? '' }}
+                 {{ optional($user->profile)->get_availability() ?? '' }}
                </textarea>
             </div>
 
