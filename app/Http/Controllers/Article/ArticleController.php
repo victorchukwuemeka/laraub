@@ -75,21 +75,22 @@ class ArticleController extends Controller
 
     $comments = Comments::paginate(15)->sortDesc();
     $article = Article::findOrFail($id);
-    $one = 1;
-    $user = User::findOrFail($one);
-    $user_id = $user->id;
+    //$one = 1;
+    //$user = User::findOrFail($one);
+    //$user_id = $user->id;
     $viewData = [];
     $viewData['id'] = $id;
     $viewData['title'] = $article->get_title();
+    $viewData['user_id_in_session'] = Auth::id();
     $viewData['body'] =  chunk_split($article->get_body());
     $viewData['comments'] = $comments;
-    $viewData['user_id'] = $user_id;
+    $viewData['user_id'] = $article->get_user_id();
 
     return view('article.show')->with('viewData', $viewData);
   }
 
   public function delete($id){
-    //dd($id);
+
     Article::destroy($id);
     return $this->index();
   }

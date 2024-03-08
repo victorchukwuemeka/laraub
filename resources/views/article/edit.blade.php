@@ -9,10 +9,13 @@
         @csrf
         @method('PUT')
         <div class="mb-6">
-            <label for="title" class="block text-gray-700 text-lg font-semibold mb-2">Title</label>
+            <label for="title" class="block text-gray-700 text-lg font-semibold mb-2">
+              Title
+            </label>
             <input type="text" id="title" name="title" value="{{ $viewData['title'] }}"
-            class="w-full border border-gray-300 rounded-lg
-            py-2 px-4 text-gray-800 placeholder-gray-400 focus:outline-none focus:border-indigo-500"
+            class="w-full border border-gray-300 rounded-lg py-2 px-4 text-gray-800
+            placeholder-gray-400
+            focus:outline-none focus:border-indigo-500"
             placeholder="Enter the title" required>
         </div>
 

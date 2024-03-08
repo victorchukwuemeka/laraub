@@ -42,12 +42,15 @@
           @method('DELETE')
         </form>
 
-
+        @if($viewData['user_id_in_session'] === $viewData['user_id'])
         <!-- Button to trigger context menu -->
         <button id="context-menu-trigger"
-            class="absolute bottom-2 left-2 bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200 transition duration-300">
+            class="absolute bottom-2 left-2 bg-blue-500 text-white py-2 px-4
+             rounded-full hover:bg-blue-600 focus:outline-none
+             focus:ring focus:ring-blue-200 transition duration-300">
             Manage Article
         </button>
+        @endif
     </div>
 
 </div>
