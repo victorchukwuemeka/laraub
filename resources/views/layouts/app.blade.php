@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="{{ asset('/css/trix.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <script src="{{ asset('js/context-menu.js') }}" defer></script>
 
     @vite('resources/css/app.css')
 

@@ -5,7 +5,7 @@
     <h1 class="text-3xl font-semibold mb-6 text-center">
       Create a Blog Article
     </h1>
-    <form action="{{ route('admin.article.update', $viewData['id']) }}" method="POST">
+    <form action="{{ route('article.update', $viewData['id']) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="mb-6">

@@ -89,6 +89,7 @@ class ArticleController extends Controller
   }
 
   public function delete($id){
+    //dd($id);
     Article::destroy($id);
     return $this->index();
   }

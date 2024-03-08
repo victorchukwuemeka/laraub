@@ -21,7 +21,7 @@ Route::middleware(['auth'])->group(function () {
         ->name('article.update');
 
     Route::delete('/delete/article/{id}', [ArticleController::class, 'delete'])
-        ->name('article.destroy');
+        ->name('delete.article');
 
     Route::post('/post/article', [ArticleController::class, 'store'])
         ->name('post.article');
