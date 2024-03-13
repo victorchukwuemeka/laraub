@@ -21,10 +21,12 @@
 
         <div class="mb-6">
             <label for="content" class="block text-gray-700 text-lg font-semibold mb-2">Content</label>
-            <textarea id="content" name="body" class="ckeditor form-control w-full border border-gray-300 rounded-lg py-4 px-4 text-gray-800 placeholder-gray-400 focus:outline-none focus:border-indigo-500" rows="6"
-             placeholder="Write your article content here" required>
-             {{ $viewData['body'] }}
-           </textarea>
+
+           <input id="x" type="hidden" name="body">
+           <x-trix-input id="x" class="form-control w-full border border-gray-300 rounded-lg py-4
+           px-4 text-gray-800 placeholder-gray-400 focus:outline-none
+           focus:border-indigo-500" rows="6"
+           name="body" value='{!! $viewData["body"] !!}'/>
         </div>
 
         <div class="text-center">

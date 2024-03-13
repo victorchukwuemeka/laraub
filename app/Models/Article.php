@@ -4,15 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Tonysm\RichTextLaravel\Models\Traits\HasRichText;
 
 class Article extends Model
 {
-    use HasFactory;
+    use HasFactory,HasRichText;
 
     protected $table = 'article';
     /**
     *Attributes of the post class
     */
+    protected $guarded = [];
+
+    protected $richTextAttributes = [
+        'body',
+        'notes',
+    ];
 
     public function set_id($id){
       $this->attributes['id'] = $id;

@@ -9,6 +9,7 @@ use App\Http\Controllers\UserProjectsController;
 use App\Http\Controllers\ExperiencesController;
 use App\Http\Controllers\UserSkillsController;
 use App\Http\Controllers\UserCertificationsController;
+use App\Http\Controllers\TutorialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,19 @@ use App\Http\Controllers\UserCertificationsController;
 |
 */
 
-Route::get('/v', function(){
-  return view('pages.temp');
+Route::get('/t', function(){
+  return view('ttt');
 });
+
+Route::get('/tutorial', function () {
+    return view('tutorial');
+})->name('tutorial');
+// routes/web.php
+
+
+//Route::get('/tutorial', [TutorialController::class, 'index'])->name('tutorial');
+Route::post('/tutorial', [TutorialController::class, 'saveTutorial'])->name('save-tutorial');
+
 
 Route::get('/', [PagesController::class, 'article'])->name("home");
 
