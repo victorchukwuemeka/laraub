@@ -16,14 +16,21 @@
 <section class="py-10 px-5  sm:py-10">
 
     <div class="container ">
+      <br>
      <!--mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-8-->
         @foreach($viewData['articles'] as $article)
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="{{ asset('/img/silicon.png') }}" alt="Article 1" class="w-full h-48 object-cover object-center">
+        <div>
+          <br>
+          mm
+          <!--bg-white shadow-lg rounded-lg overflow-hidden-->
+            <img src="{{ asset('/img/silicon.png') }}"
+            alt="Article 1">
+            <!--w-full h-48 object-cover object-center-->
             <div class="p-4">
-                <h2 class="text-lg font-semibold mb-2">{{ $article->get_title() }}</h2>
+              <!--text-lg font-semibold mb-2-->
+                <h2>{{ $article->get_title() }}</h2>
                 <div class="truncate">
-                  <p class="text-gray-600 text-sm ">
+                  <p class="text-gray-600 text-sm">
                     @php
                      $body = $article->get_body();
                      $lent = strlen($body);
@@ -44,8 +51,10 @@
             </div>
         </div>
         <br>
+        <br>
+
         @endforeach
-        
+
     </div>
 
 </section>
