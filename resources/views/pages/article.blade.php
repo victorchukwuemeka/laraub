@@ -14,8 +14,8 @@
 
 <!-- Featured Articles -->
 <section class="py-10 px-5  sm:py-10">
-    <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        
+    <div class="container ">
+     <!--mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-8-->
         @foreach($viewData['articles'] as $article)
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
             <img src="{{ asset('/img/silicon.png') }}" alt="Article 1" class="w-full h-48 object-cover object-center">
