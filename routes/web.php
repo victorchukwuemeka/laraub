@@ -22,8 +22,8 @@ use App\Http\Controllers\TutorialController;
 |
 */
 
-Route::get('/t', function(){
-  return view('ttt');
+Route::get('/try', function(){
+  return view('try');
 });
 
 Route::get('/tutorial', function () {
