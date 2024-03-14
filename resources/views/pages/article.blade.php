@@ -13,22 +13,14 @@
 </section>
 
 <!-- Featured Articles -->
-<section class="py-10 px-5  sm:py-10">
-
-    <div class="container mx-auto grid grid-cols-3 sm:grid-cols-1 lg:grid-cols-3 md:grid-cols-3 gap-8">
-     <!-- grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-8-->
+<section class="py-10 px-5 sm:py-10">
+    <div class="container mx-auto flex flex-wrap justify-center gap-8">
         @foreach($viewData['articles'] as $article)
-        <div>
-          <br>
-          <!--bg-white shadow-lg rounded-lg overflow-hidden-->
-            <img src="{{ asset('/img/silicon.png') }}"
-            alt="Article 1">
-            <!--w-full h-48 object-cover object-center-->
-            <div class="p-4">
-              <!--text-lg font-semibold mb-2-->
-                <h2>{{ $article->get_title() }}</h2>
-                <div class="truncate">
-                  <p class="text-gray-600 text-sm">
+        <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+            <img class="w-full" src="{{ asset('/img/silicon.png') }}" alt="Article 1">
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">{{ $article->get_title() }}</div>
+                <p class="text-gray-700 text-base">
                     @php
                      $body = $article->get_body();
                      $lent = strlen($body);
@@ -39,23 +31,14 @@
                      }
                     @endphp
                     {!! $body !!}
-                  </p>
-                </div>
-
-                <a href="{{ url('/show_article/'.$article->get_id()) }}"
-                  class="block mt-2 text-blue-500 hover:underline text-sm">
-                  Read More
-                </a>
+                </p>
+            </div>
+            <div class="px-6 pt-4 pb-2">
+                <a href="{{ url('/show_article/'.$article->get_id()) }}" class="text-blue-500 hover:underline text-sm">Read More</a>
             </div>
         </div>
-        <br>
         @endforeach
-
     </div>
-
 </section>
-
-
-
 
 @endsection
