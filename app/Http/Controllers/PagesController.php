@@ -14,7 +14,7 @@ class PagesController extends Controller
         $all_class = new ClassController();
 
         $article = $all_class->article();
-
+        //dd('vic');
         $viewData = [];
         $viewData['articles'] = $article;
         return view('pages.article')->with('viewData', $viewData);

@@ -8,3 +8,4 @@
         <!-- Social media icons can be added here -->
     </div>
 </footer>
+<?php /**PATH /home/abara/web/laraub/resources/views/layouts/footer.blade.php ENDPATH**/ ?>

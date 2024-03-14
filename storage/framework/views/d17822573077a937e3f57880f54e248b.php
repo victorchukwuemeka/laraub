@@ -15,19 +15,20 @@
             <a href="#" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">News</a>
             <a href="#" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">Repo</a>
             <a href="#" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">tutorials</a>-->
-            @guest {{-- Check if the user is a guest (not authenticated) --}}
-                <a href="{{ url('login') }}" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">Login</a>
-                <a href="{{ url('register') }}" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">Register</a>
-            @else {{-- If the user is authenticated, display the logout link --}}
-                <a href="{{ url('profile', Auth::user()->id) }}" class="text-white hover:text-gray-300 font-medium">
+            <?php if(auth()->guard()->guest()): ?> 
+                <a href="<?php echo e(url('login')); ?>" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">Login</a>
+                <a href="<?php echo e(url('register')); ?>" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">Register</a>
+            <?php else: ?> 
+                <a href="<?php echo e(url('profile', Auth::user()->id)); ?>" class="text-white hover:text-gray-300 font-medium">
 
-                    {{ Auth::user()->name }}
+                    <?php echo e(Auth::user()->name); ?>
+
                 </a>
-                <form action="{{ route('logout') }}" method="POST" class="inline">
-                    @csrf
+                <form action="<?php echo e(route('logout')); ?>" method="POST" class="inline">
+                    <?php echo csrf_field(); ?>
                     <button type="submit" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">Logout</button>
                 </form>
-            @endguest
+            <?php endif; ?>
         </nav>
     </div>
 </header>
@@ -40,3 +41,4 @@
         mobileMenu.classList.toggle('hidden');
     });
 </script>
+<?php /**PATH /home/abara/web/laraub/resources/views/layouts/nav2.blade.php ENDPATH**/ ?>

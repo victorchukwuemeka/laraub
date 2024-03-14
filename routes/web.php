@@ -39,6 +39,7 @@ Route::post('/tutorial', [TutorialController::class, 'saveTutorial'])->name('sav
 Route::get('/', [PagesController::class, 'article'])->name("home");
 
 
+
 Route::get('login',[LoginController::class, 'login'])->name('login');
 Route::post('/authenticate', [LoginController::class, 'authenticate'])
 ->name('authenticate');

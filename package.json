@@ -16,5 +16,8 @@
         "tailwindcss": "^3.4.1",
         "trix": "^2.0.10",
         "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "isexe": "^3.1.1"
     }
 }
