@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="{{ asset('/css/trix.css') }}">
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
-    <script src="{{ asset('js/context-menu.js') }}" defer></script>
+
+
 
     @vite('resources/css/app.css')
 
