@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
-    <link rel="stylesheet" href="<?php echo e(asset('/css/trix.css')); ?>">
-
+    <!--<link rel="stylesheet" href="<?php echo e(asset('/css/trix.css')); ?>">-->
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+      
     <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
 
 
