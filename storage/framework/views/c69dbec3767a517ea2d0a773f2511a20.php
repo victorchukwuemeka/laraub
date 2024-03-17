@@ -5,13 +5,26 @@
 
         <div class="flex flex-wrap justify-center gap-8">
             <!-- Article 1 -->
+          <?php $__currentLoopData = $viewData['articles']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="max-w-md rounded overflow-hidden shadow-lg bg-white">
-                <img class="w-full h-48 object-cover object-center" src="https://via.placeholder.com/300x200" alt="Article Image">
+                <img class="w-full h-48 object-cover object-center" src="<?php echo e(asset('/img/silicon.png')); ?>" alt="Article Image">
                 <div class="px-6 py-4">
                     <h2 class="font-bold text-xl mb-2">Article 1</h2>
+                    <?php
+                     $body = $article->get_body();
+                     $lent = strlen($body);
+                     if($lent > 200){
+                       $body = substr($body, 0, 200);
+                     }else{
+                       $body;
+                     }
+                    ?>
+                    <?php echo $body; ?>
+
                     <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus scelerisque ligula ut dolor fringilla, in dignissim felis dignissim.</p>
                 </div>
             </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
             <!-- Article 2 -->
             <div class="max-w-md rounded overflow-hidden shadow-lg bg-white">
