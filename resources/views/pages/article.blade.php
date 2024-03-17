@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  @vite('resources/css/app.css')
+  
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,44 +10,37 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
-<section class="bg-gray-900 text-white py-8 sm:py-16">
-    <div class="container mx-auto text-center">
-        <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">Welcome To laraub</h1>
-        <p class="text-lg sm:text-xl mb-8">
-            Stay updated with the latest tech news and trends on Laravel.
-        </p>
-        <a href="{{ route("create.article")}}" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 sm:py-3 sm:px-8 rounded-full text-lg sm:text-xl transition duration-300 ease-in-out inline-block">
-           care to write
-        </a>
-    </div>
-</section>
+    <div class="container mx-auto py-8">
+        <h1 class="text-3xl font-bold text-center mb-8">Featured Articles</h1>
 
-<!-- Featured Articles -->
-<section class="py-10 px-5 sm:py-10">
-    <div class="container mx-auto flex flex-wrap justify-center gap-8">
-        @foreach($viewData['articles'] as $article)
-        <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-            <img class="w-full" src="{{ asset('/img/silicon.png') }}" alt="Article 1">
-            <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2">{{ $article->get_title() }}</div>
-                <p class="text-gray-700 text-base">
-                    @php
-                     $body = $article->get_body();
-                     $lent = strlen($body);
-                     if($lent > 200){
-                       $body = substr($body, 0, 200);
-                     }else{
-                       $body;
-                     }
-                    @endphp
-                    {!! $body !!}
-                </p>
+        <div class="flex flex-wrap justify-center gap-8">
+            <!-- Article 1 -->
+            <div class="max-w-md rounded overflow-hidden shadow-lg bg-white">
+                <img class="w-full h-48 object-cover object-center" src="https://via.placeholder.com/300x200" alt="Article Image">
+                <div class="px-6 py-4">
+                    <h2 class="font-bold text-xl mb-2">Article 1</h2>
+                    <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus scelerisque ligula ut dolor fringilla, in dignissim felis dignissim.</p>
+                </div>
             </div>
-            <div class="px-6 pt-4 pb-2">
-                <a href="{{ url('/show_article/'.$article->get_id()) }}" class="text-blue-500 hover:underline text-sm">Read More</a>
+
+            <!-- Article 2 -->
+            <div class="max-w-md rounded overflow-hidden shadow-lg bg-white">
+                <img class="w-full h-48 object-cover object-center" src="https://via.placeholder.com/300x200" alt="Article Image">
+                <div class="px-6 py-4">
+                    <h2 class="font-bold text-xl mb-2">Article 2</h2>
+                    <p class="text-gray-700 text-base">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+                </div>
+            </div>
+
+            <!-- Article 3 -->
+            <div class="max-w-md rounded overflow-hidden shadow-lg bg-white">
+                <img class="w-full h-48 object-cover object-center" src="https://via.placeholder.com/300x200" alt="Article Image">
+                <div class="px-6 py-4">
+                    <h2 class="font-bold text-xl mb-2">Article 3</h2>
+                    <p class="text-gray-700 text-base">Sed cursus libero vel libero fermentum dapibus. Nulla facilisi. Sed viverra sem sit amet nisi malesuada rhoncus.</p>
+                </div>
             </div>
         </div>
-        @endforeach
     </div>
-</section>
 </body>
+</html>
