@@ -3,10 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+    <!--<link rel="stylesheet"
+     type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">-->
     <!--<link rel="stylesheet" href="{{ asset('/css/trix.css') }}">-->
-      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-      
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
+       rel="stylesheet">
+
     @vite('resources/css/app.css')
 
 
@@ -31,7 +33,7 @@
 
 
 
-    <x-rich-text::styles theme="richtextlaravel" data-turbo-track="false" />
+    <!--<x-rich-text::styles theme="richtextlaravel" data-turbo-track="false" />-->
 
 
 
