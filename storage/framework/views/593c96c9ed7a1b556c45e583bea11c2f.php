@@ -3,12 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+    <!--<link rel="stylesheet"
+     type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">-->
     <!--<link rel="stylesheet" href="<?php echo e(asset('/css/trix.css')); ?>">-->
-      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-      
-    <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
+       rel="stylesheet">
 
+  
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
@@ -31,7 +32,7 @@
 
 
 
-    <?php if (isset($component)) { $__componentOriginal95950f824213f5cf8d19afcb8f4ecb86 = $component; } ?>
+    <!--<?php if (isset($component)) { $__componentOriginal95950f824213f5cf8d19afcb8f4ecb86 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal95950f824213f5cf8d19afcb8f4ecb86 = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => '8cb219c4cf0735bee5cac90fadf0a458::styles','data' => ['theme' => 'richtextlaravel','dataTurboTrack' => 'false']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('rich-text::styles'); ?>
@@ -50,7 +51,7 @@
 <?php if (isset($__componentOriginal95950f824213f5cf8d19afcb8f4ecb86)): ?>
 <?php $component = $__componentOriginal95950f824213f5cf8d19afcb8f4ecb86; ?>
 <?php unset($__componentOriginal95950f824213f5cf8d19afcb8f4ecb86); ?>
-<?php endif; ?>
+<?php endif; ?>-->
 
 
 
