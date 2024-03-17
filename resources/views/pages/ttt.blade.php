@@ -1,4 +1,4 @@
-<section class="bg-gray-900 text-white py-8 sm:py-16">
+<div class="bg-gray-900 text-white py-8 sm:py-16">
     <div class="container mx-auto text-center">
         <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">Welcome To laraub</h1>
         <p class="text-lg sm:text-xl mb-8">
@@ -8,17 +8,17 @@
            care to write
         </a>
     </div>
-</section>
+</div>
 
 <!-- Featured Articles -->
-<section class="py-10 px-5 sm:py-10">
+<div class="py-10 px-5 sm:py-10">
     <div class="container mx-auto flex flex-wrap justify-center gap-8">
         @foreach($viewData['articles'] as $article)
-        <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+        <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white flex flex-col">
             <img class="w-full" src="{{ asset('/img/silicon.png') }}" alt="Article 1">
-            <div class="px-6 py-4">
+            <div class="px-6 py-4 flex-grow">
                 <div class="font-bold text-xl mb-2">{{ $article->get_title() }}</div>
-                <p class="text-gray-700 text-base">
+                <p class="text-gray-700 text-base flex-grow">
                     @php
                      $body = $article->get_body();
                      $lent = strlen($body);
@@ -37,4 +37,4 @@
         </div>
         @endforeach
     </div>
-</section>
+</div>
