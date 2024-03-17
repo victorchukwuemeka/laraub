@@ -9,9 +9,9 @@
 </div>
 
 <!-- Featured Articles -->
-<div class="flex flex-wrap justify-center gap-8">
+<div class="flex flex-wrap justify-center">
     @foreach($viewData['articles'] as $article)
-    <div class="max-w-md rounded overflow-hidden shadow-lg bg-white flex">
+    <div class="max-w-md rounded overflow-hidden shadow-lg bg-white flex mx-4 my-8">
         <img class="w-1/3" src="{{ asset('/img/silicon.png') }}" alt="Article 1">
         <div class="p-4 w-2/3">
             <h2>{{ $article->get_title() }}</h2>
@@ -32,6 +32,7 @@
     </div>
     @endforeach
 </div>
+
 
 
 @endsection

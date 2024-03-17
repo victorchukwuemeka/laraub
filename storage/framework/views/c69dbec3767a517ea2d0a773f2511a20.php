@@ -8,9 +8,9 @@
 </div>
 
 <!-- Featured Articles -->
-<div class="flex flex-wrap justify-center gap-8">
+<div class="flex flex-wrap justify-center">
     <?php $__currentLoopData = $viewData['articles']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <div class="max-w-md rounded overflow-hidden shadow-lg bg-white flex">
+    <div class="max-w-md rounded overflow-hidden shadow-lg bg-white flex mx-4 my-8">
         <img class="w-1/3" src="<?php echo e(asset('/img/silicon.png')); ?>" alt="Article 1">
         <div class="p-4 w-2/3">
             <h2><?php echo e($article->get_title()); ?></h2>
@@ -32,6 +32,7 @@
     </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
+
 
 
 <?php $__env->stopSection(); ?>
