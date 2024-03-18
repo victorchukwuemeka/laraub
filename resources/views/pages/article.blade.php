@@ -23,15 +23,14 @@
                   {{ $article->get_title() }}
                 </div>
                 <p class="text-gray-700 text-base">
-                  
                   @php
                     $body = $article->get_body();
-                    $lent = strlen($body);
-                    if ($lent > 200) {
-                      $body = substr($body, 0, 200);
+                    $length = strlen($body);
+                    if ($length > 100) {
+                      $body = substr($body, 0, 100);
                     }
                   @endphp
-                  {!! $body !!}
+                   {!! $body !!}
                 </p>
             </div>
             <div class="px-6 pt-4 pb-2">
