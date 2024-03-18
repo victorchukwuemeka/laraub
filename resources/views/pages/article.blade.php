@@ -30,7 +30,8 @@
                       $body = substr($body, 0, 100);
                     }
                   @endphp
-                   {!! $body !!}
+                   {{-- {!! $body !!} --}}
+                   this this me trying things out knowing it won't work
                 </p>
             </div>
             <div class="px-6 pt-4 pb-2">
