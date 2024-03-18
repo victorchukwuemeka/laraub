@@ -13,13 +13,16 @@
 
 <!-- Featured Articles -->
 <div class="py-10 px-5 sm:py-10">
-    <div class="flex  flex-wrap justify-center mx-auto gap-8">
+    <div class="flex flex-wrap justify-center  gap-8">
         <?php $__currentLoopData = $viewData['articles']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white flex flex-col">
+        <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
             <img class="w-full" src="<?php echo e(asset('/img/silicon.png')); ?>" alt="Article 1">
-            <div class="px-6 py-4 flex-grow">
-                <div class="font-bold text-xl mb-2"><?php echo e($article->get_title()); ?></div>
-                <p class="text-gray-700 text-base flex-grow">
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">
+                  <?php echo e($article->get_title()); ?>
+
+                </div>
+                <p class="text-gray-700 text-base">
                   <?php
                    $body = $article->get_body();
                    $lent = strlen($body);
