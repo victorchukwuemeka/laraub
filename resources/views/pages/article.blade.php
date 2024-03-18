@@ -14,7 +14,7 @@
 
 <!-- Featured Articles -->
 <div class="py-10 px-5 sm:py-10">
-    <div class="container mx-auto flex flex-wrap justify-center gap-8">
+    <div class="flex  flex-wrap justify-center mx-auto gap-8">
         @foreach($viewData['articles'] as $article)
         <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white flex flex-col">
             <img class="w-full" src="{{ asset('/img/silicon.png') }}" alt="Article 1">

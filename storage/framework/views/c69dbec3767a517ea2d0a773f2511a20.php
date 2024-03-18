@@ -13,7 +13,7 @@
 
 <!-- Featured Articles -->
 <div class="py-10 px-5 sm:py-10">
-    <div class="container mx-auto flex flex-wrap justify-center gap-8">
+    <div class="flex  flex-wrap justify-center mx-auto gap-8">
         <?php $__currentLoopData = $viewData['articles']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white flex flex-col">
             <img class="w-full" src="<?php echo e(asset('/img/silicon.png')); ?>" alt="Article 1">
