@@ -3,7 +3,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "cross-env NODE_ENV=production vite build",
+        "build": "vite build",
         "clean": "rimraf dist"
     },
     "devDependencies": {
