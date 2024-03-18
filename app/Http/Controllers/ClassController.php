@@ -10,4 +10,10 @@ class ClassController extends Controller
   public function article(){
       return $article = Article::all();
   }
+
+  /*public function body(Article $article)
+  {
+    $this->article();
+    return $article_body =  $article->body;
+  }*/
 }

@@ -29,5 +29,6 @@ Route::middleware(['auth'])->group(function () {
 
 
 
+
 Route::get('/show_article/{id}', [ArticleController::class, 'show'])
 ->name('article.show');

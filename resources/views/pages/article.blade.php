@@ -24,13 +24,16 @@
                 </div>
                 <p class="text-gray-700 text-base">
                   @php
-                    $body = $article->get_body();
+                    /**$body = $article->get_body();
                     $length = strlen($body);
                     if ($length > 100) {
                       $body = substr($body, 0, 100);
                     }
+                    var_dump($body);*/
                   @endphp
                    {{-- {!! $body !!} --}}
+
+                     {{ $article->body->toPlainText() }}
                    this this me trying things out knowing it won't work
                 </p>
             </div>
