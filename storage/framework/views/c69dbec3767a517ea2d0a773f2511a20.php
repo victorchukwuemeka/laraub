@@ -19,19 +19,20 @@
             <img class="w-full" src="<?php echo e(asset('/img/silicon.png')); ?>" alt="Article 1">
             <div class="px-6 py-4">
                 <div class="font-bold text-xl mb-2">
-                  
+                  <?php echo e($article->get_title()); ?>
+
                 </div>
                 <p class="text-gray-700 text-base">
-                  <?php
-                   /**$body = $article->get_body();
-                   $lent = strlen($body);
-                   if($lent > 200){
-                     $body = substr($body, 0, 200);
-                   }else{
-                     $body;
-                   }**/
-                  ?>
                   
+                  <?php
+                    $body = $article->get_body();
+                    $lent = strlen($body);
+                    if ($lent > 200) {
+                      $body = substr($body, 0, 200);
+                    }
+                  ?>
+                  <?php echo $body; ?>
+
                 </p>
             </div>
             <div class="px-6 pt-4 pb-2">
