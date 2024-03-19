@@ -26,6 +26,8 @@ Route::get('/try', function(){
   return view('try');
 });
 
+
+
 Route::get('/tutorial', function () {
     return view('tutorial');
 })->name('tutorial');

@@ -21,6 +21,15 @@ class Article extends Model
         'notes',
     ];
 
+    //for inputing data into the richtexteditor
+    public function addRichTextAttributes($attributes)
+    {
+      if (!in_array($attributes, $this->richTextAttributes)) {
+        //dd($attributes);
+        $this->richTextAttributes['body'] = $attributes;
+      }
+    }
+
     public function set_id($id){
       $this->attributes['id'] = $id;
     }
@@ -35,14 +44,6 @@ class Article extends Model
 
     public function get_title(){
       return $this->attributes['title'];
-    }
-
-    public function set_body($body){
-      $this->attributes['body'] = $body;
-    }
-
-    public function get_body(){
-      return $this->attributes['body'];
     }
 
     public function set_user_id($user_id){

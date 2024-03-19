@@ -33,13 +33,16 @@
                   ?>
                    
 
-                     <?php echo e($article->body); ?>
+                     <?php echo e($article->body->toPlainText()); ?>
 
                    this this me trying things out knowing it won't work
                 </p>
             </div>
             <div class="px-6 pt-4 pb-2">
-                <a href="<?php echo e(url('/show_article/'.$article->get_id())); ?>" class="text-blue-500 hover:underline text-sm">Read More</a>
+                <a href="<?php echo e(url('/show_article/'.$article->get_id())); ?>"
+                  class="text-blue-500 hover:underline text-sm">
+                  Read More
+                </a>
             </div>
         </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

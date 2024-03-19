@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d554e4c414e1256684e94229333111fc",
+    "content-hash": "9b538bb4a1b8b176e40134c73d081eb9",
     "packages": [
         {
             "name": "brick/math",
@@ -5597,16 +5597,16 @@
         },
         {
             "name": "tonysm/rich-text-laravel",
-            "version": "2.1.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/rich-text-laravel.git",
-                "reference": "9a89b33c9f6a4edb3e55f84f8543f607e06c16a2"
+                "reference": "960e096630485924875fb187aee424de5c56278c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/rich-text-laravel/zipball/9a89b33c9f6a4edb3e55f84f8543f607e06c16a2",
-                "reference": "9a89b33c9f6a4edb3e55f84f8543f607e06c16a2",
+                "url": "https://api.github.com/repos/tonysm/rich-text-laravel/zipball/960e096630485924875fb187aee424de5c56278c",
+                "reference": "960e096630485924875fb187aee424de5c56278c",
                 "shasum": ""
             },
             "require": {
@@ -5657,9 +5657,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/rich-text-laravel/issues",
-                "source": "https://github.com/tonysm/rich-text-laravel/tree/2.1.0"
+                "source": "https://github.com/tonysm/rich-text-laravel/tree/3.0.0"
             },
-            "time": "2024-03-08T02:42:18+00:00"
+            "time": "2024-03-16T19:34:29+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

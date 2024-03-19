@@ -23,22 +23,14 @@
                   {{ $article->get_title() }}
                 </div>
                 <p class="text-gray-700 text-base">
-                  @php
-                    /**$body = $article->get_body();
-                    $length = strlen($body);
-                    if ($length > 100) {
-                      $body = substr($body, 0, 100);
-                    }
-                    var_dump($body);*/
-                  @endphp
-                   {{-- {!! $body !!} --}}
-
                      {{ $article->body->toPlainText() }}
-                   this this me trying things out knowing it won't work
                 </p>
             </div>
             <div class="px-6 pt-4 pb-2">
-                <a href="{{ url('/show_article/'.$article->get_id()) }}" class="text-blue-500 hover:underline text-sm">Read More</a>
+                <a href="{{ url('/show_article/'.$article->get_id()) }}"
+                  class="text-blue-500 hover:underline text-sm">
+                  Read More
+                </a>
             </div>
         </div>
         @endforeach
