@@ -23,7 +23,7 @@
                   {{ $article->get_title() }}
                 </div>
                 <p class="text-gray-700 text-base">
-                     {{ $article->body->toPlainText() }}
+                     {{ mb_strimwidth($article->body->toPlainText(),0,100,'...') }}
                 </p>
             </div>
             <div class="px-6 pt-4 pb-2">
