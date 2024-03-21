@@ -17,21 +17,26 @@
     <div class="flex flex-wrap justify-center  gap-8">
         @foreach($viewData['articles'] as $article)
         <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-            <img class="w-full" src="{{ asset('/img/silicon.png') }}" alt="Article 1">
+            <img class="w-full shadow shadow-blue-500/40" src="{{ asset('/img/silicon.png') }}" alt="Article 1">
             <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2">
-                  {{ $article->get_title() }}
-                </div>
-                <p class="text-gray-700 text-base">
-                     {{ mb_strimwidth($article->body->toPlainText(),0,100,'...') }}
-                </p>
+               <a href="{{ url('/show_article/'.$article->get_id()) }}">
+                 <div class="font-bold text-gray-700 hover:text-red-400  text-xl mb-2">
+                   {{ $article->get_title() }}
+                 </div>
+               </a>
+                <a href="{{ url('/show_article/'.$article->get_id()) }}">
+                  <p class="text-gray-700  text-base">
+                       {{ mb_strimwidth($article->body->toPlainText(),0,100,'...') }}
+                  </p>
+                </a>
+
             </div>
-            <div class="px-6 pt-4 pb-2">
+            <!--<div class="px-6 pt-4 pb-2">
                 <a href="{{ url('/show_article/'.$article->get_id()) }}"
                   class="text-blue-500 hover:underline text-sm">
                   Read More
                 </a>
-            </div>
+            </div>-->
         </div>
         @endforeach
     </div>

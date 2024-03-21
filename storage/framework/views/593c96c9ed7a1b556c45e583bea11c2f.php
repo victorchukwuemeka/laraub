@@ -10,7 +10,7 @@
       href="https://unpkg.com/trix@2.0.8/dist/trix.css">
 
       <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
-      
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
@@ -97,7 +97,7 @@
 
 
 </head>
-<body class="font-sans bg-gray-100">
+<body class="font-sans h-full bg-gray-100">
 
   <div id="app">
           <?php echo $__env->make('layouts.nav2', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

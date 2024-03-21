@@ -10,7 +10,7 @@
       href="https://unpkg.com/trix@2.0.8/dist/trix.css">
 
       @vite('resources/css/app.css')
-      
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -40,16 +40,16 @@
 
 
 </head>
-<body class="font-sans bg-gray-100">
+<body class="font-sans h-full bg-gray-100">
 
   <div id="app">
           @include('layouts.nav2')
-            <main class="space-y-5">
+            <main class="space-y-5 h-full">
             @yield('content')
          </main>
   </div>
 
-    <div class="">
+    <div class="h-full">
       @include('layouts.footer')
     </div>
 </body>

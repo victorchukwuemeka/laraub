@@ -16,10 +16,12 @@
         </div>
     </div>
 
-    <div class="font-serif break-all w-4/4 relative">
+
+    <div class="font-serif break-all h-full  w-4/4 relative">
         <div id="editable-content" class="box-content text-left leading-relaxed whitespace-normal break-normal
-            break-words md:break-words
-            p-8 h-100 w-70 p-8 px-2 md:px-32 border-1 text-sm sm:text-3xl text-gray-700">
+            break-words md:break-words p-8 h-100 w-70 p-8 px-2 md:px-32 border-1
+             text-xl sm:text-sm xl:text-7xl lg:text-7xl md:text-8xl
+            text-gray-700">
             <?php echo $viewData['body']; ?>
 
         </div>

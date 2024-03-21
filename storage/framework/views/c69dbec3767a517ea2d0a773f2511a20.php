@@ -16,23 +16,28 @@
     <div class="flex flex-wrap justify-center  gap-8">
         <?php $__currentLoopData = $viewData['articles']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-            <img class="w-full" src="<?php echo e(asset('/img/silicon.png')); ?>" alt="Article 1">
+            <img class="w-full shadow shadow-blue-500/40" src="<?php echo e(asset('/img/silicon.png')); ?>" alt="Article 1">
             <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2">
-                  <?php echo e($article->get_title()); ?>
+               <a href="<?php echo e(url('/show_article/'.$article->get_id())); ?>">
+                 <div class="font-bold text-gray-700 hover:text-red-400  text-xl mb-2">
+                   <?php echo e($article->get_title()); ?>
 
-                </div>
-                <p class="text-gray-700 text-base">
-                     <?php echo e(mb_strimwidth($article->body->toPlainText(),0,100,'...')); ?>
+                 </div>
+               </a>
+                <a href="<?php echo e(url('/show_article/'.$article->get_id())); ?>">
+                  <p class="text-gray-700  text-base">
+                       <?php echo e(mb_strimwidth($article->body->toPlainText(),0,100,'...')); ?>
 
-                </p>
+                  </p>
+                </a>
+
             </div>
-            <div class="px-6 pt-4 pb-2">
+            <!--<div class="px-6 pt-4 pb-2">
                 <a href="<?php echo e(url('/show_article/'.$article->get_id())); ?>"
                   class="text-blue-500 hover:underline text-sm">
                   Read More
                 </a>
-            </div>
+            </div>-->
         </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
