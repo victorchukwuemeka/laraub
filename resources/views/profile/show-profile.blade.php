@@ -3,9 +3,17 @@
 @section('content')
 <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl mx-auto mb-8">
     <div class="px-6 py-4">
+      @if($user->profile_image)
+      <img class="block mx-auto h-24 rounded-full sm:mx-0 sm:shrink-0"
+          src="{{ asset('/storage/'.$user->profile_image) }}"alt="Woman's Face" />
+      @else
+       <img src="{{ asset('/img/silicon.png') }}" alt="User's Profile Picture"
+        class="w-8 h-8 rounded-full">
+      @endif
         <h1 class="text-3xl font-bold">{{ $user->name }}</h1>
         <p class="text-gray-600">Email: {{ $user->email }}</p>
-        <a href="{{ route('user.edit', ['userId' => $user->id]) }}" class="text-blue-500 hover:underline mt-2 inline-block">Edit Profile</a>
+        <a href="{{ route('user.edit', ['userId' => $user->id]) }}"
+          class="text-blue-500 hover:underline mt-2 inline-block">Edit Profile</a>
     </div>
 </div>
 

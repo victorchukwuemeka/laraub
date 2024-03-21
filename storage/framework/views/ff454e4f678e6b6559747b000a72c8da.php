@@ -1,9 +1,17 @@
 <?php $__env->startSection('content'); ?>
 <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl mx-auto mb-8">
     <div class="px-6 py-4">
+      <?php if($user->profile_image): ?>
+      <img class="block mx-auto h-24 rounded-full sm:mx-0 sm:shrink-0"
+          src="<?php echo e(asset('/storage/'.$user->profile_image)); ?>"alt="Woman's Face" />
+      <?php else: ?>
+       <img src="<?php echo e(asset('/img/silicon.png')); ?>" alt="User's Profile Picture"
+        class="w-8 h-8 rounded-full">
+      <?php endif; ?>
         <h1 class="text-3xl font-bold"><?php echo e($user->name); ?></h1>
         <p class="text-gray-600">Email: <?php echo e($user->email); ?></p>
-        <a href="<?php echo e(route('user.edit', ['userId' => $user->id])); ?>" class="text-blue-500 hover:underline mt-2 inline-block">Edit Profile</a>
+        <a href="<?php echo e(route('user.edit', ['userId' => $user->id])); ?>"
+          class="text-blue-500 hover:underline mt-2 inline-block">Edit Profile</a>
     </div>
 </div>
 

@@ -34,17 +34,11 @@ class UserProfileController extends Controller
            abort(404, 'User not found');
        }
       $user = User::with('profile')->find($user_id);
-
-      //$$user->profile();
       $profile = User::find($user_id)->profile;
-      //dd($profile);
       $profile = $user->profile;
-      //dd($user_id);
       $profile = UserProfile::where("user_id",$user_id)->latest()->first();
-
       $certificates = $user->certificates;
       $project = $user->latestProject;
-      //dd($project->get_project_name());
       $workExperiences = $user->experiences;
       $skills = $user->skills;
       return view('profile.show-profile', compact('user', 'profile', 'certificates', 'project', 'workExperiences', 'skills'));
@@ -61,7 +55,6 @@ class UserProfileController extends Controller
     {
 
         $user = User::find($userId);
-        //dd($request->input('job_title'));
 
         if (!$user) {
             abort(404, 'User not found');
