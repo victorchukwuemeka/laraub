@@ -97,7 +97,7 @@
 
 
 </head>
-<body class="font-sans h-full bg-gray-100">
+<body class="font-sans h-screen  bg-gray-100">
 
   <div id="app">
           <?php echo $__env->make('layouts.nav2', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

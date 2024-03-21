@@ -40,7 +40,7 @@
 
 
 </head>
-<body class="font-sans h-screen  bg-gray-100">
+<body class="font-sans min-h-screen  bg-gray-100">
 
   <div id="app">
           @include('layouts.nav2')
