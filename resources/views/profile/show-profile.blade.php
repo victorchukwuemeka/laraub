@@ -9,7 +9,7 @@
                 src="{{ asset('/storage/'.$user->profile_image) }}" alt="User's Profile Picture" />
             @else
             <img src="{{ asset('/img/silicon.png') }}" alt="User's Profile Picture"
-                class="w-8 h-8 rounded-full mr-4 md:mr-8">
+                class="w-16 h-16 rounded-full mr-4 md:mr-8">
             @endif
             <div>
                 <h1 class="text-lg md:text-3xl font-bold">{{ $user->name }}</h1>
