@@ -1,21 +1,21 @@
 <?php $__env->startSection('content'); ?>
 <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl mx-auto mb-8">
-    <div class="flex items-center justify-between px-6 py-4">
-        <div class="flex items-center">
+    <div class="flex flex-col md:flex-row items-center justify-between px-6 py-4">
+        <div class="flex items-center mb-4 md:mb-0">
             <?php if($user->profile_image): ?>
-            <img class="block h-24 w-24 rounded-full mr-4"
+            <img class="block md:h-24 md:w-24 rounded-full mr-4"
                 src="<?php echo e(asset('/storage/'.$user->profile_image)); ?>" alt="User's Profile Picture" />
             <?php else: ?>
             <img src="<?php echo e(asset('/img/silicon.png')); ?>" alt="User's Profile Picture"
-                class="w-8 h-8 rounded-full mr-4">
+                class="w-8 h-8 rounded-full mr-4 md:mr-8">
             <?php endif; ?>
             <div>
-                <h1 class="text-3xl font-bold"><?php echo e($user->name); ?></h1>
+                <h1 class="text-lg md:text-3xl font-bold"><?php echo e($user->name); ?></h1>
                 <p class="text-gray-600">Email: <?php echo e($user->email); ?></p>
             </div>
         </div>
         <a href="<?php echo e(route('user.edit', ['userId' => $user->id])); ?>"
-            class="text-blue-500 hover:underline mt-2 inline-block">Edit Profile</a>
+            class="text-blue-500 hover:underline mt-2 md:mt-0">Edit Profile</a>
     </div>
 </div>
 

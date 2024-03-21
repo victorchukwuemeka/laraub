@@ -2,22 +2,22 @@
 
 @section('content')
 <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl mx-auto mb-8">
-    <div class="flex items-center justify-between px-6 py-4">
-        <div class="flex items-center">
+    <div class="flex flex-col md:flex-row items-center justify-between px-6 py-4">
+        <div class="flex items-center mb-4 md:mb-0">
             @if($user->profile_image)
-            <img class="block h-24 w-24 rounded-full mr-4"
+            <img class="block md:h-24 md:w-24 rounded-full mr-4"
                 src="{{ asset('/storage/'.$user->profile_image) }}" alt="User's Profile Picture" />
             @else
             <img src="{{ asset('/img/silicon.png') }}" alt="User's Profile Picture"
-                class="w-8 h-8 rounded-full mr-4">
+                class="w-8 h-8 rounded-full mr-4 md:mr-8">
             @endif
             <div>
-                <h1 class="text-3xl font-bold">{{ $user->name }}</h1>
+                <h1 class="text-lg md:text-3xl font-bold">{{ $user->name }}</h1>
                 <p class="text-gray-600">Email: {{ $user->email }}</p>
             </div>
         </div>
         <a href="{{ route('user.edit', ['userId' => $user->id]) }}"
-            class="text-blue-500 hover:underline mt-2 inline-block">Edit Profile</a>
+            class="text-blue-500 hover:underline mt-2 md:mt-0">Edit Profile</a>
     </div>
 </div>
 
