@@ -79,7 +79,7 @@ Route::post('/experiences', [ExperiencesController::class, 'store'])
 //skills
 Route::get('/skills', [UserSkillsController::class, 'skillsform'])
 ->name('skills');
-Route::post('/skills', [UserSkillsController::class, 'store'])
+Route::post('/store/skills', [UserSkillsController::class, 'store'])
 ->name('skills.store');
 
 //certifications
