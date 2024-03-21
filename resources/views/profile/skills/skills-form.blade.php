@@ -3,7 +3,7 @@
 @extends('layouts.app') <!-- Assuming you have a layout file -->
 
 @section('content')
-    <div class="container mx-auto mt-8">
+    <div class="container h-screen mx-auto mt-8 flex justify-center items-center">
         <form action="{{ route('skills.store') }}" method="post" class="max-w-md mx-auto">
             @csrf
 

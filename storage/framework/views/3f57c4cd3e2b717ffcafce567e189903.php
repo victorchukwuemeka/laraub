@@ -3,7 +3,7 @@
  <!-- Assuming you have a layout file -->
 
 <?php $__env->startSection('content'); ?>
-    <div class="container mx-auto mt-8">
+    <div class="container h-screen mx-auto mt-8 flex justify-center items-center">
         <form action="<?php echo e(route('skills.store')); ?>" method="post" class="max-w-md mx-auto">
             <?php echo csrf_field(); ?>
 
