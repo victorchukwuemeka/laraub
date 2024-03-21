@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="bg-gray-900 text-white py-8">
+<footer class="bg-gray-900 h-full text-white py-8">
     <div class="container mx-auto text-center">
         <p>&copy; 2023 laraub. All rights reserved.</p>
         <a href="https://chukwuemekavictor693@gmail.com">

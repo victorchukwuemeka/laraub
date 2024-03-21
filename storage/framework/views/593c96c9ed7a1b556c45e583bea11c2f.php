@@ -101,12 +101,12 @@
 
   <div id="app">
           <?php echo $__env->make('layouts.nav2', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-            <main class="space-y-5">
+            <main class="space-y-5 h-full">
             <?php echo $__env->yieldContent('content'); ?>
          </main>
   </div>
 
-    <div class="">
+    <div class="h-full">
       <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
 </body>
