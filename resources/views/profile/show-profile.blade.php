@@ -24,64 +24,111 @@
 
 
 <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl mx-auto mb-8">
-    <div class="px-6 py-4">
-        <h2 class="text-xl font-semibold">Profile</h2>
-        @if($profile)
-        <p><span class="font-semibold">Job Title:</span> {{ $profile->get_title }}</p>
-        <p><span class="font-semibold">Company:</span> {{ $profile->get_company() }}</p>
-        <p><span class="font-semibold">Company Website:</span> {{ $profile->get_company_website() }}</p>
-        <p><span class="font-semibold">Your Location:</span> {{ $profile->get_location() }}</p>
-        <p><span class="font-semibold">Education:</span> {{ $profile->get_education() }}</p>
-        <p><span class="font-semibold">Availability:</span> {{ $profile->get_availability() }}</p>
-        <p><span class="font-semibold">Social Media:</span> {{ $profile->get_contact_preferences() }}</p>
-        @endif
+  <div class="px-6 py-4 bg-white rounded-lg shadow-md">
+    <h2 class="text-xl font-semibold mb-4">Profile</h2>
+    @if($profile)
+    <div class="grid grid-cols-2 gap-4">
+        <div>
+            <p class="text-gray-600"><span class="font-semibold">Job Title:</span></p>
+            <p class="text-gray-800">{{ $profile->get_title }}</p>
+        </div>
+        <div>
+            <p class="text-gray-600"><span class="font-semibold">Company:</span></p>
+            <p class="text-gray-800">{{ $profile->get_company() }}</p>
+        </div>
+        <div>
+            <p class="text-gray-600"><span class="font-semibold">Company Website:</span></p>
+            <p class="text-blue-600 hover:underline">{{ $profile->get_company_website() }}</p>
+        </div>
+        <div>
+            <p class="text-gray-600"><span class="font-semibold">Your Location:</span></p>
+            <p class="text-gray-800">{{ $profile->get_location() }}</p>
+        </div>
+        <div>
+            <p class="text-gray-600"><span class="font-semibold">Education:</span></p>
+            <p class="text-gray-800">{{ $profile->get_education() }}</p>
+        </div>
+        <div>
+            <p class="text-gray-600"><span class="font-semibold">Availability:</span></p>
+            <p class="text-gray-800">{{ $profile->get_availability() }}</p>
+        </div>
+        <div>
+            <p class="text-gray-600"><span class="font-semibold">Social Media:</span></p>
+            <p class="text-gray-800">{{ $profile->get_contact_preferences() }}</p>
+        </div>
     </div>
+    @endif
+</div>
+
 </div>
 
 <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl mx-auto mb-8">
     <div class="px-6 py-4">
         @if($project && $project->get_project_name())
-        <h2 class="text-xl font-semibold">{{ $user->name }}: Projects</h2>
-        <p><span class="font-semibold">Project Name:</span> {{ $project->get_project_name() }}</p>
-        <p><span class="font-semibold">Description:</span> {{ $project->get_description() }}</p>
-        <p><span class="font-semibold">Link:</span> {{ $project->get_link() }}</p>
-        <p><span class="font-semibold">Technologies Used:</span> {{ $project->get_technologies_used() }}</p>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">{{ $user->name }}'s Projects</h2>
+        <div class="border-t border-gray-200"></div> <!-- Divider line -->
+        <div class="mt-4">
+            <p class="text-lg font-semibold text-gray-700 mb-2">Project Name:</p>
+            <p class="text-gray-800">{{ $project->get_project_name() }}</p>
+        </div>
+        <div class="mt-4">
+            <p class="text-lg font-semibold text-gray-700 mb-2">Description:</p>
+            <p class="text-gray-800">{{ $project->get_description() }}</p>
+        </div>
+        <div class="mt-4">
+            <p class="text-lg font-semibold text-gray-700 mb-2">Link:</p>
+            <a href="{{ $project->get_link() }}" class="text-blue-500 hover:underline">{{ $project->get_link() }}</a>
+        </div>
+        <div class="mt-4">
+            <p class="text-lg font-semibold text-gray-700 mb-2">Technologies Used:</p>
+            <p class="text-gray-800">{{ $project->get_technologies_used() }}</p>
+        </div>
         @else
-        <a href="{{ route('projects') }}" class="text-blue-500 hover:underline">Projects</a>
+        <a href="{{ route('projects') }}" class="text-lg font-semibold text-blue-500 hover:underline">Explore Projects</a>
         @endif
     </div>
 </div>
 
+
 <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl mx-auto mb-8">
     <div class="px-6 py-4">
-        <h2 class="text-xl font-semibold">{{ $user->name }}: Work Experiences</h2>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">{{ $user->name }}'s Work Experiences</h2>
+        <div class="border-t border-gray-200"></div> <!-- Divider line -->
         @foreach($workExperiences as $experience)
-        <div class="mb-4">
-            <p><span class="font-semibold">Company:</span> {{ $experience->get_company() }}</p>
-            <p><span class="font-semibold">Position:</span> {{ $experience->get_position() }}</p>
-            <p><span class="font-semibold">Start Date:</span> {{ $experience->get_start_date() }}</p>
-            <p><span class="font-semibold">End Date:</span> {{ $experience->get_end_date() }}</p>
+        <div class="mt-4">
+            <p class="text-lg font-semibold text-gray-700">{{ $experience->get_company() }}</p>
+            <p class="text-gray-800">{{ $experience->get_position() }}</p>
+            <div class="flex flex-wrap mt-2">
+                <div class="w-full sm:w-1/2">
+                    <p class="text-gray-600 font-semibold">Start Date:</p>
+                    <p>{{ $experience->get_start_date() }}</p>
+                </div>
+                <div class="w-full sm:w-1/2">
+                    <p class="text-gray-600 font-semibold">End Date:</p>
+                    <p>{{ $experience->get_end_date() }}</p>
+                </div>
+            </div>
         </div>
         @endforeach
-        <a href="{{ route('experiences') }}" class="text-blue-500 hover:underline">View More Experiences</a>
+        <div class="mt-4">
+            <a href="{{ route('experiences') }}" class="text-lg font-semibold text-blue-500 hover:underline">View More Experiences</a>
+        </div>
     </div>
 </div>
 
 <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl mx-auto mb-8">
     <div class="px-6 py-4">
-        <h2 class="text-xl font-semibold">{{ $user->name }}: Skills</h2>
-        @if($skills)
-        <p><span class="font-semibold">Laravel Skills:</span> {{ $skills->get_laravel_skills() }}</p>
-        <p><span class="font-semibold">Other Skills:</span> {{ $skills->get_other_skills() }}</p>
-        @endif
-        <a href="{{ route('skills') }}" class="text-blue-500 hover:underline">View Skills</a>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">{{ $user->name }}'s Certificates</h2>
+        <div class="border-t border-gray-200 mb-4"></div> <!-- Divider line -->
+        <div class="flex items-center justify-between">
+            <p class="text-lg font-semibold text-gray-700">No certificates available</p>
+            <a href="{{ route('certificates') }}" class="text-lg font-semibold text-blue-500 hover:underline">View Certificates</a>
+        </div>
     </div>
 </div>
 
-<div class="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl mx-auto mb-8">
-    <div class="px-6 py-4">
-        <h2 class="text-xl font-semibold">{{ $user->name }}: Certificates</h2>
-        <a href="{{ route('certificates') }}" class="text-blue-500 hover:underline">View Certificates</a>
-    </div>
-</div>
+
+
+
+
 @endsection
