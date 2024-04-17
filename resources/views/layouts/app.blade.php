@@ -40,17 +40,15 @@
 
 
 </head>
-<body class="font-sans min-h-screen bg-gray-100">
+<body class="font-sans max-auto min-h-screen bg-gray-100">
 
   <div id="app">
-          @include('layouts.nav2')
-            <main class="space-y-5 h-full">
-            @yield('content')
-         </main>
+    @include('layouts.nav2')
+    <main class="space-y-5 h-full">
+      @yield('content')
+    </main>
   </div>
-
-    <div class="h-full">
-      @include('layouts.footer')
-    </div>
+     @include('layouts.footer')
+     
 </body>
 </html>

@@ -97,18 +97,16 @@
 
 
 </head>
-<body class="font-sans min-h-screen bg-gray-100">
+<body class="font-sans max-auto min-h-screen bg-gray-100">
 
   <div id="app">
-          <?php echo $__env->make('layouts.nav2', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-            <main class="space-y-5 h-full">
-            <?php echo $__env->yieldContent('content'); ?>
-         </main>
+    <?php echo $__env->make('layouts.nav2', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <main class="space-y-5 h-full">
+      <?php echo $__env->yieldContent('content'); ?>
+    </main>
   </div>
-
-    <div class="h-full">
-      <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    </div>
+     <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+     
 </body>
 </html>
 <?php /**PATH /home/abara/web/laraub/resources/views/layouts/app.blade.php ENDPATH**/ ?>
