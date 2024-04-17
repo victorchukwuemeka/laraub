@@ -51,7 +51,7 @@
         </div>
         <div>
             <p class="text-gray-600"><span class="font-semibold">Social Media:</span></p>
-            <p class="text-gray-800"><?php echo e($profile->get_contact_preferences()); ?></p>
+            <p class="text-blue-600 hover:underline"><?php echo e($profile->get_contact_preferences()); ?></p>
         </div>
     </div>
     <?php endif; ?>
@@ -81,7 +81,9 @@
             <p class="text-gray-800"><?php echo e($project->get_technologies_used()); ?></p>
         </div>
         <?php else: ?>
-        <a href="<?php echo e(route('projects')); ?>" class="text-lg font-semibold text-blue-500 hover:underline">Explore Projects</a>
+        <a href="<?php echo e(route('projects')); ?>" class="text-lg font-semibold text-blue-500 hover:underline">
+        Add Projects
+       </a>
         <?php endif; ?>
     </div>
 </div>
@@ -89,43 +91,66 @@
 
 <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl mx-auto mb-8">
     <div class="px-6 py-4">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4"><?php echo e($user->name); ?>'s Work Experiences</h2>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+          <?php echo e($user->name); ?>'s Work Experiences
+        </h2>
         <div class="border-t border-gray-200"></div> <!-- Divider line -->
         <?php $__currentLoopData = $workExperiences; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $experience): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="mt-4">
-            <p class="text-lg font-semibold text-gray-700"><?php echo e($experience->get_company()); ?></p>
-            <p class="text-gray-800"><?php echo e($experience->get_position()); ?></p>
+            <p class="text-lg font-semibold text-gray-700">
+              <?php echo e($experience->get_company()); ?>
+
+            </p>
+            <p class="text-gray-800">
+              <?php echo e($experience->get_position()); ?>
+
+            </p>
             <div class="flex flex-wrap mt-2">
                 <div class="w-full sm:w-1/2">
-                    <p class="text-gray-600 font-semibold">Start Date:</p>
-                    <p><?php echo e($experience->get_start_date()); ?></p>
+                    <p class="text-gray-600 font-semibold">
+                      Start Date:
+                    </p>
+                    <p>
+                      <?php echo e($experience->get_start_date()); ?>
+
+                    </p>
                 </div>
                 <div class="w-full sm:w-1/2">
-                    <p class="text-gray-600 font-semibold">End Date:</p>
-                    <p><?php echo e($experience->get_end_date()); ?></p>
+                    <p class="text-gray-600 font-semibold">
+                      End Date:
+                    </p>
+                    <p>
+                      <?php echo e($experience->get_end_date()); ?>
+
+                    </p>
                 </div>
             </div>
         </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <div class="mt-4">
-            <a href="<?php echo e(route('experiences')); ?>" class="text-lg font-semibold text-blue-500 hover:underline">View More Experiences</a>
+            <a href="<?php echo e(route('experiences')); ?>" class="text-lg font-semibold text-blue-500 hover:underline">
+              Add  Experiences
+            </a>
         </div>
     </div>
 </div>
 
 <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl mx-auto mb-8">
     <div class="px-6 py-4">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4"><?php echo e($user->name); ?>'s Certificates</h2>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+          <?php echo e($user->name); ?>'s Certificates
+        </h2>
         <div class="border-t border-gray-200 mb-4"></div> <!-- Divider line -->
         <div class="flex items-center justify-between">
-            <p class="text-lg font-semibold text-gray-700">No certificates available</p>
-            <a href="<?php echo e(route('certificates')); ?>" class="text-lg font-semibold text-blue-500 hover:underline">View Certificates</a>
+            <p class="text-lg font-semibold text-gray-700">
+              No certificates available
+            </p>
+            <a href="<?php echo e(route('certificates')); ?>" class="text-lg font-semibold text-blue-500 hover:underline">
+              Add  Certificates
+            </a>
         </div>
     </div>
 </div>
-
-
-
 
 
 <?php $__env->stopSection(); ?>
