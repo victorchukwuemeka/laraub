@@ -1,5 +1,5 @@
 <?php $__env->startSection('content'); ?>
-<div class="bg-gray-900 text-white py-8 sm:py-16">
+<div class="bg-gray-900 text-white pt-0 py-8 sm:py-16">
     <div class="container mx-auto text-center">
         <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">Welcome To laraub</h1>
         <p class="text-lg sm:text-xl mb-8">
@@ -32,12 +32,7 @@
                 </a>
 
             </div>
-            <!--<div class="px-6 pt-4 pb-2">
-                <a href="<?php echo e(url('/show_article/'.$article->get_id())); ?>"
-                  class="text-blue-500 hover:underline text-sm">
-                  Read More
-                </a>
-            </div>-->
+
         </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
