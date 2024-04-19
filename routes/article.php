@@ -10,6 +10,7 @@ Route::get('/home', [ArticleController::class, 'index']);
 //->name('admin.article');
 
 
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/create/article', [ArticleController::class, 'create'])
         ->name('create.article');

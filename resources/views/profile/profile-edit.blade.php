@@ -7,12 +7,32 @@
    pt-8 pb-8 md:flex-row sm:flex-row">
 
     <div class="flex-initial  mt-9 ml-16 mr-16 pl-12 pt-2">
-      @if($user->profile_image)
-      <img class="block md:h-24 md:w-24 rounded-full mr-4" src="{{ asset('/storage/'.$user->profile_image) }}" alt="User's Profile Picture" />
-      @else
-      <img src="{{ asset('/img/silicon.png') }}" alt="User's Profile Picture"
-         class="w-16 h-16 rounded-full mr-4 md:mr-8">
-      @endif
+      <form class="" action="{{ route('profile_image') }}"
+         method="POST" enctype="multipart/form-data">
+        @csrf
+        @if(optional($user->profileImage)->get_user_profile_image())
+        <img class="block md:h-24 md:w-24 rounded-full mr-4"
+        src="{{ asset('/storage/'.$user->profileImage->get_user_profile_image()) }}"
+        alt="User's Profile Picture" />
+        <label for="upload">
+           <i class="fa-solid fa-image"></i>
+        </label>
+        <input type="file" id="upload" name="profile_image"
+         accept="image/*" class="hidden">
+        @else
+          <img src="{{ asset('/img/silicon.png') }}" alt="User's Profile Picture"
+             class="w-16 h-16 rounded-full mr-4 md:mr-8">
+             <label for="upload">
+                <i class="fa-solid fa-image"></i>
+             </label>
+             <input type="file" id="upload" name="profile_image"
+              accept="image/*" class="hidden">
+        @endif
+        <div class="mt-4">
+               <button type="submit" class="bg-blue-500 text-white rounded-full py-2 px-6">Upload Image</button>
+        </div>
+      </form>
+
     </div>
 
     <div class="flex flex-wrap flex-auto  mr-0 ml-0 xl:mr-12 xl:mt-16 xl:pt-4">
@@ -81,4 +101,19 @@
     </div>
   </div>
 </div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const uploadIcon = document.querySelector('.fa-image');
+        const fileInput = document.getElementById('upload');
+
+        if (uploadIcon && fileInput) {
+            uploadIcon.addEventListener('click', function () {
+                fileInput.click();
+            });
+        }
+    });
+</script>
+
 @endsection

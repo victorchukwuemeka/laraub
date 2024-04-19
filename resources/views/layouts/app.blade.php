@@ -21,6 +21,8 @@
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js">
     </script>
 
+    <script src="https://kit.fontawesome.com/fd683e659d.js" crossorigin="anonymous"></script>
+
 </head>
 <body class="min-h-screen font-sans antialiased flex flex-col">
 <!--<div id="app">

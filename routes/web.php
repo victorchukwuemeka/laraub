@@ -10,6 +10,7 @@ use App\Http\Controllers\ExperiencesController;
 use App\Http\Controllers\UserSkillsController;
 use App\Http\Controllers\UserCertificationsController;
 use App\Http\Controllers\TutorialController;
+use App\Http\Controllers\UserProfileImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,41 +53,44 @@ Route::post('/logout', [LoginController::class, 'logout'])
 Route::get('register', [RegisterController::class, 'register']);
 Route::post('store', [RegisterController::class, 'store'])->name('store');
 
+Route::middleware(['auth'])->group(function(){
+  //route for users profile
+  Route::get('profile/{userId}', [UserProfileController::class, 'showProfile'])->name('user.show');
+  Route::get('/users/{userId}/edit', [UserProfileController::class, 'editProfileForm'])->name('user.edit');
+
+  // Update user profile
+  Route::put('/users/{userId}/update', [UserProfileController::class, 'updateProfile'])
+  ->name('user.update');
+
+  // Show user projects
+  Route::get('/projects', [UserProjectsController::class, 'projectsform'])
+  ->name('projects');
+  Route::post('/projects', [UserProjectsController::class, 'store'])
+  ->name('projects.store');
+
+  //experiences
+  Route::get('/experiences', [ExperiencesController::class, 'experiencesform'])
+  ->name('experiences');
+  Route::post('/experiences', [ExperiencesController::class, 'store'])
+  ->name('work_experience.store');
+
+  //skills
+  Route::get('/skills', [UserSkillsController::class, 'skillsform'])
+  ->name('skills');
+  Route::post('/store/skills', [UserSkillsController::class, 'store'])
+  ->name('skills.store');
+
+  //certifications
+  Route::get('/certificates', [UserCertificationsController::class, 'certificatesform'])
+  ->name('certificates');
+  Route::post('/skills', [UserCertificationsController::class, 'store'])
+  ->name('certifications.store');
 
 
-//route for users profile
-Route::get('profile/{userId}', [UserProfileController::class, 'showProfile'])->name('user.show');
-Route::get('/users/{userId}/edit', [UserProfileController::class, 'editProfileForm'])->name('user.edit');
-
-
-
-// Update user profile
-Route::put('/users/{userId}/update', [UserProfileController::class, 'updateProfile'])
-->name('user.update');
-
-// Show user projects
-Route::get('/projects', [UserProjectsController::class, 'projectsform'])
-->name('projects');
-Route::post('/projects', [UserProjectsController::class, 'store'])
-->name('projects.store');
-
-//experiences
-Route::get('/experiences', [ExperiencesController::class, 'experiencesform'])
-->name('experiences');
-Route::post('/experiences', [ExperiencesController::class, 'store'])
-->name('work_experience.store');
-
-//skills
-Route::get('/skills', [UserSkillsController::class, 'skillsform'])
-->name('skills');
-Route::post('/store/skills', [UserSkillsController::class, 'store'])
-->name('skills.store');
-
-//certifications
-Route::get('/certificates', [UserCertificationsController::class, 'certificatesform'])
-->name('certificates');
-Route::post('/skills', [UserCertificationsController::class, 'store'])
-->name('certifications.store');
+  //the route handle the profile_image upload function
+  Route::post('profile_image', [UserProfileImageController::class,'uploadProfileImage'])
+  ->name('profile_image');
+});
 
 
 // Add routes for other UserController actions as needed...

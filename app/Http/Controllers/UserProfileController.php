@@ -7,8 +7,8 @@ use App\Models\User;
 use App\Models\UserProfile;
 use App\Models\UserProjects;
 use App\Models\Experiences;
-use App\Models\UserCertifications;
-
+use App\Models\UserProfileImage;
+use Illuminate\Support\Facades\Storage;
 
 class UserProfileController extends Controller
 {
@@ -18,7 +18,6 @@ class UserProfileController extends Controller
     {
       $user = User::with('profile')->find($userId);
       //$yy = $user->profile->get_company_website()->latest()->first();
-
 
       if (!$user) {
         abort(404, 'User not found');
@@ -41,7 +40,9 @@ class UserProfileController extends Controller
       $project = $user->latestProject;
       $workExperiences = $user->experiences;
       $skills = $user->skills;
-      return view('profile.show-profile', compact('user', 'profile', 'certificates', 'project', 'workExperiences', 'skills'));
+      $profileImage = optional($user->profileImage)->get_user_profile_image();
+      return view('profile.show-profile',
+      compact('user', 'profile', 'certificates', 'project', 'profileImage','workExperiences', 'skills'));
     }
 
     public function edit($id)
@@ -53,7 +54,6 @@ class UserProfileController extends Controller
 
     public function updateProfile(Request $request, $userId)
     {
-
         $user = User::find($userId);
 
         if (!$user) {
@@ -67,6 +67,8 @@ class UserProfileController extends Controller
             Storage::disk('public')->put(
               $profile_image_name, file_get_contents($request->file('profile_image')->getRealPath())
             );
+
+            //dd($user);
             $user->set_profile_image($profile_image_name);
             $user->save();
         }
@@ -147,7 +149,8 @@ class UserProfileController extends Controller
 
 
 
-        return redirect()->route('user.show', ['userId' => $userId])->with('success', 'Profile updated successfully');
+        return redirect()->route('user.show', ['userId' => $userId])
+        ->with('success', 'Profile updated successfully');
     }
 
 

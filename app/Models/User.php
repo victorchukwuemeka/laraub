@@ -91,4 +91,8 @@ class User extends Authenticatable
       return $this->hasOne(UserSkills::class);
     }
 
+    public function profileImage()
+    {
+        return $this->hasOne(UserProfileImage::class);
+    }
 }
