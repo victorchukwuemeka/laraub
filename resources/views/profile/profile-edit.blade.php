@@ -11,7 +11,7 @@
          method="POST" enctype="multipart/form-data">
         @csrf
         @if(optional($user->profileImage)->get_user_profile_image())
-        <img class="block md:h-24 md:w-24 rounded-full mr-4"
+        <img class="w-16 h-16 rounded-full mr-4 md:mr-8"
         src="{{ asset('/storage/'.$user->profileImage->get_user_profile_image()) }}"
         alt="User's Profile Picture" />
         <label for="upload">
