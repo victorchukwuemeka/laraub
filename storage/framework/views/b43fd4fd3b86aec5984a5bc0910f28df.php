@@ -7,7 +7,7 @@
     <div class="flex-initial  mt-9 ml-16 mr-16 pl-12 pt-2">
       <form class="" action="<?php echo e(route('profile_image')); ?>"
          method="POST" enctype="multipart/form-data">
-         <?php echo csrf_field(); ?>
+        <?php echo csrf_field(); ?>
         <?php if(optional($user->profileImage)->get_user_profile_image()): ?>
         <img class="block md:h-24 md:w-24 rounded-full mr-4"
         src="<?php echo e(asset('/storage/'.$user->profileImage->get_user_profile_image())); ?>"

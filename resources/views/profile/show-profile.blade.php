@@ -6,7 +6,8 @@
     <div class="flex flex-col md:flex-row items-center justify-between px-6 py-4">
         <div class="flex items-center mb-4 md:mb-0">
             @if($profileImage)
-            <img class="block md:h-24 md:w-24 rounded-full mr-4"
+            <!--block md:h-24 md:w-24 rounded-full mr-4-->
+            <img class="w-16 h-16 rounded-full mr-4 md:mr-8"
                 src="{{ asset('/storage/'.$profileImage) }}" alt="User's Profile Picture" />
             @else
             <img src="{{ asset('/img/silicon.png') }}" alt="User's Profile Picture"
