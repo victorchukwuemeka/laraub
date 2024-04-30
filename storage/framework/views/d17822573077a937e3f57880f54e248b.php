@@ -11,10 +11,10 @@
         </div>
         <nav class="hidden sm:flex sm:space-x-4 mt-2 sm:mt-0" id="mobile-menu">
             <a href="/" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">Home</a>
-            <!--<a href="#" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">Jobs</a>
-            <a href="#" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">News</a>
+            <a href="<?php echo e(route('projects')); ?>" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">Projects</a>
+            <!--<a href="#" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">News</a>
             <a href="#" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">Repo</a>
-            <a href="#" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">tutorials</a>-->
+            <a href="#" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">Jobs</a>-->
             <?php if(auth()->guard()->guest()): ?> 
                 <a href="<?php echo e(url('login')); ?>" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">Login</a>
                 <a href="<?php echo e(url('register')); ?>" class="text-white hover:text-blue-300 transition duration-300 ease-in-out">Register</a>
