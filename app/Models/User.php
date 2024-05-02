@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 
 class User extends Authenticatable
 {
@@ -94,5 +96,10 @@ class User extends Authenticatable
     public function profileImage()
     {
         return $this->hasOne(UserProfileImage::class);
+    }
+
+    public function laravelProjects(): HasMany
+    {
+        return $this->hasMany(laravelProjects::class);
     }
 }

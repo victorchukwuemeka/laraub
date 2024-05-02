@@ -22,9 +22,12 @@
 
       </p>
       <div class="flex items-center space-x-4">
-        <button class="px-4 py-2 text-gray-700 font-medium rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-          More
-        </button>
+        <a href="<?php echo e(route('projects.edit', ['project' => $project->id])); ?>">
+          <button class="px-4 py-2 text-gray-700 font-medium rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            More
+          </button>
+        </a>
+
        <button class="px-4 py-2 text-gray-700 font-medium rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
           Comment
        </button>

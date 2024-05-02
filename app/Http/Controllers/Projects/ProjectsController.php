@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\LaravelProjects;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 
 class ProjectsController extends Controller
@@ -35,6 +36,7 @@ class ProjectsController extends Controller
         );
         LaravelProjects::create([
           'name' => $request->input('name'),
+          'user_id' => Auth::id(),
           'image' => $image,
           'motto' => $request->input('motto'),
           'description' => $request->input('description'),
@@ -58,7 +60,7 @@ class ProjectsController extends Controller
   }
 
 
-  public function edit(Project $project){
+  public function edit(LaravelProjects $project){
     return view('projects.edit', compact('project'));
   }
 
