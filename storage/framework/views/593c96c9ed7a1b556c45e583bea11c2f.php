@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
     <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
+    <?php echo \Livewire\Mechanisms\FrontendAssets\FrontendAssets::styles(); ?>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
@@ -31,6 +32,8 @@
 
  <main class="flex-grow">
      <?php echo $__env->yieldContent('content'); ?>
+      <?php echo \Livewire\Mechanisms\FrontendAssets\FrontendAssets::scripts(); ?>
+
  </main>
   <div class="">
     <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

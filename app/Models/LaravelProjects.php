@@ -22,4 +22,33 @@ class LaravelProjects extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+
+    //upvote
+    /**public function upvotes()
+    {
+        return $this->belongsToMany(User::class, 'upvotes', 'project_id', 'user_id');
+    }
+
+    public function isUpvotedByUser($user)
+    {
+        return $this->upvotes->contains($user);
+    }
+
+    public function upvote($user)
+    {
+        $this->upvotes()->attach($user);
+    }
+
+
+
+    public function removeUpvote($user)
+    {
+        $this->upvotes()->detach($user);
+    }*/
+
+    public function votes()
+    {
+      return $this->hasMany(Upvote::class);
+    }
 }

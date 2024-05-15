@@ -102,4 +102,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(laravelProjects::class);
     }
+
+    public function votes()
+    {
+      return $this->hasMany(Upvotes::class);
+    }
+
 }

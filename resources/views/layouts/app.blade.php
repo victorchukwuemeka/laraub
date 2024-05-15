@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
     @vite('resources/css/app.css')
-
+    @livewireStyles
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'laraub') }}</title>
@@ -31,6 +31,7 @@
 
  <main class="flex-grow">
      @yield('content')
+      @livewireScripts
  </main>
   <div class="">
     @include('layouts.footer')
