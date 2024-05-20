@@ -51,4 +51,10 @@ class LaravelProjects extends Model
     {
       return $this->hasMany(Upvote::class);
     }
+    
+    public function projects_comments()
+    {
+      return $this->hasMany(ProjectsComments::class);
+    }
+
 }

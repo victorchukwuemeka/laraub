@@ -34,3 +34,5 @@ class UserProjectsController extends Controller
       return redirect()->route('user.show', ['userId' => $userId]);
     }
 }
+
+

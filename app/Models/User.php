@@ -108,4 +108,10 @@ class User extends Authenticatable
       return $this->hasMany(Upvotes::class);
     }
 
+    public function projects_comment()
+    {
+      return $this->hasMany(ProjectsComments::class);
+    }
+
+    
 }

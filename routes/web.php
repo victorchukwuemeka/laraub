@@ -39,7 +39,7 @@ Route::get('/tutorial', function () {
 Route::post('/tutorial', [TutorialController::class, 'saveTutorial'])->name('save-tutorial');
 
 
-Route::get('/', [PagesController::class, 'article'])->name("home");
+Route::get('/art', [PagesController::class, 'article'])->name("home");
 
 
 

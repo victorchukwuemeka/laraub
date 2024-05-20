@@ -2,10 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Projects\ProjectsController;
+use App\Http\Controllers\ProjectsCommentsController;
 
-Route::get('projects',[
+
+
+Route::get('/',[
   ProjectsController::class, 'index'
-])->name('projects');
+])->name('home');
 
 Route::get('/projects/create', [ProjectsController::class, 'create'])
 ->name('projects.create');
@@ -15,3 +18,8 @@ Route::get('/projects/{project}', [ProjectsController::class, 'show'])->name('pr
 Route::get('/projects/{project}/edit', [ProjectsController::class, 'edit'])->name('projects.edit');
 Route::put('/projects/{project}', [ProjectsController::class, 'update'])->name('projects.update');
 Route::delete('/projects/{project}', [ProjectsController::class, 'destroy'])->name('projects.destroy');
+
+
+//project comment 
+Route::post('/project/comments', [ProjectsCommentsController::class, 'store'])
+ ->name('project.comments.store');
