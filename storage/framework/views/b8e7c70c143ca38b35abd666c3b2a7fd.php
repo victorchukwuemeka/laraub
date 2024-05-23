@@ -1,88 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
-</head>
-
+<?php $__env->startSection('content'); ?>
 <body class="bg-gray-100 h-screen flex items-center justify-center">
+  <div class="hero min-h-screen bg-base-200">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <div class="text-center lg:text-left">
+        <h1 class="text-5xl font-bold">Welcome  back!</h1>
+        <p class="py-6">Please log in to access your account. If you encounter any issues,
+          feel free to contact our support team. Remember to keep your account credentials safe and secure.</p>
 
-    <div class="bg-white p-8 rounded shadow-md w-80">
-
-      <div class="mb-4 flex justify-center items-center">
-            <a href="<?php echo e(url('/')); ?>" class="text-blue-500 hover:underline focus:outline-none focus:ring focus:ring-blue-200 transition duration-300">
-                <h1 class="text-4xl font-semibold">Laraub</h1>
-            </a>
-        </div>
-
-        <form action="<?php echo e(url('authenticate')); ?>" method="POST">
-            <?php echo csrf_field(); ?>
-
-            <div class="mb-4">
-                <label for="email" class="block text-gray-600">Email</label>
-                <input type="email" name="email" id="email"
-                    class="border rounded w-full py-2 px-3 <?php $__errorArgs = ['email'];
+      </div>
+      <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <form action="<?php echo e(url('authenticate')); ?>" method="POST" class="card-body">
+           <?php echo csrf_field(); ?>
+          <div class="form-control">
+           <label class="label">
+             <span class="label-text">Email</span>
+           </label>
+           <input type="email" name="email" placeholder="email" id="email"
+           class="input input-bordered <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+$message = $__bag->first($__errorArgs[0]); ?> <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                    value="<?php echo e(old('email')); ?>" required autofocus>
-                <?php $__errorArgs = ['email'];
+             value="<?php echo e(old('email')); ?>" required />
+             <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                <p class="text-red-500 text-sm mt-1"><?php echo e($message); ?></p>
-                <?php unset($message);
+             <p class="text-red-500 text-sm mt-1"><?php echo e($message); ?></p>
+             <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-            </div>
 
-            <div class="mb-4">
-                <label for="password" class="block text-gray-600">Password</label>
-                <input type="password" name="password" id="password"
-                    class="border rounded w-full py-2 px-3 <?php $__errorArgs = ['password'];
+         </div>
+
+         <div class="form-control">
+           <label class="label">
+             <span class="label-text">Password</span>
+           </label>
+           <input type="password" id="password" name="password" placeholder="password"
+           class="input <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+$message = $__bag->first($__errorArgs[0]); ?> input-bordered <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" required>
-                <?php $__errorArgs = ['password'];
+unset($__errorArgs, $__bag); ?>" required />
+
+           <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                <p class="text-red-500 text-sm mt-1"><?php echo e($message); ?></p>
-                <?php unset($message);
+           <p class="text-red-500 text-sm mt-1"><?php echo e($message); ?></p>
+           <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-            </div>
 
-            <div class="mb-4 flex items-center">
-                <input type="checkbox" name="remember" id="remember" class="mr-2">
-                <label for="remember" class="text-gray-600">Remember me</label>
-            </div>
-
-            <div class="mb-4">
-                <button type="submit"
-                    class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200 transition duration-300">Login</button>
-            </div>
-
-        </form>
-
-    </div>
-
+         </div>
+         <div class="form-control mt-6">
+           <button type="submit"  class="btn btn-primary">Login</button>
+         </div>
+       </form>
+     </div>
+   </div>
+  </div>
 </body>
+<?php $__env->stopSection(); ?>
 
-</html>
-<?php /**PATH /home/victor/blackpen/laraub/resources/views/auth/login.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/victor/blackpen/laraub/resources/views/auth/login.blade.php ENDPATH**/ ?>
