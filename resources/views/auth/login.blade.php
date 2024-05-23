@@ -10,7 +10,7 @@
           feel free to contact our support team. Remember to keep your account credentials safe and secure.</p>
 
       </div>
-      <!--<div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <form action="{{ url('authenticate') }}" method="POST" class="card-body">
            @csrf
           <div class="form-control">
@@ -44,6 +44,6 @@
        </form>
      </div>
    </div>
- </div>-->
+ </div>
 </body>
 @endsection

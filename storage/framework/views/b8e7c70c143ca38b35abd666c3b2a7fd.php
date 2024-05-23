@@ -8,7 +8,7 @@
           feel free to contact our support team. Remember to keep your account credentials safe and secure.</p>
 
       </div>
-      <!--<div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <form action="<?php echo e(url('authenticate')); ?>" method="POST" class="card-body">
            <?php echo csrf_field(); ?>
           <div class="form-control">
@@ -70,7 +70,7 @@ unset($__errorArgs, $__bag); ?>
        </form>
      </div>
    </div>
- </div>-->
+ </div>
 </body>
 <?php $__env->stopSection(); ?>
 
