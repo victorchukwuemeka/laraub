@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Auth;
 class ProjectsController extends Controller
 {
   public function index(){
-    $projects = LaravelProjects::all();
+     //$projects = LaravelProjects::all();
+     $projects = LaravelProjects::orderBy('created_at', 'desc')->get();
     return view('projects.index', compact('projects'));
   }
 
@@ -43,12 +44,12 @@ class ProjectsController extends Controller
           'website' => $request->input('website'),
           'github_repo' => $request->input('github_repo')
         ]);
-        return redirect()->route('projects')
+        return redirect()->route('home')
                ->with('success', 'Project created successfully.');
      }else {
        LaravelProjects::create($request->all());
 
-       return redirect()->route('projects')
+       return redirect()->route('home')
                ->with('success', 'Project created successfully.');
      }
 
