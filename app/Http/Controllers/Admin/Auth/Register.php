@@ -29,7 +29,9 @@ class Register extends Controller
         'role' => 'admin'
     ]);
 
-    return redirect('/admin/article')->with('success', 'Admin registered successfully');
+    return redirect()
+         ->route('admin.home')
+         ->with('success', 'Admin registered successfully');
   }
 
 

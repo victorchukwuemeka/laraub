@@ -8,7 +8,7 @@
 
     <!-- Sidebar Links -->
     <nav class="flex flex-col mt-4">
-        <a href="{{ route('admin.article')}}" class="px-4 py-2 text-white hover:bg-gray-700">Article </a>
+        <a href="{{ url('admin.article')}}" class="px-4 py-2 text-white hover:bg-gray-700">Article </a>
         <a href="{{ url('admin.listing.moderation')}}" class="px-4 py-2 text-white hover:bg-gray-700">Listing Moderation</a>
         <a href="{{ url('admin.blog.index')}}" class="px-4 py-2 text-white hover:bg-gray-700">Blog</a>
         <a href="{{ url('admin.communication.hub')}}" class="px-4 py-2 text-white hover:bg-gray-700">Communication Hub</a>

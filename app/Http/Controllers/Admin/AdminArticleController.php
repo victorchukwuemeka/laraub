@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class AdminArticleController extends Controller
 {
   public function index(){
-    $viewData['articles'] = Article::all();
+    $viewData['articles'] = Article::orderBy('created_at', 'desc')->get();
     return view('admin.article.index')->with('viewData', $viewData);
   }
 
