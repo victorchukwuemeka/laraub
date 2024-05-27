@@ -30,7 +30,7 @@ class Register extends Controller
     ]);
 
     return redirect()
-         ->route('admin.home')
+         ->route('admin.projects')
          ->with('success', 'Admin registered successfully');
   }
 
