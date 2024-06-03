@@ -1,49 +1,48 @@
 @extends('layouts.app')
 
 @section('content')
-<body class="bg-gray-100 h-screen flex items-center justify-center">
-  <div class="hero min-h-screen bg-base-200">
-    <div class="hero-content flex-col lg:flex-row-reverse">
-      <div class="text-center lg:text-left">
-        <h1 class="text-5xl font-bold">Welcome  back!</h1>
-        <p class="py-6">Please log in to access your account. If you encounter any issues,
-          feel free to contact our support team. Remember to keep your account credentials safe and secure.</p>
-
+<body class="bg-gray-100 h-screen  mt-16 flex items-center justify-center">
+  <div class="w-full m-16  max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden md:max-w-lg">
+    <div class="md:flex">
+      <div class="w-full p-6">
+        <div class="text-center mb-6">
+          <h1 class="text-3xl font-bold text-gray-900">Welcome Back!</h1>
+          <p class="text-gray-600">Please log in to access your account.</p>
+        </div>
+        <form action="{{ url('authenticate') }}" method="POST">
+          @csrf
+          <div class="mb-4">
+            <label for="email" class="block text-gray-700">Email Address</label>
+            <input type="email" name="email" id="email" placeholder="email@example.com" value="{{ old('email') }}" required
+                   class="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 @error('email') border-red-500 @enderror">
+            @error('email')
+              <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+            @enderror
+          </div>
+          <div class="mb-4">
+            <label for="password" class="block text-gray-700">Password</label>
+            <input type="password" name="password" id="password" placeholder="********" required
+                   class="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 @error('password') border-red-500 @enderror">
+            @error('password')
+              <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+            @enderror
+          </div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+              <input type="checkbox" id="remember_me" name="remember_me" class="h-4 w-4 text-blue-600">
+              <label for="remember_me" class="ml-2 text-gray-700">Remember Me</label>
+            </div>
+            <a href="#" class="text-sm text-blue-600 hover:underline">Forgot Password?</a>
+          </div>
+          <div class="mb-6">
+            <button type="submit" class="w-full px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Login</button>
+          </div>
+        </form>
+        <div class="text-center">
+          <p class="text-gray-600">Don't have an account? <a href="#" class="text-blue-600 hover:underline">Sign Up</a></p>
+        </div>
       </div>
-      <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-        <form action="{{ url('authenticate') }}" method="POST" class="card-body">
-           @csrf
-          <div class="form-control">
-           <label class="label">
-             <span class="label-text">Email</span>
-           </label>
-           <input type="email" name="email" placeholder="email" id="email"
-           class="input input-bordered @error('email') @enderror"
-             value="{{ old('email') }}" required />
-             @error('email')
-             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-             @enderror
-
-         </div>
-
-         <div class="form-control">
-           <label class="label">
-             <span class="label-text">Password</span>
-           </label>
-           <input type="password" id="password" name="password" placeholder="password"
-           class="input @error('password') input-bordered @enderror" required />
-
-           @error('password')
-           <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-           @enderror
-
-         </div>
-         <div class="form-control mt-6">
-           <button type="submit"  class="btn btn-primary">Login</button>
-         </div>
-       </form>
-     </div>
-   </div>
- </div>
+    </div>
+  </div>
 </body>
 @endsection
