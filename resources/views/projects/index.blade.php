@@ -35,7 +35,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             @foreach($projects as $project)
             <div class="flex items-start mb-2  mt-4 justify-center">
-                <div class="w-full max-w-md px-4 py-4 bg-white rounded-lg shadow-lg dark:bg-gray-800">
+                <div class="w-full max-w-md px-4 py-4 bg-white rounded-lg shadow-lg">
                     <div class="flex justify-center -mt-16 md:justify-end">
                         <img class="object-cover w-20 h-20 border-2 border-blue-500 rounded-full dark:border-blue-400"
                             alt="{{ $project->name }}"
@@ -59,7 +59,7 @@
                                 more
                             </a>
                         </div>
-                        
+
                         <a href="{{ $project->website }}" class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
                             <i class="fa-solid fa-link"></i>
                             visit site

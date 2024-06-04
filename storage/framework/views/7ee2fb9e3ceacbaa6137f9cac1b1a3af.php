@@ -2,14 +2,14 @@
     <div class="container flex flex-col px-6 py-10 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
         <div class="w-full lg:w-1/2">
             <div class="lg:max-w-lg">
-                <h1 class="text-3xl font-semibold tracking-wide text-gray-800 dark:text-white lg:text-4xl">
+                <h1 class="lg:text-5xl text-3xl font-semibold  text-gray-800  lg:text-4xl">
                     <?php echo e($project->name); ?>
 
                 </h1>
-                <p class="mt-4 text-gray-600 dark:text-gray-300">
+                <p class="mt-4 text-gray-800 ">
                     <?php echo e($project->description); ?>.
                 </p>
-                <p>
+                <p class="mt-4 text-gray-700">
                   <?php echo e($project->motto); ?>
 
                 </p>
@@ -29,7 +29,7 @@
                       GitHub Repository
                   </a>
                   <?php else: ?>
-                   <h2><?php echo e(__('No gitHub repo')); ?></h2>
+                   <h2 class="text-gray-600 text-2xl"><?php echo e(__('No gitHub repo')); ?></h2>
                   <?php endif; ?>
 
 

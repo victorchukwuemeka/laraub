@@ -4,13 +4,13 @@
     <div class="container flex flex-col px-6 py-10 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
         <div class="w-full lg:w-1/2">
             <div class="lg:max-w-lg">
-                <h1 class="text-3xl font-semibold tracking-wide text-gray-800 dark:text-white lg:text-4xl">
+                <h1 class="lg:text-5xl text-3xl font-semibold  text-gray-800  lg:text-4xl">
                     {{ $project->name }}
                 </h1>
-                <p class="mt-4 text-gray-600 dark:text-gray-300">
+                <p class="mt-4 text-gray-800 ">
                     {{ $project->description }}.
                 </p>
-                <p>
+                <p class="mt-4 text-gray-700">
                   {{ $project->motto }}
                 </p>
                 <div class="grid gap-6 mt-8 sm:grid-cols-2">
@@ -29,7 +29,7 @@
                       GitHub Repository
                   </a>
                   @else
-                   <h2>{{ __('No gitHub repo')}}</h2>
+                   <h2 class="text-gray-600 text-2xl">{{ __('No gitHub repo')}}</h2>
                   @endif
 
 
