@@ -43,7 +43,7 @@ class ProjectsController extends Controller
             'motto' => $request->input('motto'),
             'description' => $request->input('description'),
             'website' => $request->input('website'),
-            'github_repo' => $request->input('github_repo')
+            'github_repo' => $request->input('github_profile')
           ]);
           return redirect()->route('home')
                  ->with('success', 'Project created successfully.');
@@ -59,9 +59,9 @@ class ProjectsController extends Controller
 
   }
 
-  public function show(LaravelProjects $projects)
+  public function show(LaravelProjects $project)
   {
-     return view('projects.show', compact('project'));
+     return view('projects.show-project', compact('project'));
   }
 
 

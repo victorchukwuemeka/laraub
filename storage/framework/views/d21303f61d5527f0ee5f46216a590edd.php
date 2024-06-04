@@ -1,5 +1,6 @@
 <?php $__env->startSection('content'); ?>
 
+
 <div class="bg-gray-900 text-white pt-0 py-8 sm:py-16">
     <div class="container mx-auto text-center">
         <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">Welcome To laraub</h1>
@@ -32,7 +33,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <?php $__currentLoopData = $projects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $project): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="flex items-start mb-2  mt-4 justify-center">
-                <div class="w-full max-w-md px-8 py-4 bg-white rounded-lg shadow-lg dark:bg-gray-800">
+                <div class="w-full max-w-md px-4 py-4 bg-white rounded-lg shadow-lg dark:bg-gray-800">
                     <div class="flex justify-center -mt-16 md:justify-end">
                         <img class="object-cover w-20 h-20 border-2 border-blue-500 rounded-full dark:border-blue-400"
                             alt="<?php echo e($project->name); ?>"
@@ -52,11 +53,12 @@
                                 <span>Comment</span>
                             </a>
 
-                            <a href="<?php echo e(route('projects.edit',['project' => $project->id])); ?>"
+                            <a href="<?php echo e(route('projects.show',['project' => $project->id])); ?>"
                                 class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
                                 more
                             </a>
                         </div>
+                        
                         <a href="<?php echo e($project->website); ?>" class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
                             <i class="fa-solid fa-link"></i>
                             visit site
