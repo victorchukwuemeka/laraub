@@ -40,9 +40,9 @@
                             src="<?php echo e(asset('/storage/' . $project->image)); ?>">
                     </div>
 
-                    <h2 class="mt-2 text-xl font-semibold text-gray-800 dark:text-white md:mt-0"><?php echo e($project->name); ?></h2>
+                    <h2 class="mt-2 text-xl font-semibold text-gray-900  md:mt-0"><?php echo e($project->name); ?></h2>
 
-                    <p class="mt-2 text-sm text-gray-600 dark:text-gray-200">
+                    <p class="mt-2 text-sm text-gray-700">
                         <?php echo e($project->motto); ?>
 
                     </p>

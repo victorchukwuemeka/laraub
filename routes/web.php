@@ -11,6 +11,8 @@ use App\Http\Controllers\UserSkillsController;
 use App\Http\Controllers\UserCertificationsController;
 use App\Http\Controllers\TutorialController;
 use App\Http\Controllers\UserProfileImageController;
+use App\Http\Controllers\Ad\AdController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +25,6 @@ use App\Http\Controllers\UserProfileImageController;
 |
 */
 
-Route::get('/try', function(){
-  return view('try');
-});
 
 
 
@@ -50,10 +49,11 @@ Route::post('/logout', [LoginController::class, 'logout'])
 ->name('logout');
 
 
-Route::get('register', [RegisterController::class, 'register']);
+Route::get('register', [RegisterController::class, 'register'])->name('register');
 Route::post('store', [RegisterController::class, 'store'])->name('store');
 
 Route::middleware(['auth'])->group(function(){
+
   //route for users profile
   Route::get('profile/{userId}', [UserProfileController::class, 'showProfile'])->name('user.show');
   Route::get('/users/{userId}/edit', [UserProfileController::class, 'editProfileForm'])->name('user.edit');
@@ -61,6 +61,7 @@ Route::middleware(['auth'])->group(function(){
   // Update user profile
   Route::put('/users/{userId}/update', [UserProfileController::class, 'updateProfile'])
   ->name('user.update');
+
 
   // Show user projects
   Route::get('/projects', [UserProjectsController::class, 'projectsform'])
@@ -90,6 +91,13 @@ Route::middleware(['auth'])->group(function(){
   //the route handle the profile_image upload function
   Route::post('profile_image', [UserProfileImageController::class,'uploadProfileImage'])
   ->name('profile_image');
+
+  //the route for create an ad
+  Route::get('ads', [AdController::class, 'index'])->name('ads');
+  Route::get('create/ads', [AdController::class, 'create'])->name('create.ads');
+  Route::post('store/ads', [AdController::class, 'store'])->name('ads.store');
+
+
 });
 
 

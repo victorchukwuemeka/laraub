@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminArticleController;
 use App\Http\Controllers\Admin\Auth\Register;
 use App\Http\Controllers\Admin\AdminProjectsController;
+use App\Http\Controllers\Admin\AdminAdsController;
 
 
 
@@ -24,4 +25,9 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin/show/article/{id}', [AdminArticleController::class, 'show'])
     ->name('admin.show.article');
 
+  //route for admin ads
+  Route::get('/admin/ads',[AdminAdsController::class, 'index'])
+   ->name('admin.ads.index');
+  Route::post('/verify-ad/{id}', [AdminAdsController::class, 'verify'])
+    ->name('admin.verify-ad');
 });

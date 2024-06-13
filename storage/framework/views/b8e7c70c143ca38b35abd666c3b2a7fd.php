@@ -65,7 +65,7 @@ unset($__errorArgs, $__bag); ?>
           </div>
         </form>
         <div class="text-center">
-          <p class="text-gray-600">Don't have an account? <a href="#" class="text-blue-600 hover:underline">Sign Up</a></p>
+          <p class="text-gray-600">Don't have an account? <a href="<?php echo e(route('register')); ?>" class="text-blue-600 hover:underline">Sign Up</a></p>
         </div>
       </div>
     </div>

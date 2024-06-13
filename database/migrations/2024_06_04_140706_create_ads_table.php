@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('media')->nullable();
             $table->enum('media_type', ['image', 'video'])->nullable();
+            $table->boolean('verified')->default(false);
             $table->string('url');
             $table->timestamps();
 

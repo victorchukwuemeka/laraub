@@ -42,9 +42,9 @@
                             src="{{ asset('/storage/' . $project->image) }}">
                     </div>
 
-                    <h2 class="mt-2 text-xl font-semibold text-gray-800 dark:text-white md:mt-0">{{ $project->name }}</h2>
+                    <h2 class="mt-2 text-xl font-semibold text-gray-900  md:mt-0">{{ $project->name }}</h2>
 
-                    <p class="mt-2 text-sm text-gray-600 dark:text-gray-200">
+                    <p class="mt-2 text-sm text-gray-700">
                         {{ $project->motto }}
                     </p>
                     <div class="flex items-center justify-between mt-4">

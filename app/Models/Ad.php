@@ -11,7 +11,7 @@ class Ad extends Model
 
     protected $fillable = [
       'user_id', 'title', 'description',
-       'media', 'media_type', 'url'
+       'media','verified','media_type', 'url'
     ];
 
     public function user()
