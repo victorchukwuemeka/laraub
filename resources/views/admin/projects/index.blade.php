@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="mb-4">
+        <h1 class="text-3xl font-bold text-gray-900">
+            Total Projects: <span class="text-blue-600">
+            {{ $totalProjects }}</span>
+        </h1>
+    </div>
+      
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         @foreach($projects as $project)
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 relative">
@@ -11,6 +18,8 @@
                 <h3 class="text-xl font-semibold text-gray-800 dark:text-white">{{ $project->name }}</h3>
                 <p class="mt-2 text-gray-600 dark:text-gray-300">{{ $project->motto }}</p>
                 <p class="mt-2 text-gray-600 dark:text-gray-300">{{ $project->description }}</p>
+                <p class="text-gray-500 text-sm mt-4">Posted on: {{ $project->created_at->format('M d, Y h:i A') }}</p>
+
                 <div class="mt-4">
                     <a href="{{ $project->website }}" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank">Website</a>
                 </div>
@@ -29,5 +38,6 @@
             </div>
         @endforeach
     </div>
+    
 </div>
 @endsection

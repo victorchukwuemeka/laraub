@@ -6,7 +6,7 @@
                     <a href="/">
                         <text x="20" y="70" font-family="Arial, sans-serif" font-size="50" fill="#FFFFFF">Laraub</text>
                     </a>
-                    <a href="{{ route('ads') }}">
+                    <a href="<?php echo e(route('ads')); ?>">
                         <p class="max-w-sm mt-2 text-gray-400">
                             Advertising
                         </p>
@@ -52,8 +52,8 @@
         </div>
 
         <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-md mx-auto mt-6">
-            <form action="{{ route('subscribe') }}" method="POST" class="space-y-4">
-                @csrf
+            <form action="<?php echo e(route('subscribe')); ?>" method="POST" class="space-y-4">
+                <?php echo csrf_field(); ?>
                 <div class="text-center mb-4">
                     <h2 class="text-2xl font-bold text-gray-800">Subscribe to Our Newsletter</h2>
                     <p class="text-gray-600">Stay updated with our latest news and offers!</p>
@@ -78,3 +78,4 @@
         </div>
     </div>
 </footer>
+<?php /**PATH /home/victor/odinala/laraub/resources/views/layouts/footer.blade.php ENDPATH**/ ?>

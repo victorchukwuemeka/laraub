@@ -11,7 +11,9 @@ class AdminProjectsController extends Controller
   public function index()
   {
     $projects = LaravelProjects::orderBy('created_at', 'desc')->get();
-    return view('admin.projects.index', compact('projects'));
+    $totalProjects = LaravelProjects::count();
+
+    return view('admin.projects.index', compact('projects','totalProjects'));
   }
 
   public function destroy($id)

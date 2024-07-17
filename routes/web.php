@@ -12,6 +12,10 @@ use App\Http\Controllers\UserCertificationsController;
 use App\Http\Controllers\TutorialController;
 use App\Http\Controllers\UserProfileImageController;
 use App\Http\Controllers\Ad\AdController;
+use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\Subscriber;
+use App\Http\Controllers\SubscribersController;
 
 
 /*
@@ -100,5 +104,8 @@ Route::middleware(['auth'])->group(function(){
 
 });
 
+//subscribetion and news letter
+Route::post('/subscribe', [SubscribersController::class, 'store'])->name('subscribe');
+//Route::get('/send-updates', [NewsletterController::class, 'sendUpdates']);
 
 // Add routes for other UserController actions as needed...

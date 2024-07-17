@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Auth;
 class ProjectsController extends Controller
 {
   public function index(){
-     //$projects = LaravelProjects::all();
-     $projects = LaravelProjects::orderBy('created_at', 'desc')->get();
+     
+     $projects = LaravelProjects::orderBy('created_at', 'desc')->paginate(17);
     return view('projects.index', compact('projects'));
   }
 

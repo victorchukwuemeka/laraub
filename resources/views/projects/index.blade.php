@@ -7,7 +7,7 @@
     <div class="container mx-auto text-center">
         <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">Welcome To laraub</h1>
         <p class="text-lg sm:text-xl mb-8">
-        Explore the various projects and packages available
+         Explore the various projects and packages available
          to enhance your productivity and efficiency.
          These tools are designed to streamline your workflow,
          allowing you to accomplish tasks more quickly and effectively.
@@ -46,7 +46,9 @@
 
                     <p class="mt-2 text-sm text-gray-700">
                         {{ $project->motto }}
-                    </p>
+                    </p> 
+                    
+
                     <div class="flex items-center justify-between mt-4">
                         <div class="flex space-x-4">
                             <a href="#" class="flex items-center text-lg font-medium text-blue-600 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-500 transition-colors duration-200" tabindex="0" role="link">
@@ -69,6 +71,11 @@
             </div>
             @endforeach
         </div>
+    </div>
+    
+
+    <div class="mt-8 mb-0">
+        {{ $projects->links() }}
     </div>
 </div>
 

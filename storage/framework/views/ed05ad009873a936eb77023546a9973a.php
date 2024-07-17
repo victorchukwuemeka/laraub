@@ -45,7 +45,9 @@
                     <p class="mt-2 text-sm text-gray-700">
                         <?php echo e($project->motto); ?>
 
-                    </p>
+                    </p> 
+                    
+
                     <div class="flex items-center justify-between mt-4">
                         <div class="flex space-x-4">
                             <a href="#" class="flex items-center text-lg font-medium text-blue-600 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-500 transition-colors duration-200" tabindex="0" role="link">
@@ -69,17 +71,15 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
     </div>
-    <!-- resources/views/subscribe.blade.php -->
-<form action="<?php echo e(route('subscribe')); ?>" method="POST">
-    <?php echo csrf_field(); ?>
-    <label for="email">Subscribe to our newsletter:</label>
-    <input type="email" id="email" name="email" required>
-    <button type="submit">Subscribe</button>
-</form>
+    
 
+    <div class="mt-8 mb-0">
+        <?php echo e($projects->links()); ?>
+
+    </div>
 </div>
 
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/victor/blackpen/laraub/resources/views/projects/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/victor/odinala/laraub/resources/views/projects/index.blade.php ENDPATH**/ ?>

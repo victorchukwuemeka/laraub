@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminArticleController;
 use App\Http\Controllers\Admin\Auth\Register;
 use App\Http\Controllers\Admin\AdminProjectsController;
 use App\Http\Controllers\Admin\AdminAdsController;
+use App\Http\Controllers\Admin\AdminSubscribersController;
 
 
 
@@ -30,4 +31,9 @@ Route::middleware(['admin'])->group(function () {
    ->name('admin.ads.index');
   Route::post('/verify-ad/{id}', [AdminAdsController::class, 'verify'])
     ->name('admin.verify-ad');
+
+  //route for handling subcribers from admin
+  Route::get('admin/subscribers',[AdminSubscribersController::class, 'index'])
+     ->name('subscribers-admin');   
+  
 });
