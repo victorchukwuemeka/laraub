@@ -1,48 +1,31 @@
-<footer class="bg-gray-900  text-white">
+<footer class="bg-gray-900 text-white">
     <div class="container p-6 mx-auto">
         <div class="lg:flex">
             <div class="w-full -mx-6 lg:w-2/5">
                 <div class="px-6">
                     <a href="/">
-                          <text x="20" y="70" font-family="Arial, sans-serif" font-size="50" fill="#FFFFFF">Laraub</text>
-                        </svg>
+                        <text x="20" y="70" font-family="Arial, sans-serif" font-size="50" fill="#FFFFFF">Laraub</text>
                     </a>
                     <a href="<?php echo e(route('ads')); ?>">
-                      <p class="max-w-sm mt-2 text-gray-400">
-                           Advertising
-                      </p>
+                        <p class="max-w-sm mt-2 text-gray-400">
+                            Advertising
+                        </p>
                     </a>
-
-
                     <div class="flex mt-6 -mx-2">
-                        <a href="#"
-                            class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
-                            aria-label="Facebook">
+                        <a href="#" class="mx-2 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Facebook">
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C21.9939 17.5203 17.5203 21.9939 12 22ZM6.807 10.543C6.20862 10.5433 5.67102 10.9088 5.45054 11.465C5.23006 12.0213 5.37133 12.6558 5.807 13.066C5.92217 13.1751 6.05463 13.2643 6.199 13.33C6.18644 13.4761 6.18644 13.6229 6.199 13.769C6.199 16.009 8.814 17.831 12.028 17.831C15.242 17.831 17.858 16.009 17.858 13.769C17.8696 13.6229 17.8696 13.4761 17.858 13.33C18.4649 13.0351 18.786 12.3585 18.6305 11.7019C18.475 11.0453 17.8847 10.5844 17.21 10.593H17.157C16.7988 10.6062 16.458 10.7512 16.2 11C15.0625 10.2265 13.7252 9.79927 12.35 9.77L13 6.65L15.138 7.1C15.1931 7.60706 15.621 7.99141 16.131 7.992C16.1674 7.99196 16.2038 7.98995 16.24 7.986C16.7702 7.93278 17.1655 7.47314 17.1389 6.94094C17.1122 6.40873 16.6729 5.991 16.14 5.991C16.1022 5.99191 16.0645 5.99491 16.027 6C15.71 6.03367 15.4281 6.21641 15.268 6.492L12.82 6C12.7983 5.99535 12.7762 5.993 12.754 5.993C12.6094 5.99472 12.4851 6.09583 12.454 6.237L11.706 9.71C10.3138 9.7297 8.95795 10.157 7.806 10.939C7.53601 10.6839 7.17843 10.5422 6.807 10.543ZM12.18 16.524C12.124 16.524 12.067 16.524 12.011 16.524C11.955 16.524 11.898 16.524 11.842 16.524C11.0121 16.5208 10.2054 16.2497 9.542 15.751C9.49626 15.6958 9.47445 15.6246 9.4814 15.5533C9.48834 15.482 9.52348 15.4163 9.579 15.371C9.62737 15.3318 9.68771 15.3102 9.75 15.31C9.81233 15.31 9.87275 15.3315 9.921 15.371C10.4816 15.7818 11.159 16.0022 11.854 16C11.9027 16 11.9513 16 12 16C12.059 16 12.119 16 12.178 16C12.864 16.0011 13.5329 15.7863 14.09 15.386C14.1427 15.3322 14.2147 15.302 14.29 15.302C14.3653 15.302 14.4373 15.3322 14.49 15.386C14.5985 15.4981 14.5962 15.6767 14.485 15.786V15.746C13.8213 16.2481 13.0123 16.5208 12.18 16.523V16.524ZM14.307 14.08H14.291L14.299 14.041C13.8591 14.011 13.4994 13.6789 13.4343 13.2429C13.3691 12.8068 13.6162 12.3842 14.028 12.2269C14.4399 12.0697 14.9058 12.2202 15.1478 12.5887C15.3899 12.9572 15.3429 13.4445 15.035 13.76C14.856 13.9554 14.6059 14.0707 14.341 14.08H14.306H14.307ZM9.67 14C9.11772 14 8.67 13.5523 8.67 13C8.67 12.4477 9.11772 12 9.67 12C10.2223 12 10.67 12.4477 10.67 13C10.67 13.5523 10.2223 14 9.67 14Z">
-                                </path>
+                                <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zM6.807 10.543C6.209 10.543 5.671 10.909 5.451 11.465c-.221.557-.08 1.192.356 1.602.115.109.247.198.392.264-.013.146-.013.293 0 .439 0 2.24 2.615 4.062 5.829 4.062s5.858-1.822 5.858-4.062c.011-.146.011-.293 0-.439.607-.295.928-.971.773-1.628-.155-.657-.745-1.118-1.42-1.109h-.053c-.358.013-.699.158-.957.407-1.137-.774-2.474-1.201-3.849-1.23l.65-3.12 2.138.45c.055.507.483.892.993.892.036 0 .072-.002.108-.005.53-.053.925-.513.898-.993-.027-.482-.466-.9-.998-.9-.038.001-.076.004-.113.009-.317.034-.599.217-.759.493L12.82 6c-.021-.005-.043-.007-.065-.007-.144.001-.268.102-.299.243L11.706 9.71c-1.393.02-2.748.448-3.9 1.23-.27-.256-.628-.397-1-.397zm5.373 5.981c-.056 0-.113 0-.169-.001-.944-.004-1.75-.275-2.413-.774-.046-.054-.068-.125-.061-.196.007-.071.042-.137.097-.182.048-.039.108-.061.17-.061.062 0 .123.021.172.061.56.411 1.237.632 1.932.63.048 0 .097 0 .146 0 .059 0 .119 0 .178 0 .686 0 1.355-.215 1.913-.615.051-.043.121-.064.194-.064.073 0 .142.021.194.064.108.112.106.291-.005.401-.548.5-1.357.774-2.19.774zm2.127-2.444h-.016c-.44-.03-.8-.362-.865-.798-.065-.436.182-.858.593-1.015.411-.157.877-.006 1.119.362.242.369.195.857-.113 1.172-.179.196-.429.311-.694.32h-.015zm-4.637 0a1 1 0 01-.679-.319 1 1 0 01-.319-.682c0-.265.11-.52.319-.682a1 1 0 011.362 1.362c-.181.208-.44.321-.682.319z"></path>
                             </svg>
                         </a>
-
-                        <a href="#"
-                            class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
-                            aria-label="Facebook">
+                        <a href="#" class="mx-2 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Facebook">
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M2.00195 12.002C2.00312 16.9214 5.58036 21.1101 10.439 21.881V14.892H7.90195V12.002H10.442V9.80204C10.3284 8.75958 10.6845 7.72064 11.4136 6.96698C12.1427 6.21332 13.1693 5.82306 14.215 5.90204C14.9655 5.91417 15.7141 5.98101 16.455 6.10205V8.56104H15.191C14.7558 8.50405 14.3183 8.64777 14.0017 8.95171C13.6851 9.25566 13.5237 9.68693 13.563 10.124V12.002H16.334L15.891 14.893H13.563V21.881C18.8174 21.0506 22.502 16.2518 21.9475 10.9611C21.3929 5.67041 16.7932 1.73997 11.4808 2.01722C6.16831 2.29447 2.0028 6.68235 2.00195 12.002Z">
-                                </path>
+                                <path d="M2.002 12.002c.001 4.919 3.578 9.108 8.436 9.879V14.892H7.902V12.002h2.54V9.802c-.113-1.043.243-2.082.972-2.835.729-.753 1.755-1.144 2.801-1.065.751.012 1.5.079 2.241.2v2.459h-1.264c-.435-.057-.872.086-1.189.39-.317.304-.479.736-.44 1.173v1.879h2.771l-.443 2.891H13.563V21.88c5.255-.83 8.94-5.629 8.385-10.92C21.392 5.67 16.793 1.74 11.481 2.017 6.168 2.294 2.003 6.682 2.002 12.002z"></path>
                             </svg>
                         </a>
-
-                        <a href="#"
-                            class="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
-                            aria-label="Twitter">
+                        <a href="#" class="mx-2 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Twitter">
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path
-                              d="M23.954 4.569a9.89 9.89 0 01-2.825.775 4.932 4.932 0 002.163-2.723 9.863 9.863 0 01-3.127 1.194 4.916 4.916 0 00-8.384 4.482A13.944 13.944 0 011.675 3.149a4.914 4.914 0 001.524 6.573 4.9 4.9 0 01-2.229-.616v.061a4.913 4.913 0 003.946 4.817 4.9 4.9 0 01-2.224.085 4.914 4.914 0 004.588 3.415 9.867 9.867 0 01-6.1 2.104c-.39 0-.779-.023-1.17-.068a13.945 13.945 0 007.557 2.213c9.054 0 14.002-7.496 14.002-13.986 0-.213-.005-.426-.014-.637a10.012 10.012 0 002.457-2.548l.002-.003z">
-                            </path>
-                          </svg>
+                                <path d="M23.954 4.569a9.89 9.89 0 01-2.825.775 4.932 4.932 0 002.163-2.723 9.863 9.863 0 01-3.127 1.194 4.916 4.916 0 00-8.384 4.482A13.944 13.944 0 011.675 3.149a4.914 4.914 0 001.524 6.573 4.9 4.9 0 01-2.229-.616v.061a4.913 4.913 0 003.946 4.817 4.9 4.9 0 01-2.224.085 4.914 4.914 0 004.588 3.415 9.867 9.867 0 01-6.1 2.104c-.39 0-.779-.023-1.17-.068a13.945 13.945 0 007.557 2.213c9.054 0 14.002-7.496 14.002-13.986 0-.213-.005-.426-.014-.637a10.012 10.012 0 002.457-2.548l.002-.003z"></path>
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -53,29 +36,45 @@
                     <div>
                         <h3 class="text-gray-700 uppercase dark:text-white">About</h3>
                         <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Company</a>
-                        <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">community</a>
+                        <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Community</a>
                     </div>
-
                     <div>
                         <h3 class="text-gray-700 uppercase dark:text-white">Blog</h3>
-                        <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Tec</a>
+                        <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Tech</a>
                     </div>
-
-
-
                     <div>
                         <h3 class="text-gray-300 uppercase">Contact</h3>
-                        <span class="block mt-2 text-sm text-gray-400  hover:underline">+1 526 654 8965</span>
-                        <span class="block mt-2 text-sm text-gray-400  hover:underline">laraubblack@gmail</span>
+                        <span class="block mt-2 text-sm text-gray-400 hover:underline">+1 526 654 8965</span>
+                        <span class="block mt-2 text-sm text-gray-400 hover:underline">laraubblack@gmail.com</span>
                     </div>
                 </div>
             </div>
         </div>
 
+        <div class="bg-gray-100 p-6 rounded-lg shadow-md max-w-md mx-auto mt-6">
+            <form action="<?php echo e(route('subscribe')); ?>" method="POST" class="space-y-4">
+                <?php echo csrf_field(); ?>
+                <div class="text-center mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800">Subscribe to Our Newsletter</h2>
+                    <p class="text-gray-600">Stay updated with our latest news and offers!</p>
+                </div>
+                <div class="relative">
+                    <label for="email" class="text-sm font-medium text-gray-700 block mb-1">Email Address</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out" placeholder="you@example.com">
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150 ease-in-out">
+                    Subscribe
+                </button>
+            </form>
+            <p class="mt-4 text-xs text-gray-500 text-center">
+                By subscribing, you agree to our Terms of Service and Privacy Policy.
+            </p>
+        </div>
+
         <hr class="h-px my-6 bg-gray-200 border-none dark:bg-gray-700">
 
         <div>
-            <p class="text-center text-gray-500 dark:text-gray-400"> © Laraub 2020 - All rights reserved </p>
+            <p class="text-center text-gray-500 dark:text-gray-400">© Laraub 2020 - All rights reserved</p>
         </div>
     </div>
 </footer>
