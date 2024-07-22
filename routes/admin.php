@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\Auth\Register;
 use App\Http\Controllers\Admin\AdminProjectsController;
 use App\Http\Controllers\Admin\AdminAdsController;
 use App\Http\Controllers\Admin\AdminSubscribersController;
-
+use App\Http\Controllers\Admin\UsersController;
 
 
 
@@ -36,4 +36,6 @@ Route::middleware(['admin'])->group(function () {
   Route::get('admin/subscribers',[AdminSubscribersController::class, 'index'])
      ->name('subscribers-admin');   
   
+  //route for users in the admin 
+  Route::get('admin/users', [UsersController::class, 'index'])->name('admin-users');
 });
