@@ -15,6 +15,7 @@ class AdminAdsController extends Controller
       return view('admin.ads.index', compact('ads'));
     }
 
+    
     public function verify($id)
     {
         $ad = Ad::find($id);

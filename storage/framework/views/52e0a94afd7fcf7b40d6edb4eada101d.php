@@ -7,7 +7,7 @@
                         <text x="20" y="70" font-family="Arial, sans-serif" font-size="50" fill="#FFFFFF">Laraub</text>
                     </a>
                     <a href="<?php echo e(route('ads')); ?>">
-                        <p class="max-w-sm mt-2 text-gray-400">
+                        <p class="max-w-sm mt-2 text-gray-200">
                             Advertising
                         </p>
                     </a>
@@ -44,7 +44,7 @@
                     </div>
                     <div>
                         <h3 class="text-gray-300 uppercase">Contact</h3>
-                        <span class="block mt-2 text-sm text-gray-400 hover:underline">+1 526 654 8965</span>
+                        <span class="block mt-2 text-sm text-gray-400 hover:underline">09055948163</span>
                         <span class="block mt-2 text-sm text-gray-400 hover:underline">laraubblack@gmail.com</span>
                     </div>
                 </div>
@@ -56,13 +56,15 @@
                 <?php echo csrf_field(); ?>
                 <div class="text-center mb-4">
                     <h2 class="text-2xl font-bold text-gray-800">Subscribe to Our Newsletter</h2>
-                    <p class="text-gray-600">Stay updated with our latest news and offers!</p>
+                    <p class="text-gray-600">Stay updated with our latest laravel packages!</p>
                 </div>
                 <div class="relative">
                     <label for="email" class="text-sm font-medium text-gray-700 block mb-1">Email Address</label>
                     <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out" placeholder="you@example.com">
                 </div>
-                <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150 ease-in-out">
+                <button type="submit" class="w-full bg-gray-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-gray-700 
+                focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 
+                transition duration-150 ease-in-out">
                     Subscribe
                 </button>
             </form>
@@ -74,7 +76,7 @@
         <hr class="h-px my-6 bg-gray-200 border-none dark:bg-gray-700">
 
         <div>
-            <p class="text-center text-gray-500 dark:text-gray-400">© Laraub 2020 - All rights reserved</p>
+            <p class="text-center text-gray-300 dark:text-gray-400">© Laraub 2020 - All rights reserved</p>
         </div>
     </div>
 </footer>

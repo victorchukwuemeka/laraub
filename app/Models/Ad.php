@@ -13,6 +13,7 @@ class Ad extends Model
       'user_id', 'title', 'description',
        'media','verified','media_type', 'url'
     ];
+        
 
     public function user()
     {

@@ -7,6 +7,7 @@
             <p>{{ session('success') }}</p>
         </div>
     @endif
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach($ads as $ad)
             <div class="bg-white rounded-lg shadow-md overflow-hidden">
@@ -29,6 +30,24 @@
                     </form>
                 </div>
             </div>
+        @endforeach
+    </div>
+    <div>
+        verified adds
+
+        @foreach($ads as $ad)
+          @if($ad->verified = true)
+          <div class="p-4">
+            <h2 class="text-xl font-semibold text-gray-800 mb-2">{{ $ad->title }}</h2>
+            <p class="text-gray-600 mb-4">{{ $ad->description }}</p>
+            <p class="text-gray-500">Submitted by: {{ $ad->user->name }}</p>
+         </div>
+         <div class="p-4">
+            <a href="{{ $ad->url }}" target="_blank">
+                <img src="{{ asset('/storage/'. $ad->media) }}" alt="{{ $ad->title }}" class="w-full h-48 object-cover">
+            </a>
+        </div>
+          @endif
         @endforeach
     </div>
 </div>

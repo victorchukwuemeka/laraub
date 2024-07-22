@@ -32,7 +32,7 @@
 </div>
 <div class="bg-gray-100 py-16">
     <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             @foreach($projects as $project)
             <div class="flex items-start mb-2  mt-4 justify-center">
                 <div class="w-full max-w-md px-4 py-4 bg-white rounded-lg shadow-lg">
@@ -77,6 +77,25 @@
     <div class="mt-8 mb-0">
         {{ $projects->links() }}
     </div>
+    
+    <div class="col-md-4">
+    @if ($ad)
+    <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+        <a href="{{ $ad->url }}" target="_blank" class="block">
+            <div class="p-4">
+                <a href="{{ $ad->url }}" target="_blank">
+                    <img src="{{ asset('/storage/'. $ad->media) }}" alt="{{ $ad->title }}" class="w-full h-48 object-cover">
+                </a>
+            </div>
+            <div class="p-4 bg-gray-50">
+                <h3 class="text-lg font-semibold text-gray-800 text-center">{{ $ad->description }}</h3>
+            </div>
+        </a>
+    </div>
+    @else
+    <p class="text-center text-gray-600 italic">No verified ads available.</p>
+    @endif
+</div>
 </div>
 
 

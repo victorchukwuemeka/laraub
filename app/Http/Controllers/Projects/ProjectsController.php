@@ -7,14 +7,17 @@ use Illuminate\Http\Request;
 use App\Models\LaravelProjects;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Ad;
 
 
 class ProjectsController extends Controller
 {
   public function index(){
      
-     $projects = LaravelProjects::orderBy('created_at', 'desc')->paginate(17);
-    return view('projects.index', compact('projects'));
+     $projects = LaravelProjects::orderBy('created_at', 'desc')->paginate(15);
+     // Fetch the latest verified ad
+    $ad = Ad::where('verified', true)->orderBy('created_at', 'desc')->first();
+    return view('projects.index', compact('projects','ad'));
   }
 
   public function create(){

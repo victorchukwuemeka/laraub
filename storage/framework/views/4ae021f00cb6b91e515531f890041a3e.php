@@ -6,6 +6,7 @@
             <p><?php echo e(session('success')); ?></p>
         </div>
     <?php endif; ?>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <?php $__currentLoopData = $ads; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ad): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="bg-white rounded-lg shadow-md overflow-hidden">
@@ -28,6 +29,24 @@
                     </form>
                 </div>
             </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </div>
+    <div>
+        verified adds
+
+        <?php $__currentLoopData = $ads; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ad): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          <?php if($ad->verified = true): ?>
+          <div class="p-4">
+            <h2 class="text-xl font-semibold text-gray-800 mb-2"><?php echo e($ad->title); ?></h2>
+            <p class="text-gray-600 mb-4"><?php echo e($ad->description); ?></p>
+            <p class="text-gray-500">Submitted by: <?php echo e($ad->user->name); ?></p>
+         </div>
+         <div class="p-4">
+            <a href="<?php echo e($ad->url); ?>" target="_blank">
+                <img src="<?php echo e(asset('/storage/'. $ad->media)); ?>" alt="<?php echo e($ad->title); ?>" class="w-full h-48 object-cover">
+            </a>
+        </div>
+          <?php endif; ?>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
 </div>
