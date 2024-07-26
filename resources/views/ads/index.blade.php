@@ -24,6 +24,7 @@
                     <th class="py-2 px-4">Description</th>
                     <th class="py-2 px-4">Media</th>
                     <th class="py-2 px-4">Status</th>
+                    <th class="py-2 px-4">Payment</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,7 +35,6 @@
 
                         <td class="py-2 px-4">
                             @if($ad->media_type == 'image')
-
                                 <img src="{{ asset('/storage/'. $ad->media)}}" alt="Ad Image" class="w-20 h-20 object-cover">
                             @elseif($ad->media_type == 'video')
                                 <video controls class="w-20 h-20 object-cover">
@@ -47,6 +47,17 @@
                             <span class="inline-block px-3 py-1 rounded-full text-sm font-semibold {{ $ad->verified ? 'bg-green-500 text-white' : 'bg-yellow-500 text-black' }}">
                                 {{ $ad->verified ? 'Verified' : 'Pending Verification' }}
                             </span>
+                        </td>
+                        <td class="py-2 px-4">
+                            @if($ad->payment_status == 'paid')
+                                <span class="inline-block px-3 py-1 rounded-full text-sm font-semibold bg-green-500 text-white">
+                                    Paid
+                                </span>
+                            @else
+                                <a href="{{ route('ads.payment', $ad->id) }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                    Pay Now
+                                </a>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

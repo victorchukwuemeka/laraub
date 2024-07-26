@@ -22,6 +22,7 @@
                     <th class="py-2 px-4">Description</th>
                     <th class="py-2 px-4">Media</th>
                     <th class="py-2 px-4">Status</th>
+                    <th class="py-2 px-4">Payment</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,7 +33,6 @@
 
                         <td class="py-2 px-4">
                             <?php if($ad->media_type == 'image'): ?>
-
                                 <img src="<?php echo e(asset('/storage/'. $ad->media)); ?>" alt="Ad Image" class="w-20 h-20 object-cover">
                             <?php elseif($ad->media_type == 'video'): ?>
                                 <video controls class="w-20 h-20 object-cover">
@@ -46,6 +46,17 @@
                                 <?php echo e($ad->verified ? 'Verified' : 'Pending Verification'); ?>
 
                             </span>
+                        </td>
+                        <td class="py-2 px-4">
+                            <?php if($ad->payment_status == 'paid'): ?>
+                                <span class="inline-block px-3 py-1 rounded-full text-sm font-semibold bg-green-500 text-white">
+                                    Paid
+                                </span>
+                            <?php else: ?>
+                                <a href="<?php echo e(route('ads.payment', $ad->id)); ?>" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                    Pay Now
+                                </a>
+                            <?php endif; ?>
                         </td>
                     </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
