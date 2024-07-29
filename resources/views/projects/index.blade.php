@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <div class="bg-gray-900 text-white pt-0 py-8 sm:py-16">
     <div class="container mx-auto text-center">
         <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">Welcome To laraub</h1>
@@ -61,11 +60,11 @@
                                 more
                             </a>
                         </div>
-
-                        <a href="{{ $project->website }}" class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
+                        <a href="{{ $project->website ?? $project->github_repo }}" class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
                             <i class="fa-solid fa-link"></i>
                             visit site
                         </a>
+                        
                     </div>
                 </div>
             </div>

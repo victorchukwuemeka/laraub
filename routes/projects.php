@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Projects\ProjectsController;
 use App\Http\Controllers\ProjectsCommentsController;
-
+use App\Http\Controllers\SearchController;
 
 
 Route::get('/',[
@@ -18,6 +18,9 @@ Route::get('/projects/{project}', [ProjectsController::class, 'show'])->name('pr
 Route::get('/projects/{project}/edit', [ProjectsController::class, 'edit'])->name('projects.edit');
 Route::put('/projects/{project}', [ProjectsController::class, 'update'])->name('projects.update');
 Route::delete('/projects/{project}', [ProjectsController::class, 'destroy'])->name('projects.destroy');
+
+
+Route::get('/search',[SearchController::class, 'search'])->name('search');
 
 
 //project comment 
