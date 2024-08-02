@@ -46,26 +46,28 @@
                     <p class="mt-2 text-sm text-gray-700">
                         {{ $project->motto }}
                     </p> 
-                    
-
                     <div class="flex items-center justify-between mt-4">
                         <div class="flex space-x-4">
                             <a href="#" class="flex items-center text-lg font-medium text-blue-600 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-500 transition-colors duration-200" tabindex="0" role="link">
                                 <i class="fa-regular fa-comment text-xl mr-2"></i>
-                                <span>Comment</span>
+                                <span></span>
                             </a>
-
-                            <a href="{{ route('projects.show',['project' => $project->id]) }}"
-                                class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
-                                more
+                            <a href="{{ route('projects.show', ['project' => $project->id]) }}" class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
+                                view page 
                             </a>
                         </div>
-                        <a href="{{ $project->website ?? $project->github_repo }}" class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
-                            <i class="fa-solid fa-link"></i>
-                            visit site
-                        </a>
-                        
+                        <div class="flex space-x-4 items-center">
+                            <a href="{{ $project->website ?? $project->github_repo }}" class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
+                                <i class="fa-solid fa-link"></i>
+                                visit site
+                            </a>
+                            <span class="text-sm text-gray-600">
+                                <i class="fa-regular fa-eye text-gray-600 mr-1"></i>
+                                {{ $project->view_count }} views
+                            </span>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
             @endforeach

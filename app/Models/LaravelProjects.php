@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Traits\Viewable;
+
 
 class LaravelProjects extends Model
 {
@@ -14,7 +16,7 @@ class LaravelProjects extends Model
 
     protected $fillable = [
       'image','user_id','name', 'motto','description',
-      'website', 'github_repo'
+      'website', 'github_repo','view_count'
     ];
 
     //relationships associated with laravel Projects
