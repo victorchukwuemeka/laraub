@@ -4,15 +4,9 @@
 
 <div class="bg-gray-900 text-white pt-0 py-8 sm:py-16">
     <div class="container mx-auto text-center">
-        <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">Welcome To laraub</h1>
-        <p class="text-lg sm:text-xl mb-8">
-         Explore the various projects and packages available
-         to enhance your productivity and efficiency.
-         These tools are designed to streamline your workflow,
-         allowing you to accomplish tasks more quickly and effectively.
-         By integrating these resources into your processes,
-        you can significantly reduce the time and effort required to achieve your goals.
-        </p>
+        <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">
+            {{__("Find The Latest Laravel Packages")}}
+        </h1>
         @auth
         <a href="{{ route('projects.create') }}"
           class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 sm:py-3

@@ -109,3 +109,4 @@ Route::post('/subscribe', [SubscribersController::class, 'store'])->name('subscr
 //Route::get('/send-updates', [NewsletterController::class, 'sendUpdates']);
 
 // Add routes for other UserController actions as needed...
+

@@ -67,7 +67,7 @@ class ProjectsController extends Controller
       //increasing the view count.
       $project->increment('view_count');
       //adding six projects to the shw page .
-      $relatedProjects = LaravelProjects::where('id', '!=', $project->id)->take(6)->get();
+      $relatedProjects = LaravelProjects::where('id', '!=', $project->id)->inRandomOrder()->take(6)->get();
       //displaying the project in the show page 
      return view('projects.show-project', compact('project', 'relatedProjects'));
   }
