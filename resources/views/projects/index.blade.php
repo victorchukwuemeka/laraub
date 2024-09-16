@@ -74,23 +74,21 @@
     </div>
     
     <div class="col-md-4">
-    @if ($ad)
-    <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+        @if ($ad)
+    <div class="bg-white rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden">
         <a href="{{ $ad->url }}" target="_blank" class="block">
-            <div class="p-4">
-                <a href="{{ $ad->url }}" target="_blank">
-                    <img src="{{ asset('/storage/'. $ad->media) }}" alt="{{ $ad->title }}" class="w-full h-48 object-cover">
-                </a>
+            <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+                <img src="{{ asset('/storage/'. $ad->media) }}" alt="{{ $ad->title }}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
             </div>
             <div class="p-4 bg-gray-50">
                 <h3 class="text-lg font-semibold text-gray-800 text-center">{{ $ad->description }}</h3>
             </div>
         </a>
     </div>
-    @else
+@else
     <p class="text-center text-gray-600 italic">No verified ads available.</p>
-    @endif
-</div>
+@endif
+    </div>
 </div>
 
 

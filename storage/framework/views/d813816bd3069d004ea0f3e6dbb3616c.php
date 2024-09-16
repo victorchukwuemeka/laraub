@@ -70,6 +70,19 @@
 
                 <span class="mx-2 text-sm font-medium">Users</span>
             </a>
+
+            <a href="<?php echo e(route('admin-blog')); ?>" class="block transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700">
+                <div class="flex items-center justify-between p-3 bg-white rounded-lg shadow-md dark:bg-gray-800">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200">Blog Navigation</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500 dark:text-gray-400 transition-transform duration-300 group-hover:rotate-90">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </div>
+            </a>
+            
         </nav>
 
         <div>
@@ -94,17 +107,8 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg>
                 </button>
-
-                <button class="flex items-center justify-between w-full px-3 py-2 text-xs font-medium text-gray-700 transition-colors duration-300 transform bg-gray-100 rounded-lg dark:bg-gray-800 dark:text-gray-200">
-                    <div class="flex items-center gap-x-2 ">
-                        <span class="w-2 h-2 rounded-full bg-slate-500"></span>
-                        <span>Blog navigation</span>
-                    </div>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 rtl:rotate-180">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                    </svg>
-                </button>
+                 
+               
 
                 <button class="flex items-center justify-between w-full px-3 py-2 text-xs font-medium text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
                     <div class="flex items-center gap-x-2 ">

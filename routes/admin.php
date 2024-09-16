@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\AdminProjectsController;
 use App\Http\Controllers\Admin\AdminAdsController;
 use App\Http\Controllers\Admin\AdminSubscribersController;
 use App\Http\Controllers\Admin\UsersController;
-
+use App\Http\Controllers\Admin\AdminBlogPostController;
 
 
 
@@ -38,4 +38,27 @@ Route::middleware(['admin'])->group(function () {
   
   //route for users in the admin 
   Route::get('admin/users', [UsersController::class, 'index'])->name('admin-users');
+
+
+
+
+
+  //route for admin blog faeture
+  Route::get('admin/blog', [AdminBlogPostController::class, 'index'])->name('admin-blog');
+
+  Route::get('admin/blog/create', [AdminBlogPostController::class, 'create'])
+    ->name('admin.blog-posts.create');
+  
+  Route::get('admin/blog/{id}/edit', [AdminBlogPostController::class, 'edit'])
+        ->name('edit.article');
+
+  Route::put('admin/blog/{id}', [AdminBlogPostController::class, 'update'])
+    ->name('article.update');
+  
+   Route::delete('admn/delete/blog/{id}', [AdminBlogPostController::class, 'delete'])
+        ->name('admin.article');
+  
+  Route::post('admin/blog/post', [AdminBlogPostController::class, 'store'])
+        ->name('admin.blog-posts.store');
+
 });
