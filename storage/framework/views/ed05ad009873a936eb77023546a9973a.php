@@ -73,26 +73,44 @@
         <?php echo e($projects->links()); ?>
 
     </div>
+
     
-    <div class="col-md-4">
-        <?php if($ad): ?>
-    <div class="bg-white rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden">
-        <a href="<?php echo e($ad->url); ?>" target="_blank" class="block">
-            <div class="aspect-w-16 aspect-h-9 overflow-hidden">
-                <img src="<?php echo e(asset('/storage/'. $ad->media)); ?>" alt="<?php echo e($ad->title); ?>" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+    <div class="flex flex-col items-center py-10 bg-gray-50">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8"><?php echo e(__('Partners')); ?></h2>
+        
+        <div class="flex flex-wrap justify-center w-full max-w-screen-xl">
+            <?php $__empty_1 = true; $__currentLoopData = $sponsors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sponsor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+            <div class="w-full sm:w-1/2 lg:w-1/3 p-4">
+                <div class="bg-white rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl overflow-hidden">
+                    <a href="<?php echo e($sponsor->url); ?>" target="_blank" class="block">
+                        <div class="relative pb-9/16 overflow-hidden rounded-t-xl">
+                            <img src="<?php echo e(asset('/storage/' . $sponsor->media)); ?>" 
+                                 alt="<?php echo e($sponsor->title); ?>" 
+                                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 bg-white">
+                            <h3 class="text-lg font-semibold text-gray-700 text-center mb-3">
+                                <?php echo e($sponsor->title); ?>
+
+                            </h3>
+                            <p class="text-gray-500 text-center">
+                                <?php echo e($sponsor->description); ?>
+
+                            </p>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="p-4 bg-gray-50">
-                <h3 class="text-lg font-semibold text-gray-800 text-center"><?php echo e($ad->description); ?></h3>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+            <div class="w-full">
+                <p class="text-center text-gray-500 italic">No verified ads available.</p>
             </div>
-        </a>
+            <?php endif; ?>
+        </div>
     </div>
-<?php else: ?>
-    <p class="text-center text-gray-600 italic">No verified ads available.</p>
-<?php endif; ?>
-    </div>
+    
+
 </div>
-
-
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/victor/odinala/laraub/resources/views/projects/index.blade.php ENDPATH**/ ?>

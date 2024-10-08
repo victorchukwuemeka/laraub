@@ -72,24 +72,40 @@
     <div class="mt-8 mb-0">
         {{ $projects->links() }}
     </div>
+
     
-    <div class="col-md-4">
-        @if ($ad)
-    <div class="bg-white rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden">
-        <a href="{{ $ad->url }}" target="_blank" class="block">
-            <div class="aspect-w-16 aspect-h-9 overflow-hidden">
-                <img src="{{ asset('/storage/'. $ad->media) }}" alt="{{ $ad->title }}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+    <div class="flex flex-col items-center py-10 bg-gray-50">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">{{ __('Partners') }}</h2>
+        
+        <div class="flex flex-wrap justify-center w-full max-w-screen-xl">
+            @forelse ($sponsors as $sponsor)
+            <div class="w-full sm:w-1/2 lg:w-1/3 p-4">
+                <div class="bg-white rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl overflow-hidden">
+                    <a href="{{ $sponsor->url }}" target="_blank" class="block">
+                        <div class="relative pb-9/16 overflow-hidden rounded-t-xl">
+                            <img src="{{ asset('/storage/' . $sponsor->media) }}" 
+                                 alt="{{ $sponsor->title }}" 
+                                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 bg-white">
+                            <h3 class="text-lg font-semibold text-gray-700 text-center mb-3">
+                                {{ $sponsor->title }}
+                            </h3>
+                            <p class="text-gray-500 text-center">
+                                {{ $sponsor->description }}
+                            </p>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="p-4 bg-gray-50">
-                <h3 class="text-lg font-semibold text-gray-800 text-center">{{ $ad->description }}</h3>
+            @empty
+            <div class="w-full">
+                <p class="text-center text-gray-500 italic">No verified ads available.</p>
             </div>
-        </a>
+            @endforelse
+        </div>
     </div>
-@else
-    <p class="text-center text-gray-600 italic">No verified ads available.</p>
-@endif
-    </div>
+    
+
 </div>
-
-
 @endsection
