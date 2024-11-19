@@ -104,6 +104,9 @@ Route::middleware(['auth'])->group(function(){
 
 });
 
+Route::get('/ad/{id}/visit', [AdController::class, 'trackVisit'])
+ ->name('ad.visit');
+
 //subscribetion and news letter
 Route::post('/subscribe', [SubscribersController::class, 'store'])->name('subscribe');
 //Route::get('/send-updates', [NewsletterController::class, 'sendUpdates']);
