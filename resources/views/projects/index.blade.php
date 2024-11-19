@@ -4,15 +4,9 @@
 
 <div class="bg-gray-900 text-white pt-0 py-8 sm:py-16">
     <div class="container mx-auto text-center">
-        <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">Welcome To laraub</h1>
-        <p class="text-lg sm:text-xl mb-8">
-         Explore the various projects and packages available
-         to enhance your productivity and efficiency.
-         These tools are designed to streamline your workflow,
-         allowing you to accomplish tasks more quickly and effectively.
-         By integrating these resources into your processes,
-        you can significantly reduce the time and effort required to achieve your goals.
-        </p>
+        <h1 class="text-3xl sm:text-5xl font-extrabold mb-4">
+            {{__("Find The Latest Laravel Packages")}}
+        </h1>
         @auth
         <a href="{{ route('projects.create') }}"
           class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 sm:py-3
@@ -46,26 +40,28 @@
                     <p class="mt-2 text-sm text-gray-700">
                         {{ $project->motto }}
                     </p> 
-                    
-
                     <div class="flex items-center justify-between mt-4">
                         <div class="flex space-x-4">
                             <a href="#" class="flex items-center text-lg font-medium text-blue-600 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-500 transition-colors duration-200" tabindex="0" role="link">
                                 <i class="fa-regular fa-comment text-xl mr-2"></i>
-                                <span>Comment</span>
+                                <span></span>
                             </a>
-
-                            <a href="{{ route('projects.show',['project' => $project->id]) }}"
-                                class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
-                                more
+                            <a href="{{ route('projects.show', ['project' => $project->id]) }}" class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
+                                view page 
                             </a>
                         </div>
-                        <a href="{{ $project->website ?? $project->github_repo }}" class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
-                            <i class="fa-solid fa-link"></i>
-                            visit site
-                        </a>
-                        
+                        <div class="flex space-x-4 items-center">
+                            <a href="{{ $project->website ?? $project->github_repo }}" class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
+                                <i class="fa-solid fa-link"></i>
+                                visit site
+                            </a>
+                            <span class="text-sm text-gray-600">
+                                <i class="fa-regular fa-eye text-gray-600 mr-1"></i>
+                                {{ $project->view_count }} views
+                            </span>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
             @endforeach
@@ -76,26 +72,41 @@
     <div class="mt-8 mb-0">
         {{ $projects->links() }}
     </div>
+
     
-    <div class="col-md-4">
-    @if ($ad)
-    <div class="bg-gray-100 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-        <a href="{{ $ad->url }}" target="_blank" class="block">
-            <div class="p-4">
-                <a href="{{ $ad->url }}" target="_blank">
-                    <img src="{{ asset('/storage/'. $ad->media) }}" alt="{{ $ad->title }}" class="w-full h-48 object-cover">
-                </a>
+    <div class="flex flex-col items-center py-10 bg-gray-50">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">{{ __('Partners') }}</h2>
+        
+        <div class="flex flex-wrap justify-center w-full max-w-screen-xl">
+            @forelse ($sponsors as $sponsor)
+            <div class="w-full sm:w-1/2 lg:w-1/3 p-4">
+                <div class="bg-white rounded-xl shadow-lg transition-all duration-300 transform 
+                     hover:-translate-y-2 hover:shadow-2xl overflow-hidden">
+                    <a href="{{route('ad.visit', $sponsor->id)}}" target="_blank" class="block">
+                        <div class="relative pb-9/16 overflow-hidden rounded-t-xl">
+                            <img src="{{ asset('/storage/' . $sponsor->media) }}" 
+                                 alt="{{ $sponsor->title }}" 
+                                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 bg-white">
+                            <h3 class="text-lg font-semibold text-gray-700 text-center mb-3">
+                                {{ $sponsor->title }}
+                            </h3>
+                            <p class="text-gray-500 text-center">
+                                {{ $sponsor->description }}
+                            </p>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="p-4 bg-gray-50">
-                <h3 class="text-lg font-semibold text-gray-800 text-center">{{ $ad->description }}</h3>
+            @empty
+            <div class="w-full">
+                <p class="text-center text-gray-500 italic">No verified ads available.</p>
             </div>
-        </a>
+            @endforelse
+        </div>
     </div>
-    @else
-    <p class="text-center text-gray-600 italic">No verified ads available.</p>
-    @endif
-</div>
-</div>
+    
 
-
+</div>
 @endsection

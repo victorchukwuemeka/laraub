@@ -13,11 +13,12 @@ use App\Models\Ad;
 class ProjectsController extends Controller
 {
   public function index(){
-     
-     $projects = LaravelProjects::orderBy('created_at', 'desc')->paginate(15);
-     // Fetch the latest verified ad
-    $ad = Ad::where('verified', true)->orderBy('created_at', 'desc')->first();
-    return view('projects.index', compact('projects','ad'));
+
+    $projects = LaravelProjects::orderBy('created_at', 'desc')->paginate(15);
+
+    // Fetch the latest verified ad
+    $sponsors = Ad::where('verified', true)->orderBy('created_at', 'desc')->paginate(6);
+    return view('projects.index', compact('projects','sponsors'));
   }
 
   public function create(){

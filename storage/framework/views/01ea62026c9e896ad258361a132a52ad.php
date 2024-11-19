@@ -11,7 +11,7 @@
    <script src="https://cdn.tailwindcss.com"></script>
 
 
-   
+    <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
@@ -29,32 +29,6 @@
     <script src="https://kit.fontawesome.com/fd683e659d.js" crossorigin="anonymous"></script>
 
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16596938078"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-16596938078');
-</script>
-
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GDYY7JW1LL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-GDYY7JW1LL');
-</script>
-
-<!-- Google tag (gtag.js) --> 
-<script async src=" https://www.googletagmanager.com/gtag/js?id=AW-16615790495 "></script> 
-<script> window. dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-16615790495');
- </script>
-
 <body class="min-h-screen font-sans antialiased flex flex-col">
 <!--<div id="app">
 </div>-->
