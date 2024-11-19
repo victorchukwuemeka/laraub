@@ -17,4 +17,12 @@ return new class extends Migration {
             $table->unique(['field', 'record_type', 'record_id']);
         });
     }
+
+     /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('rich_texts');
+    }
 };
