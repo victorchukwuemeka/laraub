@@ -11,7 +11,7 @@
    <script src="https://cdn.tailwindcss.com"></script>
 
 
-    <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
+
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
