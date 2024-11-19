@@ -50,4 +50,18 @@ class AdController extends Controller
          ->with('success', 'Ad created successfully.');
     }
 
+     public function trackVisit($id)
+     {
+        $ad = Ad::find($id);
+
+        if (!$ad) {
+            return redirect()->back()->with('error', 'Ad not found.');
+        }
+
+        // Increment the visit count
+        $ad->increment('clicks');
+
+        // Redirect to the ad's URL
+        return redirect($ad->url);
+    }
 }
