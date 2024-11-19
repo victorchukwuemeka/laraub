@@ -10,25 +10,26 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {   
-        if (!app()->environment('production')) {
-             Schema::table('ads', function (Blueprint $table) {
+    {
+        // Check if the 'clicks' column does not exist
+        if (!Schema::hasColumn('ads', 'clicks')) {
+            
+            Schema::table('ads', function (Blueprint $table) {
                 $table->unsignedBigInteger('clicks')->default(0)->after('url');
             });
         }
-       
     }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
-    {   
-        if (!app()->environment('production')) {
-             Schema::table('ads', function (Blueprint $table) {
+    {
+        // Check if the 'clicks' column exists before dropping it
+        if (Schema::hasColumn('ads', 'clicks')) {
+            Schema::table('ads', function (Blueprint $table) {
                 $table->dropColumn('clicks');
             });
         }
-       
     }
 };
