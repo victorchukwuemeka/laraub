@@ -64,8 +64,16 @@ class ProjectsController extends Controller
   }
 
   public function show(LaravelProjects $project)
-  {
-     return view('projects.show-project', compact('project'));
+  {   
+     //increasing the view count.
+     $project->increment('view_count');
+
+     //adding six projects to the shw page .
+     $relatedProjects = LaravelProjects::where('id', '!=', $project->id)
+                         ->inRandomOrder()
+                         ->take(6)->get();
+
+     return view('projects.show-project', compact('project', 'relatedProjects'));
   }
 
 
