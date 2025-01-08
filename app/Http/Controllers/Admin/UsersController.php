@@ -14,11 +14,16 @@ class UsersController extends Controller
     {   
         $visitorCount = $this->getVisitorCount();
         $users = User::orderBy('created_at', 'desc')->get();
-        return view('admin.users.index',compact('users', 'visitorCount'));
+        $usersCount = $this->getUsersCount();
+        return view('admin.users.index',compact('users', 'visitorCount', 'usersCount'));
     }
 
     public function getVisitorCount(){
         return  $visitorCount = DB::table('visitors')->count();
         //return view('dashboard', ['visitorCount' => $visitorCount]);
+    }
+
+    public function getUsersCount(){
+        return User::count();
     }
 }

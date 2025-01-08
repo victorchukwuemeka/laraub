@@ -10,6 +10,7 @@ Route::get('/',[
   ProjectsController::class, 'index'
 ])->name('home');
 
+
 Route::get('/projects/create', [ProjectsController::class, 'create'])
 ->name('projects.create');
 Route::post('/projects', [ProjectsController::class, 'store'])
