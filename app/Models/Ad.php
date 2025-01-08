@@ -14,6 +14,7 @@ class Ad extends Model
        'media','verified','media_type', 'url'
     ];
         
+    
 
     
     public function user()

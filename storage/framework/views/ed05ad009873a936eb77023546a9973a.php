@@ -21,6 +21,7 @@
         </a>
         <?php endif; ?>
     </div>
+    
 </div>
 <div class="bg-gray-100 py-16">
     <div class="container mx-auto px-4">
