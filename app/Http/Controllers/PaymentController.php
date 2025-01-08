@@ -28,6 +28,7 @@ class PaymentController extends Controller
         $this->ads_id = $value;
     }
 
+
     public function showPaymentForm($id)
     {   
         $ad = Ad::findOrFail($id);
@@ -41,7 +42,8 @@ class PaymentController extends Controller
      * @return void
      */
     public function processPayment($id)
-    {
+    {   
+         //dd(request('amount'));
         // Generate a unique payment reference
         $reference = Paystack::generateReference();
         //dd($reference);
@@ -57,7 +59,7 @@ class PaymentController extends Controller
         ];
 
         
-
+        //dd($paymentDetails);
         // initialize new payment and get the response from the api call.
         $response = Paystack::transaction()
             ->initialize($paymentDetails)->response();

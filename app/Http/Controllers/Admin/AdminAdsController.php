@@ -9,11 +9,12 @@ use App\Models\Ad;
 class AdminAdsController extends Controller
 {
     public function index()
-    {
-
-      $ads = Ad::where('verified', false)->orderBy('created_at', 'desc')->get();
+    {   
+       $ads = Ad::all();
+      //$ads = Ad::where('verified', false)->orderBy('created_at', 'desc')->get();
       return view('admin.ads.index', compact('ads'));
     }
+
 
     
     public function verify($id)
@@ -24,5 +25,25 @@ class AdminAdsController extends Controller
 
         return redirect()->route('admin.ads.index')
          ->with('success', 'Ad verified successfully!');
+    }
+
+
+
+    // Delete functionality
+    public function destroy($id)
+    {
+        $ad = Ad::find($id);
+
+        // Check if the ad exists
+        if (!$ad) {
+            return redirect()->route('admin.ads.index')
+                ->with('error', 'Ad not found.');
+        }
+
+        // Delete the ad
+        $ad->delete();
+
+        return redirect()->route('admin.ads.index')
+            ->with('success', 'Ad deleted successfully!');
     }
 }

@@ -29,6 +29,9 @@ Route::middleware(['admin'])->group(function () {
   //route for admin ads
   Route::get('/admin/ads',[AdminAdsController::class, 'index'])
    ->name('admin.ads.index');
+  Route::delete('/admin/ads/{id}', [AdminAdsController::class, 'destroy'])
+    ->name('admin.ads.destroy');
+
   Route::post('/verify-ad/{id}', [AdminAdsController::class, 'verify'])
     ->name('admin.verify-ad');
 
