@@ -19,6 +19,9 @@
                  </svg>
              </button>
          </form>
+
+
+        kkfkgkgkgkgkgkgkgkgkgkgkgkg
          <nav class="hidden sm:flex sm:space-x-6 mt-4 sm:mt-0 w-full sm:w-auto" id="mobile-menu">
              <a href="<?php echo e(route('ads')); ?>" class="text-white hover:text-blue-300 transition duration-300 ease-in-out font-medium">
                  <?php echo e(__("Advert")); ?>

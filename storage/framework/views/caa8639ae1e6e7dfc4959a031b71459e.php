@@ -4,7 +4,7 @@
         <h1 class="text-4xl font-extrabold text-center text-gray-900 mb-8">Payment for Ad</h1>
         <h2 class="text-2xl font-bold text-center text-gray-700 mb-2"><?php echo e($ad->title); ?></h2>
         <h3 class="text-xl text-center mb-8">Amount Due:
-             <span class="font-semibold text-green-600">$20.00</span></h3>
+             <span class="font-semibold text-green-600">$2.00</span></h3>
         
         <?php if($errors->any()): ?>
             <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6" role="alert">
@@ -39,7 +39,7 @@
                     focus:border-indigo-300 focus:ring focus:ring-indigo-200
                      focus:ring-opacity-50" required>
                 </div>
-                <input type="hidden" name="amount" value="2000"/>
+                <input type="hidden" name="amount" value="200"/>
             </div>
             
             <div class="mt-8">
