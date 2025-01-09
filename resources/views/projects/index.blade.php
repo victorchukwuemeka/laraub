@@ -104,12 +104,14 @@
         <div class="w-full sm:w-1/2 lg:w-1/3 p-4">
             <div class="bg-white rounded-xl shadow-lg transition-all duration-300 transform 
                  hover:-translate-y-2 hover:shadow-2xl overflow-hidden">
-                <a href="{{route('ad.visit', $sponsor->id)}}" target="_blank" class="block">
-                    <div class="relative pb-9/16 overflow-hidden rounded-t-xl">
+                <a href="{{ route('ad.visit', $sponsor->id) }}" target="_blank" class="block">
+                    <!-- Image Container -->
+                    <div class="relative h-48 overflow-hidden rounded-t-xl">
                         <img src="{{ asset('/storage/' . $sponsor->media) }}" 
                              alt="{{ $sponsor->title }}" 
                              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                     </div>
+                    <!-- Content -->
                     <div class="p-6 bg-white">
                         <h3 class="text-lg font-semibold text-gray-700 text-center mb-3">
                             {{ $sponsor->title }}
