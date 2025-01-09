@@ -39,6 +39,7 @@ Route::middleware(['admin'])->group(function () {
   Route::get('admin/subscribers',[AdminSubscribersController::class, 'index'])
      ->name('subscribers-admin');   
   
+     
   //route for users in the admin 
   Route::get('admin/users', [UsersController::class, 'index'])->name('admin-users');
 });

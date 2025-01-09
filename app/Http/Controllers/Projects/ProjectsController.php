@@ -8,6 +8,8 @@ use App\Models\LaravelProjects;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Ad;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 
 class ProjectsController extends Controller
@@ -15,10 +17,12 @@ class ProjectsController extends Controller
   public function index(){
 
     $projects = LaravelProjects::orderBy('created_at', 'desc')->paginate(15);
+    $userCount = User::count();
+    $visitorCount = DB::table('visitors')->count();
 
     // Fetch the latest verified ad
     $sponsors = Ad::where('verified', true)->orderBy('created_at', 'desc')->paginate(6);
-    return view('projects.index', compact('projects','sponsors'));
+    return view('projects.index', compact('projects','sponsors','userCount','visitorCount'));
   }
 
   public function create(){
