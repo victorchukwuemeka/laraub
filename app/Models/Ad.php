@@ -15,6 +15,7 @@ class Ad extends Model
     ];
         
     
+    
 
     
     public function user()
