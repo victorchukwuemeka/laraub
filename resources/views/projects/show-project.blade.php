@@ -87,4 +87,46 @@
             @endforeach
         </div>
     </div>
+
+    <!-- Sponsors Section -->
+<div class="flex flex-col items-center py-10 bg-gray-50">
+    <h2 class="text-3xl font-bold text-gray-800 mb-8">{{ __('Partners') }}</h2>
+    
+    <div class="flex flex-wrap justify-center w-full max-w-screen-xl">
+        @forelse ($sponsors as $sponsor)
+        <div class="w-full sm:w-1/2 lg:w-1/3 p-4">
+            <div class="bg-white rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl overflow-hidden">
+                <a href="{{ route('ad.visit', $sponsor->id) }}" target="_blank" class="block">
+                    <div class="p-8">
+                        <!-- Logo Container with enhanced styling -->
+                        <div class="flex items-center justify-center mb-6 relative">
+                            <div class="w-24 h-24 rounded-full bg-gray-50 flex items-center justify-center p-4 border border-gray-100 shadow-sm">
+                                <img 
+                                    src="{{ asset('/storage/' . $sponsor->media) }}"
+                                    alt="{{ $sponsor->title }}"
+                                    class="w-full h-full object-contain filter contrast-125"
+                                />
+                            </div>
+                        </div>
+                        
+                        <!-- Content with refined typography -->
+                        <div class="space-y-3">
+                            <h3 class="text-xl font-semibold text-gray-800 text-center">
+                                {{ $sponsor->title }}
+                            </h3>
+                            <p class="text-gray-600 text-center text-sm leading-relaxed">
+                                {{ $sponsor->description }}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        @empty
+        <div class="w-full">
+            <p class="text-center text-gray-500 italic">No verified ads available.</p>
+        </div>
+        @endforelse
+    </div>
+</div>
 @endsection
