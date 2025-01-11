@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Http;
 
 class RegisterController extends Controller
 {
@@ -16,10 +16,23 @@ class RegisterController extends Controller
     return view('auth.register');
   }
 
-
+   
 
 
   public function store(Request $request){
+     
+    // Verify reCAPTCHA
+    $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+      'secret' => '6LeBvLQqAAAAAMg6MFFxwB6sFNMzy9TMw21ZZKEV',
+      'response' => $request->input('recaptcha_token'),
+    ]);
+    
+    $result = $response->json();
+    
+    if (!$result['success'] || $result['score'] < 0.5) {
+      // reCAPTCHA verification failed or score is too low
+      return back()->withErrors(['recaptcha' => 'Failed reCAPTCHA verification.']);
+    }
 
     $request->validate([
       'name' => [

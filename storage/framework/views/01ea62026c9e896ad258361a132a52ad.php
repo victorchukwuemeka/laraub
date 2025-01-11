@@ -27,6 +27,7 @@
     </script>
 
     <script src="https://kit.fontawesome.com/fd683e659d.js" crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeBvLQqAAAAAEPzGf0PZAtWMILiYLlEvIOLnRda"></script>
     <style>
       /* Custom CSS for password validation feedback */
       .text-danger { color: red; }

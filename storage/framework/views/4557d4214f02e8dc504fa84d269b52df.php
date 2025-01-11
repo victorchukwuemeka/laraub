@@ -6,6 +6,9 @@
 
         <form action="<?php echo e(route('store')); ?>" method="POST">
             <?php echo csrf_field(); ?>
+            <!-- Add a hidden input for the reCAPTCHA token -->
+            <input type="hidden" name="recaptcha_token" id="recaptcha_token">
+
             <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <!-- Username Field -->
                 <div>
@@ -175,7 +178,25 @@ unset($__errorArgs, $__bag); ?>
             document.getElementById('special').className = specialValid ? 'text-success' : 'text-danger';
             console.log("Special character valid:", specialValid); // Debugging line
         }
+
+         // reCAPTCHA v3 integration
+         document.getElementById('registration-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent form submission
+
+            // Execute reCAPTCHA
+            grecaptcha.ready(function () {
+                grecaptcha.execute('6LeBvLQqAAAAAEPzGf0PZAtWMILiYLlEvIOLnRda', { action: 'register' }).then(function (token) {
+                    // Add the token to the form
+                    document.getElementById('recaptcha_token').value = token;
+
+                    // Submit the form
+                    document.getElementById('registration-form').submit();
+                });
+            });
+        });
     </script>
 <?php $__env->stopSection(); ?>
+
+
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/victor/odinala/laraub/resources/views/auth/register.blade.php ENDPATH**/ ?>
