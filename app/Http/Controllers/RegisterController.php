@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class RegisterController extends Controller
 {
@@ -28,7 +29,9 @@ class RegisterController extends Controller
     ]);
     
     $result = $response->json();
-    
+    // Log the reCAPTCHA response for debugging
+    Log::info('reCAPTCHA response:', $result);
+
     if (!$result['success'] || $result['score'] < 0.5) {
       // reCAPTCHA verification failed or score is too low
       return back()->withErrors(['recaptcha' => 'Failed reCAPTCHA verification.']);
