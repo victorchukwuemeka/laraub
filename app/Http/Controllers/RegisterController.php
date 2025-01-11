@@ -17,6 +17,8 @@ class RegisterController extends Controller
   }
 
 
+
+
   public function store(Request $request){
 
     $request->validate([
@@ -64,7 +66,7 @@ class RegisterController extends Controller
      $request->session()->regenerate();
      return redirect()->route('home')
      ->withSuccess('You have successfully registered & logged in!');
-   }
+  }
 
 
 }

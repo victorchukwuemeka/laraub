@@ -27,6 +27,11 @@
     </script>
 
     <script src="https://kit.fontawesome.com/fd683e659d.js" crossorigin="anonymous"></script>
+    <style>
+      /* Custom CSS for password validation feedback */
+      .text-danger { color: red; }
+      .text-success { color: green; }
+   </style>
 
 </head>
 <body class="min-h-screen font-sans antialiased flex flex-col">
