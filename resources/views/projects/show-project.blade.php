@@ -1,132 +1,163 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container flex flex-col px-6 py-10 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
-        <div class="w-full lg:w-1/2">
-            <div class="lg:max-w-lg">
-                <h1 class="lg:text-5xl text-3xl font-semibold  text-gray-800  lg:text-4xl">
-                    {{ $project->name }}
-                </h1>
-                <p class="mt-4 text-gray-800 ">
-                    {{ $project->description }}.
-                </p>
-                <p class="mt-4 text-gray-700">
-                  {{ $project->motto }}
-                </p>
-                <div class="grid gap-6 mt-8 sm:grid-cols-2">
-                    @if($project->website)
-                        <a href="{{ $project->website }}" class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
-                            <i class="fa-solid fa-link"></i>
-                            visit site
-                        </a>
-                    @else
-                        <h2>{{__('No Website')}}</h2>
-                    @endif
-
-                    @if($project->github_repo)
-                        <a href="{{ $project->github_repo }}" class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
-                            <i class="fa-brands fa-github"></i>
-                            GitHub Repository
-                        </a>
-                    @else
-                        <h2 class="text-gray-600 text-2xl">{{ __('No gitHub repo')}}</h2>
-                    @endif
-                </div>
-            </div>
-        </div>
-
-        <div class="flex items-center justify-center w-full h-96 lg:w-1/2">
-            <img class="object-cover w-full h-full max-w-2xl rounded-md"
-                 src="{{ asset('/storage/' . $project->image) }}"
-                 alt="{{ $project->name }}">
+    <!-- Hero Section -->
+    <div class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto text-center px-4">
+            <h1 class="text-4xl sm:text-5xl font-extrabold mb-6">
+                {{__("Find The Latest Laravel Packages")}}
+            </h1>
+            @auth
+                <a href="{{ route('projects.create') }}"
+                   class="bg-blue-500 hover:bg-blue-600 text-white py-3 px-8 rounded-full text-lg sm:text-xl transition duration-300 ease-in-out inline-block">
+                    Make a Post
+                </a>
+            @else
+                <a href="{{ route('login') }}"
+                   class="bg-blue-500 hover:bg-blue-600 text-white py-3 px-8 rounded-full text-lg sm:text-xl transition duration-300 ease-in-out inline-block">
+                    Login To Post Your Package
+                </a>
+            @endauth
         </div>
     </div>
 
-    <div class="container mx-auto mt-12">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Related Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-            @foreach($relatedProjects as $relatedProject)
-                <div class="flex items-start mb-2  mt-8 justify-center">
-                    <div class="w-full max-w-md px-4 py-4 bg-white rounded-lg shadow-lg">
-                        <div class="flex justify-center -mt-16 md:justify-end">
-                            <img class="object-cover w-20 h-20 border-2 border-blue-500 rounded-full dark:border-blue-400"
-                                alt="{{ $relatedProject->name }}"
-                                src="{{ asset('/storage/' . $relatedProject->image) }}">
-                        </div>
-    
-                        <h2 class="mt-2 text-xl font-semibold text-gray-900  md:mt-0">{{ $relatedProject->name }}</h2>
-    
-                        <p class="mt-2 text-sm text-gray-700">
-                            {{ $relatedProject->motto }}
-                        </p> 
-                        <div class="flex items-center justify-between mt-4">
-                            <div class="flex space-x-4">
-                                <a href="#" class="flex items-center text-lg font-medium text-blue-600 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-500 transition-colors duration-200" tabindex="0" role="link">
-                                    <i class="fa-regular fa-comment text-xl mr-2"></i>
-                                    <span></span>
-                                </a>
-                                <a href="{{ route('projects.show', ['project' => $relatedProject->id]) }}" class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
-                                    view page
-                                </a>
-                            </div>
-                            <div class="flex space-x-4 items-center">
-                                <a href="{{ $relatedProject->website ?? $relatedProject->github_repo }}" class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
-                                    <i class="fa-solid fa-link"></i>
-                                    visit site
-                                </a>
-                                <span class="text-sm text-gray-600">
-                                    <i class="fa-regular fa-eye text-gray-600 mr-1"></i>
-                                    {{ $relatedProject->view_count }} views
-                                </span>
-                            </div>
-                        </div>
-                        
+    <!-- Visitor Count Section -->
+    <div class="bg-gradient-to-r from-indigo-600 to-pink-600 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <div class="inline-block bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 sm:p-12 shadow-2xl hover:shadow-3xl transition-shadow duration-300">
+                <div class="flex flex-col items-center space-y-4">
+                    <!-- Icon -->
+                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-globe text-4xl text-white"></i>
+                    </div>
+                    <!-- Text -->
+                    <div>
+                        <p class="text-lg sm:text-xl text-white opacity-90 font-medium">{{ __('People Exploring Laravel') }}</p>
+                        <p class="text-5xl sm:text-7xl font-bold text-white mt-2">{{ $visitorCount }}</p>
                     </div>
                 </div>
-                
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Details Section -->
+<div class="container mx-auto px-6 py-16">
+    <div class="flex flex-col lg:flex-row items-start gap-12">
+        <!-- Project Image -->
+        <div class="w-full lg:w-1/2">
+            <div class="relative overflow-hidden rounded-xl shadow-2xl hover:shadow-3xl transition-shadow duration-300">
+                <img class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-300"
+                     src="{{ asset('/storage/' . $project->image) }}"
+                     alt="{{ $project->name }}">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+        </div>
+
+        <!-- Project Information -->
+        <div class="w-full lg:w-1/2 space-y-6">
+            <h1 class="text-4xl font-bold text-gray-900">
+                {{ $project->name }}
+            </h1>
+
+            <p class="text-gray-700 text-lg leading-relaxed">
+                {{ $project->description }}
+            </p>
+
+            <p class="text-gray-600 text-lg italic">
+                "{{ $project->motto }}"
+            </p>
+
+            <!-- Links Section -->
+            <div class="flex flex-col sm:flex-row gap-4">
+                @if($project->website)
+                    <a href="{{ $project->website }}" 
+                       class="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                        <i class="fa-solid fa-link"></i>
+                        <span>Visit Website</span>
+                    </a>
+                @else
+                    <div class="px-6 py-3 bg-gray-200 text-gray-600 rounded-lg cursor-not-allowed">
+                        No Website
+                    </div>
+                @endif
+
+                @if($project->github_repo)
+                    <a href="{{ $project->github_repo }}" 
+                       class="flex items-center gap-2 px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors duration-300">
+                        <i class="fa-brands fa-github"></i>
+                        <span>GitHub Repo</span>
+                    </a>
+                @else
+                    <div class="px-6 py-3 bg-gray-200 text-gray-600 rounded-lg cursor-not-allowed">
+                        No GitHub Repo
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Related Projects Section -->
+    <div class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">Related Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @foreach($relatedProjects as $relatedProject)
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                    <div class="p-6">
+                        <div class="flex justify-center -mt-16">
+                            <img class="w-20 h-20 border-4 border-white rounded-full shadow-lg"
+                                 src="{{ asset('/storage/' . $relatedProject->image) }}"
+                                 alt="{{ $relatedProject->name }}">
+                        </div>
+                        <h2 class="mt-4 text-xl font-bold text-gray-800">{{ $relatedProject->name }}</h2>
+                        <p class="mt-2 text-gray-600 text-sm">
+                            {{ $relatedProject->motto }}
+                        </p>
+                        <div class="flex items-center justify-between mt-6">
+                            <a href="{{ route('projects.show', ['project' => $relatedProject->id]) }}"
+                               class="text-blue-600 hover:text-blue-800 transition-colors duration-200">
+                                View Page
+                            </a>
+                            <span class="text-sm text-gray-600">
+                                <i class="fa-regular fa-eye mr-1"></i>
+                                {{ $relatedProject->view_count }} views
+                            </span>
+                        </div>
+                    </div>
+                </div>
             @endforeach
         </div>
     </div>
 
     <!-- Sponsors Section -->
-<div class="flex flex-col items-center py-10 bg-gray-50">
-    <h2 class="text-3xl font-bold text-gray-800 mb-8">{{ __('Partners') }}</h2>
-    
-    <div class="flex flex-wrap justify-center w-full max-w-screen-xl">
-        @forelse ($sponsors as $sponsor)
-        <div class="w-full sm:w-1/2 lg:w-1/3 p-4">
-            <div class="bg-white rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl overflow-hidden">
-                <a href="{{ route('ad.visit', $sponsor->id) }}" target="_blank" class="block">
-                    <div class="p-8">
-                        <!-- Logo Container with enhanced styling -->
-                        <div class="flex items-center justify-center mb-6 relative">
-                            <div class="w-24 h-24 rounded-full bg-gray-50 flex items-center justify-center p-4 border border-gray-100 shadow-sm">
-                                <img 
-                                    src="{{ asset('/storage/' . $sponsor->media) }}"
-                                    alt="{{ $sponsor->title }}"
-                                    class="w-full h-full object-contain filter contrast-125"
-                                />
+    <div class="bg-gray-50 py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">{{ __('Partners') }}</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                @forelse ($sponsors as $sponsor)
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                        <a href="{{ route('ad.visit', $sponsor->id) }}" target="_blank" class="block">
+                            <div class="p-8">
+                                <div class="flex items-center justify-center mb-6">
+                                    <div class="w-24 h-24 rounded-full bg-gray-50 flex items-center justify-center p-4 border border-gray-100 shadow-sm">
+                                        <img src="{{ asset('/storage/' . $sponsor->media) }}"
+                                             alt="{{ $sponsor->title }}"
+                                             class="w-full h-full object-contain filter contrast-125">
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">
+                                    {{ $sponsor->title }}
+                                </h3>
+                                <p class="text-gray-600 text-center text-sm leading-relaxed">
+                                    {{ $sponsor->description }}
+                                </p>
                             </div>
-                        </div>
-                        
-                        <!-- Content with refined typography -->
-                        <div class="space-y-3">
-                            <h3 class="text-xl font-semibold text-gray-800 text-center">
-                                {{ $sponsor->title }}
-                            </h3>
-                            <p class="text-gray-600 text-center text-sm leading-relaxed">
-                                {{ $sponsor->description }}
-                            </p>
-                        </div>
+                        </a>
                     </div>
-                </a>
+                @empty
+                    <p class="text-center text-gray-500 italic col-span-full">No verified ads available.</p>
+                @endforelse
             </div>
         </div>
-        @empty
-        <div class="w-full">
-            <p class="text-center text-gray-500 italic">No verified ads available.</p>
-        </div>
-        @endforelse
     </div>
-</div>
 @endsection

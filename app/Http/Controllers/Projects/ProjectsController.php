@@ -77,11 +77,12 @@ class ProjectsController extends Controller
                          ->inRandomOrder()
                          ->take(6)->get();
 
+    $visitorCount = DB::table('visitors')->count();
 
     // Fetch the latest verified ad
     $sponsors = Ad::where('verified', true)->orderBy('created_at', 'desc')->paginate(6);
 
-     return view('projects.show-project', compact('project', 'relatedProjects','sponsors'));
+     return view('projects.show-project', compact('project', 'relatedProjects','sponsors','visitorCount'));
   }
 
 

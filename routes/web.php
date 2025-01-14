@@ -53,6 +53,7 @@ Route::post('/logout', [LoginController::class, 'logout'])
 ->name('logout');
 
 
+
 Route::get('register', [RegisterController::class, 'register'])->name('register');
 Route::post('store', [RegisterController::class, 'store'])->name('store');
 

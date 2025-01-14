@@ -15,9 +15,11 @@ class ArticleController extends Controller
 {
 
   public function index(){
-      $pages = new PagesController();
-      $article_page = $pages->article();
-      return $article_page;
+
+    $articles = Article::all();
+    $viewData = [];
+    $viewData['articles'] = $articles;
+    return view('pages.article')->with('viewData', $viewData);
   }
 
   public function create(){
