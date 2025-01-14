@@ -21,7 +21,7 @@ class ProjectsController extends Controller
     $visitorCount = DB::table('visitors')->count();
 
     // Fetch the latest verified ad
-    $sponsors = Ad::where('verified', true)->orderBy('created_at', 'desc')->paginate(6);
+    $sponsors = Ad::where('verified', true)->orderBy('created_at', 'desc')->take(6)->get();
     return view('projects.index', compact('projects','sponsors','userCount','visitorCount'));
   }
 
