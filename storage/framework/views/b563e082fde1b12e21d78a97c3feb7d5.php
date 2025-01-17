@@ -1,11 +1,9 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="container mx-auto px-4 py-8 bg-white rounded-lg shadow-md">
   <h1 class="text-3xl font-semibold text-center mb-6">Create a Blog Article</h1>
 
-  <form action="{{ route('post.article') }}" method="POST" class="form mx-auto max-w-lg">
-    @csrf
+  <form action="<?php echo e(route('post.article')); ?>" method="POST" class="form mx-auto max-w-lg">
+    <?php echo csrf_field(); ?>
 
     <!-- Title Field -->
     <div class="mb-6">
@@ -51,4 +49,5 @@
     </div>
   </form>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/victor/odinala/laraub/resources/views/article/create.blade.php ENDPATH**/ ?>

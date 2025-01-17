@@ -41,8 +41,12 @@
                         <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Community</a>
                     </div>
                     <div>
-                        <h3 class="text-gray-700 uppercase dark:text-white">Blog</h3>
-                        <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Tech</a>
+                        <h3 class="text-gray-200 uppercase dark:text-white">
+                            Blog
+                        </h3>
+                        <a href="{{ route('article.index')}}" class="block mt-2 text-sm text-gray-300 dark:text-gray-300 hover:underline">
+                            Tech
+                        </a>
                     </div>
                     <div>
                         <h3 class="text-gray-300 uppercase">Contact</h3>
@@ -78,7 +82,9 @@
         <hr class="h-px my-6 bg-gray-200 border-none dark:bg-gray-700">
 
         <div>
-            <p class="text-center text-gray-300 dark:text-gray-400">© Laraub 2023 - 2024 - All rights reserved</p>
+            <p class="text-center text-gray-300 dark:text-gray-400">
+                © Laraub 2023 - 2024 - All rights reserved
+            </p>
         </div>
     </div>
 </footer>
