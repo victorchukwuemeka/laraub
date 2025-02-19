@@ -1,6 +1,4 @@
-@extends('layouts.admin')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="flex">
     <!-- Sidebar is already inside layouts.admin -->
     <div class="flex-1 lg:w-[80%] mx-auto px-4 sm:px-6 lg:px-8 py-6"> 
@@ -8,8 +6,8 @@
             <h1 class="text-3xl font-semibold text-center mb-6 text-gray-800">
                 Create a Blog Article
             </h1>
-            <form action="{{ route('admin.store.article') }}" method="POST" class="max-w-3xl mx-auto">
-                @csrf
+            <form action="<?php echo e(route('admin.store.article')); ?>" method="POST" class="max-w-3xl mx-auto">
+                <?php echo csrf_field(); ?>
 
                 <!-- Title Field -->
                 <div class="mb-6">
@@ -55,4 +53,6 @@
         </div>
     </div>
 </div>
-@endsection 
+<?php $__env->stopSection(); ?> 
+
+<?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/victor/odinala/laraub/resources/views/admin/article/create.blade.php ENDPATH**/ ?>

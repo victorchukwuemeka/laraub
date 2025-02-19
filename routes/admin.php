@@ -42,4 +42,16 @@ Route::middleware(['admin'])->group(function () {
      
   //route for users in the admin 
   Route::get('admin/users', [UsersController::class, 'index'])->name('admin-users');
+
+
+  Route::get('admin/article', [AdminArticleController::class, 'admin_article_page'])
+  ->name('admin.article');
+  Route::get('admin/create/article', [AdminArticleController::class, 'create_article'])
+  ->name('admin.create.article');
+  Route::post('admin/store/article', [AdminArticleController::class, 'store_article'])
+  ->name('admin.store.article');
+
+
+  
+
 });

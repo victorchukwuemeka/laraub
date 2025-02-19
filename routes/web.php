@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PagesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserProfileController;
@@ -16,6 +15,7 @@ use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\Subscriber;
 use App\Http\Controllers\SubscribersController;
+use App\Http\Controllers\HomeController;
 
 
 /*
@@ -31,6 +31,7 @@ use App\Http\Controllers\SubscribersController;
 
 
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/tutorial', function () {
     return view('tutorial');
@@ -42,7 +43,6 @@ Route::get('/tutorial', function () {
 //Route::post('/tutorial', [TutorialController::class, 'saveTutorial'])->name('save-tutorial');
 
 
-Route::get('/art', [PagesController::class, 'article'])->name("home");
 
 
 

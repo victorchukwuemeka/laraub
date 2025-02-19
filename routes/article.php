@@ -12,6 +12,7 @@ Route::get('/home', [ArticleController::class, 'index']);
 
 
 Route::middleware(['auth'])->group(function () {
+    
     Route::get('/create/article', [ArticleController::class, 'create'])
         ->name('create.article');
 

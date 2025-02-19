@@ -6,9 +6,9 @@ use App\Http\Controllers\ProjectsCommentsController;
 use App\Http\Controllers\SearchController;
 
 
-Route::get('/',[
+/*Route::get('/',[
   ProjectsController::class, 'index'
-])->name('home');
+])->name('home');*/
 
 
 Route::get('/projects/create', [ProjectsController::class, 'create'])

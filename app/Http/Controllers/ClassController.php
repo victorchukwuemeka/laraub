@@ -11,6 +11,11 @@ class ClassController extends Controller
       return $article = Article::all();
   }
 
+   public function home_page()
+   {
+    return view('home.index');
+   }
+
   /*public function body(Article $article)
   {
     $this->article();

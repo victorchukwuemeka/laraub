@@ -1,8 +1,8 @@
 <!-- resources/views/admin/dashboard.blade.php -->
 
-@extends('layouts.admin')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
     <div class="bg-white p-8 rounded shadow">
         <h2 class="text-2xl font-bold mb-4">Admin Dashboard</h2>
 
@@ -28,10 +28,10 @@
         </div>
         <!-- Buttons for Create and Edit -->
        <div class="mt-8 flex justify-between mb-4">
-           <a href="{{ route('admin.create.article') }}" class="bg-blue-500 text-white px-4 py-2 rounded">
+           <a href="<?php echo e(route('admin.create.article')); ?>" class="bg-blue-500 text-white px-4 py-2 rounded">
              Create Article
            </a>
-           <a href="{{ url('/admin/articles/edit/1') }}" class="bg-green-500 text-white px-4 py-2 rounded">
+           <a href="<?php echo e(url('/admin/articles/edit/1')); ?>" class="bg-green-500 text-white px-4 py-2 rounded">
              Edit Article 1
            </a>
        </div>
@@ -49,11 +49,12 @@
                 </thead>
                 <tbody>
                     <!-- Example Row 1 -->
-                    @foreach($viewData['articles'] as $article)
+                    <?php $__currentLoopData = $viewData['articles']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
                           <td class="py-2 px-4 border-b">
-                            <a href="{{ url('/admin/show/article/'.$article->id)}}">
-                            {{ $article->title}}
+                            <a href="<?php echo e(url('/admin/show/article/'.$article->id)); ?>">
+                            <?php echo e($article->title); ?>
+
                             </a>
                           </td>
 
@@ -61,7 +62,7 @@
                         <td class="py-2 px-4 border-b">2024-02-02</td>
                     </tr>
 
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <tr>
 
                         <td class="py-2 px-4 border-b">Introduction to Laravel</td>
@@ -79,4 +80,6 @@
             </table>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/victor/odinala/laraub/resources/views/admin/article/index.blade.php ENDPATH**/ ?>

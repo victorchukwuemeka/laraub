@@ -19,7 +19,9 @@
       <label for="content" class="block text-gray-700 text-lg font-semibold mb-2">
         Content
       </label>
-      <trix-editor class="trix-content shadow appearance-none border rounded w-full py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" input="body"></trix-editor>
+      <trix-editor class="trix-content shadow appearance-none border rounded w-full py-4 
+      px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" input="body">
+     </trix-editor>
     </div>
 
     <!-- Slug Field (Optional) -->
