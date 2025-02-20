@@ -21,6 +21,7 @@ class HomeController extends Controller
 
         // Fetch the latest verified ad
         $sponsors = Ad::where('verified', true)->orderBy('created_at', 'desc')->take(6)->get();
+        $sponsors = [];
         return view('home.index', compact('projects','sponsors','userCount','visitorCount','articles'));
     }
 }

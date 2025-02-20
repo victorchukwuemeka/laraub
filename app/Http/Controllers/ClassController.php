@@ -11,8 +11,8 @@ class ClassController extends Controller
       return $article = Article::all();
   }
 
-   public function home_page()
-   {
+   public function home_page(){
+    
     return view('home.index');
    }
 

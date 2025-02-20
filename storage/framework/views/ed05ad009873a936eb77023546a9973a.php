@@ -40,6 +40,8 @@
     </div>
 </div>
 
+
+
 <!-- Projects Section -->
 <div class="bg-gray-100 py-16">
     <div class="container mx-auto px-4">
@@ -128,9 +130,19 @@
                 </div>
             </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-            <div class="w-full">
-                <p class="text-center text-gray-500 italic">No verified ads available.</p>
+        <div class="w-full flex flex-col items-center py-12">
+            <div class="bg-gray-100 border border-gray-300 rounded-lg px-6 py-4 text-center shadow-md">
+                <h3 class="text-lg font-semibold text-gray-700">Advertise with Us</h3>
+                <p class="text-gray-500 mt-2">
+                    No verified ads are currently available.  
+                    <br>Boost your brand by placing your ad here!
+                </p>
+                <a href="<?php echo e(route('ads')); ?>" 
+                   class="mt-4 inline-block px-4 py-2 text-sm font-medium text-white bg-red-500 hover:bg-red-600 rounded-lg transition duration-200">
+                    Get Started
+                </a>
             </div>
+        </div>
         <?php endif; ?>
     </div>
 </div>

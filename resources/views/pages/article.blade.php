@@ -27,14 +27,14 @@
                     <!-- Article Content -->
                     <div class="px-6 py-4">
                         <!-- Article Title -->
-                        <a href="{{ url('articles.show', $article->id) }}">
+                        <a href="{{ route('article.show', $article->id) }}">
                             <div class="font-bold text-gray-700 hover:text-red-400 text-xl mb-2">
                                 {{ $article->title }}
                             </div>
                         </a>
 
                         <!-- Article Excerpt -->
-                        <a href="{{ url('articles.show', $article->id) }}">
+                        <a href="{{ route('article.show', $article->id) }}">
                             <p class="text-gray-700 text-base">
                                 {{ mb_strimwidth($article->body->toPlainText(), 0, 100, '...') }}
                             </p>

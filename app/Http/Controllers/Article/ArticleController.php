@@ -18,6 +18,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
+        //dd($articles);
         return view('pages.article', ['viewData' => ['articles' => $articles]]);
     }
 
@@ -75,6 +76,7 @@ class ArticleController extends Controller
             'comments' => $comments,
             'user_id' => $article->user_id,
         ];
+        //dd('$viewData');
 
         return view('article.show', ['viewData' => $viewData]);
     }

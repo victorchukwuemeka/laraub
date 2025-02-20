@@ -25,7 +25,7 @@
                     <!-- Article Content -->
                     <div class="px-6 py-4">
                         <!-- Article Title -->
-                        <a href="<?php echo e(url('articles.show', $article->id)); ?>">
+                        <a href="<?php echo e(route('article.show', $article->id)); ?>">
                             <div class="font-bold text-gray-700 hover:text-red-400 text-xl mb-2">
                                 <?php echo e($article->title); ?>
 
@@ -33,7 +33,7 @@
                         </a>
 
                         <!-- Article Excerpt -->
-                        <a href="<?php echo e(url('articles.show', $article->id)); ?>">
+                        <a href="<?php echo e(route('article.show', $article->id)); ?>">
                             <p class="text-gray-700 text-base">
                                 <?php echo e(mb_strimwidth($article->body->toPlainText(), 0, 100, '...')); ?>
 
