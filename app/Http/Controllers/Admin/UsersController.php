@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 Use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
+use Illuminate\Support\Facades\Crypt;
+
+
+
 
 class UsersController extends Controller
 {
@@ -14,6 +18,7 @@ class UsersController extends Controller
     {   
         $visitorCount = $this->getVisitorCount();
         $users = User::orderBy('created_at', 'desc')->get();
+        
         $usersCount = $this->getUsersCount();
         return view('admin.users.index',compact('users', 'visitorCount', 'usersCount'));
     }
