@@ -22,7 +22,10 @@
             @foreach($viewData['articles'] as $article)
                 <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow duration-300">
                     <!-- Article Thumbnail -->
-                    <img class="w-full h-48 object-cover" src="{{ $article->thumbnail ?? asset('/img/silicon.png') }}" alt="{{ $article->title }}">
+                    <img class="w-full h-48 object-cover" 
+                    src="{{ $article->thumbnail ? asset('storage/' . $article->thumbnail) : asset('/img/silicon.png') }}" 
+                    alt="{{ $article->title }}">
+
 
                     <!-- Article Content -->
                     <div class="px-6 py-4">

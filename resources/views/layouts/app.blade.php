@@ -30,6 +30,11 @@
   
       <!-- Include Google reCAPTCHA -->
       <script src="https://www.google.com/recaptcha/api.js?render=6LeBvLQqAAAAAEPzGf0PZAtWMILiYLlEvIOLnRda"></script>
+      
+      
+      <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    
+
     </head>
     <style>
       /* Custom CSS for password validation feedback */

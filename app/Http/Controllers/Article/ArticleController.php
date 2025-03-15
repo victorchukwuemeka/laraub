@@ -18,6 +18,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
+        
         //dd($articles);
         return view('pages.article', ['viewData' => ['articles' => $articles]]);
     }
@@ -57,6 +58,12 @@ class ArticleController extends Controller
         return redirect()->route('home')->with('success', 'Article created successfully!');
     }
 
+    private function normalizeWhitespace($content) {
+        $content = preg_replace('/\s+/', ' ', $content);
+        $content = trim($content);
+        return $content;
+    }
+
     /**
      * Display the specified article.
      *
@@ -68,18 +75,23 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
         $comments = Comments::paginate(15)->sortDesc();
 
+
         $viewData = [
             'id' => $id,
             'title' => $article->title,
             'user_id_in_session' => Auth::id(),
-            'body' => chunk_split($article->body->toPlainText()),
+            'body' => $this->normalizeGuessedAbilityName((string)$article->body),
             'comments' => $comments,
             'user_id' => $article->user_id,
+            'thumbnail' => $article->thumbnail,
+            
         ];
         //dd('$viewData');
 
         return view('article.show', ['viewData' => $viewData]);
     }
+
+    
 
     /**
      * Show the form for editing the specified article.

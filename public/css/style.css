@@ -1,0 +1,36 @@
+.trix-content-wrapper p {
+    margin-bottom: 1rem;
+}
+
+.prose .trix-content {
+    white-space: pre-wrap;
+}
+
+.prose .trix-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.prose .trix-content h1,
+.prose .trix-content h2,
+.prose .trix-content h3,
+.prose .trix-content h4,
+.prose .trix-content h5,
+.prose .trix-content h6 {
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    font-weight: bold;
+}
+
+.prose .trix-content ul,
+.prose .trix-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.prose .trix-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+}

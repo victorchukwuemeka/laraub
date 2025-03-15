@@ -36,3 +36,5 @@ Route::get('article/index',[ArticleController::class, 'index'])
 
 Route::get('/show_article/{id}', [ArticleController::class, 'show'])
 ->name('article.show');
+
+
