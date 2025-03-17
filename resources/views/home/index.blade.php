@@ -126,7 +126,7 @@
                         </a>
 
                         <!-- Article Excerpt -->
-                        <a href="{{  route('article.show', kkkkkkk $article->slug) }}">
+                        <a href="{{  route('article.show',  $article->slug) }}">
                             <p class="text-gray-700 text-base">
                                 {{ mb_strimwidth(strip_tags($article->body), 0, 100, '...') }}
                             </p>
@@ -135,7 +135,7 @@
 
 
 
-                    kkkkkkkkkkkkkkkk
+                
 
                     <!-- Article Metadata -->
                     <div class="px-6 py-4">
