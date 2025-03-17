@@ -119,14 +119,14 @@
                     <!-- Article Content -->
                     <div class="px-6 py-4">
                         <!-- Article Title -->
-                        <a href="{{ route('article.show', $article->id) }}">
+                        <a href="{{ route('article.show', $article->slug) }}">
                             <h3 class="font-bold text-gray-700 hover:text-red-500 text-xl mb-2">
                                 {{ $article->title }}
                             </h3>
                         </a>
 
                         <!-- Article Excerpt -->
-                        <a href="{{  route('article.show', $article->id) }}">
+                        <a href="{{  route('article.show', $article->slug) }}">
                             <p class="text-gray-700 text-base">
                                 {{ mb_strimwidth(strip_tags($article->body), 0, 100, '...') }}
                             </p>

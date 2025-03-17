@@ -70,14 +70,14 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $article = Article::findOrFail($id);
+        $article = Article::where('slug', $slug)->firstOrFail();
         $comments = Comments::paginate(15)->sortDesc();
 
 
         $viewData = [
-            'id' => $id,
+            'id' => $article->id,
             'title' => $article->title,
             'user_id_in_session' => Auth::id(),
             'body' => $this->normalizeGuessedAbilityName((string)$article->body),

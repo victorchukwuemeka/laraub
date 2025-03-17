@@ -34,7 +34,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('article/index',[ArticleController::class, 'index'])
 ->name('article.index');
 
-Route::get('/show_article/{id}', [ArticleController::class, 'show'])
+Route::get('/show_article/{slug}', [ArticleController::class, 'show'])
 ->name('article.show');
 
 
