@@ -3,57 +3,48 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/css/trix.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
-
-   
-   <script src="https://cdn.tailwindcss.com"></script>
-
-
-
-
+    
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'laraub') }}</title>
+    
+    <title>{{ config('app.name', 'Laraub') }}</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('/css/trix.css') }}">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Trix Editor -->
+    <link rel="stylesheet" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+    <script src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
+
+    <!-- Fonts (Pick One) -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
-    <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js">
-    </script>
 
+    <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/fd683e659d.js" crossorigin="anonymous"></script>
-  
-      <!-- Include Google reCAPTCHA -->
-      <script src="https://www.google.com/recaptcha/api.js?render=6LeBvLQqAAAAAEPzGf0PZAtWMILiYLlEvIOLnRda"></script>
-      
-      
-      <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    
 
-    </head>
+    <!-- Google reCAPTCHA (Securely Loaded) -->
+    <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
+
     <style>
       /* Custom CSS for password validation feedback */
       .text-danger { color: red; }
       .text-success { color: green; }
-   </style>
-
+    </style>
 </head>
 <body class="min-h-screen font-sans antialiased flex flex-col">
-<!--<div id="app">
-</div>-->
     @include('layouts.nav2')
 
- <main class="flex-grow">
-     @yield('content')
+    <main class="flex-grow">
+        @yield('content')
+    </main>
 
- </main>
-  <div class="">
-    @include('layouts.footer')
-  </div>
+    <footer>
+        @include('layouts.footer')
+    </footer>
 </body>
 </html>

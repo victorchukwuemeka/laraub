@@ -127,13 +127,17 @@
                         </a>
 
                         <!-- Article Excerpt -->
-                        <a href="<?php echo e(route('article.show', $article->slug)); ?>">
+                        <a href="<?php echo e(route('article.show',  $article->slug)); ?>">
                             <p class="text-gray-700 text-base">
                                 <?php echo e(mb_strimwidth(strip_tags($article->body), 0, 100, '...')); ?>
 
                             </p>
                         </a>
                     </div>
+
+
+
+                
 
                     <!-- Article Metadata -->
                     <div class="px-6 py-4">
