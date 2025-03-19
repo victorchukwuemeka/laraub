@@ -22,9 +22,10 @@ class RegisterController extends Controller
 
   public function store(Request $request){
      
+    
     // Verify reCAPTCHA
     $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-      'secret' => '6LeBvLQqAAAAAMg6MFFxwB6sFNMzy9TMw21ZZKEV',
+      'secret' => env('RECAPTCHA_SECRET_KEY'),
       'response' => $request->input('recaptcha_token'),
     ]);
     
