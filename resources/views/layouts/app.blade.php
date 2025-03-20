@@ -28,15 +28,7 @@
     <script src="https://kit.fontawesome.com/fd683e659d.js" crossorigin="anonymous"></script>
 
     <!-- Google reCAPTCHA (Securely Loaded) -->
-    <script src="https://www.google.com/recaptcha/api.js?render={{ config('app.recaptcha.site_key') }}"></script>
-    <script>
-        grecaptcha.ready(function() {
-        grecaptcha.execute("{{ config('app.recaptcha.site_key') }}", { action: "test" }).then(function(token) {
-          console.log("Generated Token:", token);
-        });
-      });
-    </script>
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     
 
     <style>

@@ -8,7 +8,7 @@
             <form action="{{ route('store') }}" method="POST" id="registration-form">
                 @csrf
                 <!-- Add a hidden input for the reCAPTCHA token -->
-                <input type="hidden" name="recaptcha_token" id="recaptcha_token">
+                <!--<input type="hidden" name="recaptcha_token" id="recaptcha_token">-->
 
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <!-- Username Field -->
@@ -22,6 +22,7 @@
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror
                     </div>
+                    
 
                     <!-- Email Field -->
                     <div>
@@ -83,6 +84,9 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- reCAPTCHA Widget -->
+                <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
 
                 <!-- Submit Button -->
                 <div class="flex justify-end mt-6">
@@ -90,8 +94,8 @@
                 </div>
             </form>
         </section>
-
-    <script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+   <script>
         // Function to toggle password visibility
         function togglePasswordVisibility(fieldId) {
             const passwordField = document.getElementById(fieldId);
@@ -133,26 +137,5 @@
             document.getElementById('special').className = specialValid ? 'text-success' : 'text-danger';
         }
 
-        // reCAPTCHA v3 integration
-        document.getElementById('registration-form').addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent form submission
-
-            console.log("Form submitted. Executing reCAPTCHA...");
-
-            // Execute reCAPTCHA
-            grecaptcha.ready(function () {
-                console.log("reCAPTCHA is ready.");
-
-                grecaptcha.execute('6LeBvLQqAAAAAEPzGf0PZAtWMILiYLlEvIOLnRda', { action: 'register' }).then(function (token) {
-                    console.log("reCAPTCHA token generated:", token);
-
-                    // Add the token to the form
-                    document.getElementById('recaptcha_token').value = token;
-
-                    // Submit the form
-                    document.getElementById('registration-form').submit();
-                });
-            });
-        });
     </script>
 @endsection
