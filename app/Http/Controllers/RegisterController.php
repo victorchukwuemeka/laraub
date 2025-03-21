@@ -28,15 +28,15 @@ class RegisterController extends Controller
     // Verify reCAPTCHA
     $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
       'secret' => env('RECAPTCHA_SECRET_KEY'),
-      'response' => $request->input('recaptcha_token'),
+      'response' => $request->input('g-recaptcha-response'),
     ]);
     
     $result = $response->json();
     // Log the reCAPTCHA response for debugging
     Log::info('reCAPTCHA response:', $result);
 
-    if (!$result['success'] || $result['score'] < 0.5) {
-      // reCAPTCHA verification failed or score is too low
+
+    if (!isset($result['success']) || !$result['success']) {
       return back()->withErrors(['recaptcha' => 'Failed reCAPTCHA verification.']);
     }
 

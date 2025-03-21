@@ -7,8 +7,16 @@
 
             <form action="{{ route('store') }}" method="POST" id="registration-form">
                 @csrf
-                <!-- Add a hidden input for the reCAPTCHA token -->
-                <!--<input type="hidden" name="recaptcha_token" id="recaptcha_token">-->
+                 <!-- Display all validation errors at the top -->
+                 @if ($errors->any())
+                 <div class="mb-4 p-4 bg-red-100 text-red-700 rounded-md">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
 
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <!-- Username Field -->
@@ -84,7 +92,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- reCAPTCHA Widget -->
                 <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
 
