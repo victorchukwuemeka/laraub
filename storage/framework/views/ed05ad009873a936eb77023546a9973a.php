@@ -10,7 +10,7 @@
         <?php if(auth()->guard()->check()): ?>
             <a href="<?php echo e(route('projects.create')); ?>"
                class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 sm:py-3 sm:px-8 rounded-full text-lg sm:text-xl transition duration-300 ease-in-out inline-block">
-                Make a Post
+                post your package
             </a>
         <?php else: ?>
             <a href="<?php echo e(route('login')); ?>"
@@ -63,10 +63,10 @@
                         </p>
                         <div class="flex items-center justify-between mt-4">
                             <div class="flex space-x-4">
-                                <a href="#" class="flex items-center text-lg font-medium text-blue-600 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-500 transition-colors duration-200" tabindex="0" role="link">
+                                <!--<a href="#" class="flex items-center text-lg font-medium text-blue-600 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-500 transition-colors duration-200" tabindex="0" role="link">
                                     <i class="fa-regular fa-comment text-xl mr-2"></i>
                                     <span></span>
-                                </a>
+                                </a>-->
                                 <a href="<?php echo e(route('projects.show', ['project' => $project->id])); ?>" class="text-lg font-medium text-blue-600 dark:text-blue-300" tabindex="0" role="link">
                                     View Page
                                 </a>

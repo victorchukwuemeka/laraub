@@ -83,8 +83,9 @@
 
         <div>
             <p class="text-center text-gray-300 dark:text-gray-400">
-                © Laraub 2023 - 2024 - All rights reserved
+                © Laraub 2024 - <?php echo date("Y"); ?> - All rights reserved
             </p>
+            
         </div>
     </div>
 </footer>

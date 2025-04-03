@@ -10,7 +10,7 @@
         <?php if(auth()->guard()->check()): ?>
             <a href="<?php echo e(route('projects.create')); ?>"
                class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 sm:py-3 sm:px-8 rounded-full text-lg sm:text-xl transition duration-300 ease-in-out inline-block">
-                Make a Post
+                post your package
             </a>
         <?php else: ?>
             <a href="<?php echo e(route('login')); ?>"
@@ -21,19 +21,87 @@
     </div>
 </div>
 
-<!-- Sleek Visitor Count Section -->
+
+
+<!-- Visitor Count with Descriptive Ad Banner -->
 <div class="bg-gradient-to-r from-indigo-600 to-pink-600 py-16">
-    <div class="container mx-auto px-4 text-center">
-        <div class="inline-block bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 sm:p-12 shadow-2xl hover:shadow-3xl transition-shadow duration-300">
-            <div class="flex flex-col items-center space-y-4">
-                <!-- Icon -->
-                <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                    <i class="fa-solid fa-globe text-4xl text-white"></i>
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-6 max-w-6xl mx-auto">
+            
+            <!-- Main Visitor Count -->
+            <div class="flex-1 w-full">
+                <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 sm:p-12 shadow-2xl hover:shadow-3xl transition-all duration-300">
+                    <div class="flex flex-col items-center space-y-4">
+                        <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-globe text-4xl text-white"></i>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-lg sm:text-xl text-white/90 font-medium"><?php echo e(__('People Exploring Laravel')); ?></p>
+                            <p class="text-5xl sm:text-7xl font-bold text-white mt-2"><?php echo e($visitorCount); ?></p>
+                        </div>
+                    </div>
                 </div>
-                <!-- Text -->
-                <div>
-                    <p class="text-lg sm:text-xl text-white opacity-90 font-medium"><?php echo e(__('People Exploring Laravel')); ?></p>
-                    <p class="text-5xl sm:text-7xl font-bold text-white mt-2"><?php echo e($visitorCount); ?></p>
+            </div>
+            
+            <!-- Enhanced Descriptive Ad -->
+            <div class="w-full lg:w-80 xl:w-96">
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:shadow-lg transition-all duration-300 group">
+                    <!-- Ad Header -->
+                    <div class="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/10">
+                        <span class="text-xs font-semibold text-white/60 tracking-wider">RECOMMENDED TOOL</span>
+                        <span class="text-xs text-white/40">Ad</span>
+                    </div>
+                    
+                    <!-- Ad Content -->
+                    <div class="flex flex-col lg:flex-row">
+                        <!-- Product Image -->
+                        <div class="w-full lg:w-1/3 h-40 bg-indigo-500/20 relative overflow-hidden">
+                            <img 
+                                src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80" 
+                                alt="Laravel Forge"
+                                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            >
+                            <div class="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/70 to-transparent">
+                                <div class="w-10 h-10 bg-white/90 rounded-lg flex items-center justify-center mx-auto">
+                                    <i class="fa-brands fa-laravel text-purple-600 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Details -->
+                        <div class="w-full lg:w-2/3 p-4">
+                            <h3 class="text-white font-medium mb-1">Laravel Forge</h3>
+                            <p class="text-white/70 text-sm mb-3">
+                                One-click Laravel server provisioning. Deploy to DigitalOcean, AWS, or Linode in minutes.
+                            </p>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="flex items-center text-amber-400">
+                                        <i class="fas fa-star text-xs"></i>
+                                        <i class="fas fa-star text-xs"></i>
+                                        <i class="fas fa-star text-xs"></i>
+                                        <i class="fas fa-star text-xs"></i>
+                                        <i class="fas fa-star-half-alt text-xs"></i>
+                                    </div>
+                                    <span class="text-white/50 text-xs">4.7/5</span>
+                                </div>
+                                
+                                <button class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white/90 text-xs rounded-full backdrop-blur-sm transition-all flex items-center">
+                                    Try Free <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between">
+                                <span class="text-xs text-white/50">
+                                    <i class="fas fa-users mr-1"></i> 12,500+ users
+                                </span>
+                                <span class="text-xs text-emerald-300">
+                                    <i class="fas fa-bolt mr-1"></i> Instant setup
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -53,7 +121,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <?php $__currentLoopData = $projects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $project): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <div class="flex items-start justify-center">
+                <div class="flex items-start mb-4  mt-4 justify-center">
                     <div class="w-full max-w-md px-4 py-4 bg-white rounded-lg shadow-lg">
                         <div class="flex justify-center -mt-16 md:justify-end">
                             <img class="object-cover w-20 h-20 border-2 border-blue-500 rounded-full"
@@ -69,10 +137,7 @@
 
                         <div class="flex items-center justify-between mt-4">
                             <div class="flex space-x-4">
-                                <a href="#" class="flex items-center text-lg font-medium text-blue-600 hover:text-blue-800 transition-colors duration-200">
-                                    <i class="fa-regular fa-comment text-xl mr-2"></i>
-                                    <span></span>
-                                </a>
+                                
                                 <a href="<?php echo e(route('projects.show', ['project' => $project->id])); ?>" class="text-lg font-medium text-blue-600 hover:text-blue-800 transition-colors duration-200">
                                     View Page
                                 </a>

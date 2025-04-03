@@ -1,9 +1,7 @@
 <?php $__env->startSection('content'); ?>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <h2 class="text-2xl font-bold text-gray-900 mb-6"><?php echo e(__('User List')); ?></h2>
-    <?php
-    use Illuminate\Support\Facades\Crypt;
-    ?>
+    
     <!-- Statistics Section -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
         <!-- Visitors Count Card -->
