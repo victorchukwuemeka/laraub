@@ -34,7 +34,8 @@
 
                             </div>
                         </a>
-
+  llllllllllllllllllllllllllllllgkgkgkkgkgkgkgggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
+  lllll
                         <!-- Article Excerpt -->
                         <a href="<?php echo e(route('article.show', $article->slug)); ?>">
                             <p class="text-gray-700 text-base">
