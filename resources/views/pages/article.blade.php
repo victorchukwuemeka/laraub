@@ -35,8 +35,7 @@
                                 {{ $article->title }}
                             </div>
                         </a>
-  llllllllllllllllllllllllllllllgkgkgkkgkgkgkgggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
-  lllll
+  
                         <!-- Article Excerpt -->
                         <a href="{{ route('article.show', $article->slug) }}">
                             <p class="text-gray-700 text-base">
