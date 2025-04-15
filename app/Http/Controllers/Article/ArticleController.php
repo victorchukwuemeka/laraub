@@ -12,6 +12,7 @@ class ArticleController extends Controller
 {
     /**
      * Display a listing of the articles.
+     * 
      *
      * @return \Illuminate\Http\Response
      */
